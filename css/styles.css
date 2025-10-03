@@ -194,8 +194,7 @@ header h2 {
     background-color: #f8f9fa;
 }
 
-.kannada-char {
-    font-family: 'Noto Sans Kannada', serif;
+.script-char {
     font-size: 2.2rem;
     font-weight: 500;
     line-height: 1.2;
@@ -324,7 +323,7 @@ body.dark-theme .conjuncts-table tbody tr:nth-child(even) {
     background-color: #333;
 }
 
-body.dark-theme .kannada-char,
+body.dark-theme .script-char,
 body.dark-theme .conjuncts-table td:first-child {
     color: var(--text-dark);
 }
@@ -360,7 +359,7 @@ body.dark-theme .conjuncts-table td:first-child {
         font-size: 1.8rem;
     }
     
-    .kannada-char {
+    .script-char {
         font-size: 2rem;
     }
     
@@ -443,7 +442,7 @@ body.dark-theme .conjuncts-table td:first-child {
         min-width: 90px;
     }
     
-    .kannada-char {
+    .script-char {
         font-size: 2.4rem;
     }
 }

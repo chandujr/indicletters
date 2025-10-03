@@ -100,7 +100,7 @@ class LanguageLoader {
       // Base consonant with virama
       row.innerHTML = `
             <td>
-                <div class="kannada-char">${consonant.symbol}${virama.symbol}</div>
+                <div class="script-char">${consonant.symbol}${virama.symbol}</div>
                 <div class="latin-sub">${consonant.base}</div>
             </td>
         `;
@@ -110,7 +110,7 @@ class LanguageLoader {
         const combination = consonant.symbol + vowel.diacritic;
         row.innerHTML += `
                 <td>
-                    <div class="kannada-char">${combination}</div>
+                    <div class="script-char">${combination}</div>
                     <div class="latin-sub">${consonant.base}${vowel.transliteration}</div>
                 </td>
             `;
@@ -132,7 +132,7 @@ class LanguageLoader {
 
       row.innerHTML = `
             <td>${conjunct.first} + ${conjunct.second}</td>
-            <td class="kannada-char">${result}</td>
+            <td class="script-char">${result}</td>
             <td>${conjunct.transliteration}</td>
         `;
       body.appendChild(row);

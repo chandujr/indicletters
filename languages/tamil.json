@@ -48,42 +48,18 @@
   ],
   "conjuncts": [
     { "first": "க்", "second": "க", "transliteration": "kka" },
-    { "first": "க்", "second": "த", "transliteration": "kta" },
-    { "first": "க்", "second": "ப", "transliteration": "kpa" },
-    { "first": "க்", "second": "ம", "transliteration": "kma" },
-    { "first": "க்", "second": "ய", "transliteration": "kya" },
-    { "first": "க்", "second": "ர", "transliteration": "kra" },
-    { "first": "க்", "second": "வ", "transliteration": "kva" },
 
     { "first": "ச்", "second": "ச", "transliteration": "cca" },
-    { "first": "ச்", "second": "து", "transliteration": "ctu" },
-    { "first": "ச்", "second": "ப", "transliteration": "cpa" },
-    { "first": "ச்", "second": "ம", "transliteration": "cma" },
-    { "first": "ச்", "second": "ர", "transliteration": "cra" },
 
     { "first": "ட்", "second": "ட", "transliteration": "ṭṭa" },
-    { "first": "ட்", "second": "த", "transliteration": "ṭta" },
-    { "first": "ட்", "second": "ப", "transliteration": "ṭpa" },
-    { "first": "ட்", "second": "ம", "transliteration": "ṭma" },
-    { "first": "ட்", "second": "ர", "transliteration": "ṭra" },
 
     { "first": "த்", "second": "த", "transliteration": "tta" },
-    { "first": "த்", "second": "ப", "transliteration": "tpa" },
-    { "first": "த்", "second": "ம", "transliteration": "tma" },
-    { "first": "த்", "second": "ர", "transliteration": "tra" },
-    { "first": "த்", "second": "வ", "transliteration": "tva" },
+    { "first": "ந்", "second": "த", "transliteration": "nta" },
+    { "first": "ந்", "second": "ந", "transliteration": "nna" },
 
     { "first": "ப்", "second": "ப", "transliteration": "ppa" },
-    { "first": "ப்", "second": "த", "transliteration": "pta" },
-    { "first": "ப்", "second": "ம", "transliteration": "pma" },
-    { "first": "ப்", "second": "ர", "transliteration": "pra" },
-    { "first": "ப்", "second": "வ", "transliteration": "pva" },
-
-    { "first": "ம்", "second": "ப", "transliteration": "mpa" },
     { "first": "ம்", "second": "ம", "transliteration": "mma" },
     { "first": "ம்", "second": "ய", "transliteration": "mya" },
-    { "first": "ம்", "second": "ர", "transliteration": "mra" },
-    { "first": "ம்", "second": "வ", "transliteration": "mva" },
 
     { "first": "ய்", "second": "ய", "transliteration": "yya" },
     { "first": "ர்", "second": "ர", "transliteration": "rra" },
@@ -91,12 +67,8 @@
     { "first": "வ்", "second": "வ", "transliteration": "vva" },
 
     { "first": "ஸ்", "second": "த", "transliteration": "sta" },
-    { "first": "ஸ்", "second": "ர", "transliteration": "sra" },
     { "first": "ஸ்", "second": "ம", "transliteration": "sma" },
     { "first": "ஸ்", "second": "ஸ", "transliteration": "ssa" },
-
-    { "first": "ந்", "second": "த", "transliteration": "nta" },
-    { "first": "ந்", "second": "ந", "transliteration": "nna" },
     { "first": "ன்", "second": "ன", "transliteration": "ṉṉa" }
   ]
 }

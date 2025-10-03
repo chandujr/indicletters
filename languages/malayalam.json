@@ -70,35 +70,28 @@
   "conjuncts": [
     { "first": "ക്", "second": "ക", "transliteration": "kka" },
     { "first": "ക്", "second": "ത", "transliteration": "kta" },
-    { "first": "ക്", "second": "പ", "transliteration": "kpa" },
-    { "first": "ക്", "second": "മ", "transliteration": "kma" },
     { "first": "ക്", "second": "ര", "transliteration": "kra" },
 
     { "first": "ച്", "second": "ച", "transliteration": "cca" },
-    { "first": "ച്", "second": "ത", "transliteration": "cta" },
-    { "first": "ച്", "second": "പ", "transliteration": "cpa" },
     { "first": "ച്", "second": "ര", "transliteration": "cra" },
 
     { "first": "ട്", "second": "ട", "transliteration": "ṭṭa" },
-    { "first": "ട്", "second": "ത", "transliteration": "ṭta" },
-    { "first": "ട്", "second": "പ", "transliteration": "ṭpa" },
     { "first": "ട്", "second": "ര", "transliteration": "ṭra" },
 
     { "first": "ത്", "second": "ത", "transliteration": "tta" },
-    { "first": "ത്", "second": "പ", "transliteration": "tpa" },
     { "first": "ത്", "second": "മ", "transliteration": "tma" },
     { "first": "ത്", "second": "ര", "transliteration": "tra" },
+    { "first": "ന്", "second": "ത", "transliteration": "nta" },
+    { "first": "ന്", "second": "ന", "transliteration": "nna" },
 
     { "first": "പ്", "second": "പ", "transliteration": "ppa" },
     { "first": "പ്", "second": "ത", "transliteration": "pta" },
-    { "first": "പ്", "second": "മ", "transliteration": "pma" },
     { "first": "പ്", "second": "ര", "transliteration": "pra" },
 
-    { "first": "म्", "second": "പ", "transliteration": "mpa" },
-    { "first": "म्", "second": "മ", "transliteration": "mma" },
-    { "first": "म्", "second": "ര", "transliteration": "mra" },
+    { "first": "മ്", "second": "പ", "transliteration": "mpa" },
+    { "first": "മ്", "second": "മ", "transliteration": "mma" },
+    { "first": "മ്", "second": "ര", "transliteration": "mra" },
 
-    { "first": "ര്", "second": "ര", "transliteration": "rra" },
     { "first": "ല്", "second": "ല", "transliteration": "lla" },
     { "first": "വ്", "second": "വ", "transliteration": "vva" },
 
@@ -108,8 +101,6 @@
     { "first": "സ്", "second": "മ", "transliteration": "sma" },
     { "first": "സ്", "second": "സ", "transliteration": "ssa" },
 
-    { "first": "ന്", "second": "ത", "transliteration": "nta" },
-    { "first": "ന്", "second": "ന", "transliteration": "nna" },
     { "first": "ള്", "second": "ള", "transliteration": "ḷḷa" }
   ]
 }

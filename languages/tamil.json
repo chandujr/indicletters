@@ -1,0 +1,102 @@
+{
+  "language": "Tamil",
+  "nativeName": "தமிழ்",
+  "script": "Tamil",
+  "virama": {
+    "symbol": "்",
+    "name": "pulli"
+  },
+  "vowels": [
+    { "symbol": "அ", "transliteration": "a", "diacritic": "" },
+    { "symbol": "ஆ", "transliteration": "ā", "diacritic": "ா" },
+    { "symbol": "இ", "transliteration": "i", "diacritic": "ி" },
+    { "symbol": "ஈ", "transliteration": "ī", "diacritic": "ீ" },
+    { "symbol": "உ", "transliteration": "u", "diacritic": "ு" },
+    { "symbol": "ஊ", "transliteration": "ū", "diacritic": "ூ" },
+    { "symbol": "எ", "transliteration": "e", "diacritic": "ெ" },
+    { "symbol": "ஏ", "transliteration": "ē", "diacritic": "ே" },
+    { "symbol": "ஐ", "transliteration": "ai", "diacritic": "ை" },
+    { "symbol": "ஒ", "transliteration": "o", "diacritic": "ொ" },
+    { "symbol": "ஓ", "transliteration": "ō", "diacritic": "ோ" },
+    { "symbol": "ஔ", "transliteration": "au", "diacritic": "ௌ" }
+  ],
+  "consonants": [
+    { "symbol": "க", "transliteration": "ka", "base": "k" },
+    { "symbol": "ங", "transliteration": "ṅa", "base": "ṅ" },
+
+    { "symbol": "ச", "transliteration": "ca", "base": "c" },
+    { "symbol": "ஞ", "transliteration": "ña", "base": "ñ" },
+
+    { "symbol": "ட", "transliteration": "ṭa", "base": "ṭ" },
+    { "symbol": "ண", "transliteration": "ṇa", "base": "ṇ" },
+
+    { "symbol": "த", "transliteration": "ta", "base": "t" },
+    { "symbol": "ந", "transliteration": "na", "base": "n" },
+
+    { "symbol": "ப", "transliteration": "pa", "base": "p" },
+    { "symbol": "ம", "transliteration": "ma", "base": "m" },
+
+    { "symbol": "ய", "transliteration": "ya", "base": "y" },
+    { "symbol": "ர", "transliteration": "ra", "base": "r" },
+    { "symbol": "ல", "transliteration": "la", "base": "l" },
+    { "symbol": "வ", "transliteration": "va", "base": "v" },
+
+    { "symbol": "ழ", "transliteration": "ḻa", "base": "ḻ" },
+    { "symbol": "ள", "transliteration": "ḷa", "base": "ḷ" },
+    { "symbol": "ற", "transliteration": "ṟa", "base": "ṟ" },
+    { "symbol": "ன", "transliteration": "ṉa", "base": "ṉ" }
+  ],
+  "conjuncts": [
+    { "first": "க்", "second": "க", "transliteration": "kka" },
+    { "first": "க்", "second": "த", "transliteration": "kta" },
+    { "first": "க்", "second": "ப", "transliteration": "kpa" },
+    { "first": "க்", "second": "ம", "transliteration": "kma" },
+    { "first": "க்", "second": "ய", "transliteration": "kya" },
+    { "first": "க்", "second": "ர", "transliteration": "kra" },
+    { "first": "க்", "second": "வ", "transliteration": "kva" },
+
+    { "first": "ச்", "second": "ச", "transliteration": "cca" },
+    { "first": "ச்", "second": "து", "transliteration": "ctu" },
+    { "first": "ச்", "second": "ப", "transliteration": "cpa" },
+    { "first": "ச்", "second": "ம", "transliteration": "cma" },
+    { "first": "ச்", "second": "ர", "transliteration": "cra" },
+
+    { "first": "ட்", "second": "ட", "transliteration": "ṭṭa" },
+    { "first": "ட்", "second": "த", "transliteration": "ṭta" },
+    { "first": "ட்", "second": "ப", "transliteration": "ṭpa" },
+    { "first": "ட்", "second": "ம", "transliteration": "ṭma" },
+    { "first": "ட்", "second": "ர", "transliteration": "ṭra" },
+
+    { "first": "த்", "second": "த", "transliteration": "tta" },
+    { "first": "த்", "second": "ப", "transliteration": "tpa" },
+    { "first": "த்", "second": "ம", "transliteration": "tma" },
+    { "first": "த்", "second": "ர", "transliteration": "tra" },
+    { "first": "த்", "second": "வ", "transliteration": "tva" },
+
+    { "first": "ப்", "second": "ப", "transliteration": "ppa" },
+    { "first": "ப்", "second": "த", "transliteration": "pta" },
+    { "first": "ப்", "second": "ம", "transliteration": "pma" },
+    { "first": "ப்", "second": "ர", "transliteration": "pra" },
+    { "first": "ப்", "second": "வ", "transliteration": "pva" },
+
+    { "first": "ம்", "second": "ப", "transliteration": "mpa" },
+    { "first": "ம்", "second": "ம", "transliteration": "mma" },
+    { "first": "ம்", "second": "ய", "transliteration": "mya" },
+    { "first": "ம்", "second": "ர", "transliteration": "mra" },
+    { "first": "ம்", "second": "வ", "transliteration": "mva" },
+
+    { "first": "ய்", "second": "ய", "transliteration": "yya" },
+    { "first": "ர்", "second": "ர", "transliteration": "rra" },
+    { "first": "ல்", "second": "ல", "transliteration": "lla" },
+    { "first": "வ்", "second": "வ", "transliteration": "vva" },
+
+    { "first": "ஸ்", "second": "த", "transliteration": "sta" },
+    { "first": "ஸ்", "second": "ர", "transliteration": "sra" },
+    { "first": "ஸ்", "second": "ம", "transliteration": "sma" },
+    { "first": "ஸ்", "second": "ஸ", "transliteration": "ssa" },
+
+    { "first": "ந்", "second": "த", "transliteration": "nta" },
+    { "first": "ந்", "second": "ந", "transliteration": "nna" },
+    { "first": "ன்", "second": "ன", "transliteration": "ṉṉa" }
+  ]
+}

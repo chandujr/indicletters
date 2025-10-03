@@ -2,6 +2,10 @@
   "language": "Kannada",
   "nativeName": "ಕನ್ನಡ",
   "script": "Kannada",
+  "virama": {
+    "symbol": "್",
+    "name": "virāma"
+  },
   "vowels": [
     { "symbol": "ಅ", "transliteration": "a", "diacritic": "" },
     { "symbol": "ಆ", "transliteration": "ā", "diacritic": "ಾ" },

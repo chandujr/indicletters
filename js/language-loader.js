@@ -80,8 +80,12 @@ class LanguageLoader {
     header.innerHTML = "";
     body.innerHTML = "";
 
+    // Use virama from JSON data
+    const virama = this.data.virama || { symbol: "◌್", name: "virāma" }; // Fallback for older JSON files
+
     // Build header with vowels
-    let headerHTML = "<tr><th>◌್<br><span>(virāma)</span></th>";
+    let headerHTML = `<tr><th>${virama.symbol}<br><span>(${virama.name})</span></th>`;
+
     this.data.vowels.forEach((vowel) => {
       headerHTML += `<th>${vowel.symbol}<br><span>(${vowel.transliteration})</span></th>`;
     });
@@ -95,21 +99,21 @@ class LanguageLoader {
 
       // Base consonant with virama
       row.innerHTML = `
-                <td>
-                    <div class="kannada-char">${consonant.symbol}್</div>
-                    <div class="latin-sub">${consonant.base}</div>
-                </td>
-            `;
+            <td>
+                <div class="kannada-char">${consonant.symbol}${virama.symbol}</div>
+                <div class="latin-sub">${consonant.base}</div>
+            </td>
+        `;
 
       // Combinations with vowels
       this.data.vowels.forEach((vowel) => {
         const combination = consonant.symbol + vowel.diacritic;
         row.innerHTML += `
-                    <td>
-                        <div class="kannada-char">${combination}</div>
-                        <div class="latin-sub">${consonant.base}${vowel.transliteration}</div>
-                    </td>
-                `;
+                <td>
+                    <div class="kannada-char">${combination}</div>
+                    <div class="latin-sub">${consonant.base}${vowel.transliteration}</div>
+                </td>
+            `;
       });
 
       body.appendChild(row);

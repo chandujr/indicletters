@@ -43,11 +43,11 @@ class LanguageLoader {
   }
 
   updatePageMetadata() {
-    document.title = `${this.data.language} Varnamale - Learn ${this.data.language} Alphabets`;
+    document.title = `${this.data.language} Varnamala - Learn ${this.data.language} Alphabets`;
     document.getElementById("native-name").textContent = this.data.nativeName;
     document.getElementById(
       "language-name"
-    ).textContent = `${this.data.language} Varnamale`;
+    ).textContent = `${this.data.language} Varnamala`;
   }
 
   loadScriptFont() {

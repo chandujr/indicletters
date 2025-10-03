@@ -64,8 +64,7 @@
 
     { "symbol": "ള", "transliteration": "ḷa", "base": "ḷ" },
     { "symbol": "ഴ", "transliteration": "ḻa", "base": "ḻ" },
-    { "symbol": "റ", "transliteration": "ṟa", "base": "ṟ" },
-    { "symbol": "ഩ", "transliteration": "ṉa", "base": "ṉ" }
+    { "symbol": "റ", "transliteration": "ṟa", "base": "ṟ" }
   ],
   "conjuncts": [
     { "first": "ക്", "second": "ക", "transliteration": "kka" },

@@ -1,79 +1,62 @@
-// ===== THEME MANAGEMENT =====
-const themeManager = {
+const theme = {
   init() {
-    this.toggle = document.getElementById("theme-toggle");
-    this.body = document.body;
-    this.savedTheme = localStorage.getItem("theme") || "light";
-
-    this.applyTheme(this.savedTheme);
-    this.toggle?.addEventListener("click", () => this.toggleTheme());
+    const saved = localStorage.theme || "light";
+    this.apply(saved);
+    document
+      .getElementById("theme-toggle")
+      ?.addEventListener("click", () => this.toggle());
   },
 
-  applyTheme(theme) {
-    if (theme === "dark") {
-      this.body.classList.add("dark-theme");
-      this.updateIcon("☀️");
-    } else {
-      this.body.classList.remove("dark-theme");
-      this.updateIcon("🌙");
-    }
+  apply(theme) {
+    document.body.classList.toggle("dark", theme === "dark");
+    const btn = document.getElementById("theme-toggle");
+    if (btn) btn.textContent = theme === "dark" ? "☀️" : "🌙";
   },
 
-  toggleTheme() {
-    const isDark = this.body.classList.contains("dark-theme");
+  toggle() {
+    const isDark = document.body.classList.contains("dark");
     const newTheme = isDark ? "light" : "dark";
-
-    this.applyTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-  },
-
-  updateIcon(icon) {
-    if (this.toggle) this.toggle.textContent = icon;
+    this.apply(newTheme);
+    localStorage.theme = newTheme;
   },
 };
 
-// ===== NAVIGATION =====
-const navigation = {
+const nav = {
   init() {
     // Language card clicks
     document.querySelectorAll(".language-card[data-lang]").forEach((card) => {
-      card.addEventListener("click", (e) =>
-        this.handleLanguageClick(e.currentTarget.dataset.lang)
-      );
+      card.addEventListener("click", () => this.handleCard(card.dataset.lang));
+    });
+
+    // Home button
+    document.getElementById("home-button")?.addEventListener("click", () => {
+      location.href = "index.html";
     });
 
     // Keyboard shortcuts
-    document.addEventListener("keydown", (e) => this.handleKeyboard(e));
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.altKey &&
+        e.key === "h" &&
+        !document.body.classList.contains("landing-page")
+      ) {
+        location.href = "index.html";
+      }
+    });
   },
 
-  handleLanguageClick(language) {
-    if (["kannada", "tamil", "malayalam"].includes(language)) {
-      window.location.href = `language.html?lang=${language}`;
+  handleCard(lang) {
+    if (["kannada", "tamil", "malayalam"].includes(lang)) {
+      location.href = `language.html?lang=${lang}`;
     } else {
-      this.showComingSoon(language);
-    }
-  },
-
-  showComingSoon(language) {
-    const langName = language.charAt(0).toUpperCase() + language.slice(1);
-    alert(`${langName} script is coming soon!`);
-  },
-
-  handleKeyboard(e) {
-    // Alt + H for home (only on language pages)
-    if (
-      e.altKey &&
-      e.key === "h" &&
-      !document.body.classList.contains("landing-page")
-    ) {
-      const homeButton = document.querySelector(".home-button");
-      homeButton?.click();
+      alert(
+        `${lang.charAt(0).toUpperCase() + lang.slice(1)} script is coming soon!`
+      );
     }
   },
 };
 
-// ===== INITIALIZATION =====
 document.addEventListener("DOMContentLoaded", () => {
-  themeManager.init();
-  navigation.init();
+  theme.init();
+  nav.init();
 });

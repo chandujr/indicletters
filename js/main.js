@@ -48,7 +48,7 @@ const navigation = {
 
   handleLanguageClick(language) {
     if (language === "kannada") {
-      window.location.href = "kannada.html";
+      window.location.href = "language.html?lang=kannada";
     } else {
       this.showComingSoon(language);
     }

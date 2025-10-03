@@ -415,3 +415,46 @@ body.dark-theme .conjuncts-table td:first-child {
         font-size: 0.9rem;
     }
 }
+
+/* ===== DESKTOP TABLE WIDTH OPTIMIZATION ===== */
+
+/* Desktop: Allow table to use full available width */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 90vw;
+        padding: 20px 5vw;
+    }
+    
+    .table-wrapper {
+        max-height: 75vh;
+        margin: 0 auto;
+        width: 95%;
+    }
+    
+    .varnamale-table {
+        min-width: 90%;
+        width: 100%;
+        table-layout: fixed;
+    }
+    
+    .varnamale-table th,
+    .varnamale-table td {
+        padding: 25px 20px;
+        min-width: 90px;
+    }
+    
+    .kannada-char {
+        font-size: 2.4rem;
+    }
+}
+
+/* Keep mobile behavior unchanged */
+@media (max-width: 1023px) {
+    .varnamale-table {
+        min-width: 1200px;
+    }
+    
+    .table-wrapper {
+        overflow-x: auto;
+    }
+}

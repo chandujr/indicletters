@@ -1,0 +1,113 @@
+{
+  "language": "Kannada",
+  "nativeName": "ಕನ್ನಡ",
+  "script": "Kannada",
+  "vowels": [
+    { "symbol": "ಅ", "transliteration": "a", "diacritic": "" },
+    { "symbol": "ಆ", "transliteration": "ā", "diacritic": "ಾ" },
+    { "symbol": "ಇ", "transliteration": "i", "diacritic": "ಿ" },
+    { "symbol": "ಈ", "transliteration": "ī", "diacritic": "ೀ" },
+    { "symbol": "ಉ", "transliteration": "u", "diacritic": "ು" },
+    { "symbol": "ಊ", "transliteration": "ū", "diacritic": "ೂ" },
+    { "symbol": "ಋ", "transliteration": "ṛ", "diacritic": "ೃ" },
+    { "symbol": "ಎ", "transliteration": "e", "diacritic": "ೆ" },
+    { "symbol": "ಏ", "transliteration": "ē", "diacritic": "ೇ" },
+    { "symbol": "ಐ", "transliteration": "ai", "diacritic": "ೈ" },
+    { "symbol": "ಒ", "transliteration": "o", "diacritic": "ೊ" },
+    { "symbol": "ಓ", "transliteration": "ō", "diacritic": "ೋ" },
+    { "symbol": "ಔ", "transliteration": "au", "diacritic": "ೌ" }
+  ],
+  "consonants": [
+    { "symbol": "ಕ", "transliteration": "ka", "base": "k" },
+    { "symbol": "ಖ", "transliteration": "kha", "base": "kh" },
+    { "symbol": "ಗ", "transliteration": "ga", "base": "g" },
+    { "symbol": "ಘ", "transliteration": "gha", "base": "gh" },
+    { "symbol": "ಙ", "transliteration": "ṅa", "base": "ṅ" },
+
+    { "symbol": "ಚ", "transliteration": "ca", "base": "c" },
+    { "symbol": "ಛ", "transliteration": "cha", "base": "ch" },
+    { "symbol": "ಜ", "transliteration": "ja", "base": "j" },
+    { "symbol": "ಝ", "transliteration": "jha", "base": "jh" },
+    { "symbol": "ಞ", "transliteration": "ña", "base": "ñ" },
+
+    { "symbol": "ಟ", "transliteration": "ṭa", "base": "ṭ" },
+    { "symbol": "ಠ", "transliteration": "ṭha", "base": "ṭh" },
+    { "symbol": "ಡ", "transliteration": "ḍa", "base": "ḍ" },
+    { "symbol": "ಢ", "transliteration": "ḍha", "base": "ḍh" },
+    { "symbol": "ಣ", "transliteration": "ṇa", "base": "ṇ" },
+
+    { "symbol": "ತ", "transliteration": "ta", "base": "t" },
+    { "symbol": "ಥ", "transliteration": "tha", "base": "th" },
+    { "symbol": "ದ", "transliteration": "da", "base": "d" },
+    { "symbol": "ಧ", "transliteration": "dha", "base": "dh" },
+    { "symbol": "ನ", "transliteration": "na", "base": "n" },
+
+    { "symbol": "ಪ", "transliteration": "pa", "base": "p" },
+    { "symbol": "ಫ", "transliteration": "pha", "base": "ph" },
+    { "symbol": "ಬ", "transliteration": "ba", "base": "b" },
+    { "symbol": "ಭ", "transliteration": "bha", "base": "bh" },
+    { "symbol": "ಮ", "transliteration": "ma", "base": "m" },
+
+    { "symbol": "ಯ", "transliteration": "ya", "base": "y" },
+    { "symbol": "ರ", "transliteration": "ra", "base": "r" },
+    { "symbol": "ಲ", "transliteration": "la", "base": "l" },
+    { "symbol": "ವ", "transliteration": "va", "base": "v" },
+
+    { "symbol": "ಶ", "transliteration": "śa", "base": "ś" },
+    { "symbol": "ಷ", "transliteration": "ṣa", "base": "ṣ" },
+    { "symbol": "ಸ", "transliteration": "sa", "base": "s" },
+    { "symbol": "ಹ", "transliteration": "ha", "base": "h" },
+
+    { "symbol": "ಳ", "transliteration": "ḷa", "base": "ḷ" },
+    { "symbol": "ಕ್ಷ", "transliteration": "kṣa", "base": "kṣ" },
+    { "symbol": "ಜ್ಞ", "transliteration": "jña", "base": "jñ" }
+  ],
+  "conjuncts": [
+    { "first": "ಕ್", "second": "ಕ", "transliteration": "kka" },
+    { "first": "ಕ್", "second": "ತ", "transliteration": "kta" },
+    { "first": "ಕ್", "second": "ರ", "transliteration": "kra" },
+
+    { "first": "ಗ್", "second": "ಗ", "transliteration": "gga" },
+    { "first": "ಗ್", "second": "ನ", "transliteration": "gna" },
+    { "first": "ಗ್", "second": "ಮ", "transliteration": "gma" },
+    { "first": "ಗ್", "second": "ರ", "transliteration": "gra" },
+
+    { "first": "ಚ್", "second": "ಚ", "transliteration": "cca" },
+    { "first": "ಜ್", "second": "ಜ", "transliteration": "jja" },
+
+    { "first": "ಟ್", "second": "ಟ", "transliteration": "ṭṭa" },
+    { "first": "ಡ್", "second": "ಡ", "transliteration": "ḍḍa" },
+    { "first": "ಣ್", "second": "ಣ", "transliteration": "ṇṇa" },
+
+    { "first": "ತ್", "second": "ತ", "transliteration": "tta" },
+    { "first": "ತ್", "second": "ರ", "transliteration": "tra" },
+    { "first": "ದ್", "second": "ದ", "transliteration": "dda" },
+    { "first": "ದ್", "second": "ಧ", "transliteration": "ddha" },
+    { "first": "ದ್", "second": "ರ", "transliteration": "dra" },
+    { "first": "ನ್", "second": "ತ", "transliteration": "nta" },
+    { "first": "ನ್", "second": "ದ", "transliteration": "nda" },
+    { "first": "ನ್", "second": "ನ", "transliteration": "nna" },
+
+    { "first": "ಪ್", "second": "ಪ", "transliteration": "ppa" },
+    { "first": "ಪ್", "second": "ರ", "transliteration": "pra" },
+    { "first": "ಬ್", "second": "ಬ", "transliteration": "bba" },
+    { "first": "ಮ್", "second": "ಪ", "transliteration": "mpa" },
+    { "first": "ಮ್", "second": "ಬ", "transliteration": "mba" },
+    { "first": "ಮ್", "second": "ಮ", "transliteration": "mma" },
+
+    { "first": "ಯ್", "second": "ಯ", "transliteration": "yya" },
+    { "first": "ಲ್", "second": "ಲ", "transliteration": "lla" },
+    { "first": "ವ್", "second": "ವ", "transliteration": "vva" },
+
+    { "first": "ಶ್", "second": "ರ", "transliteration": "śra" },
+    { "first": "ಶ್", "second": "ಶ", "transliteration": "śśa" },
+    { "first": "ಸ್", "second": "ತ", "transliteration": "sta" },
+    { "first": "ಸ್", "second": "ಮ", "transliteration": "sma" },
+    { "first": "ಸ್", "second": "ಸ", "transliteration": "ssa" },
+
+    { "first": "ಹ್", "second": "ನ", "transliteration": "hna" },
+    { "first": "ಹ್", "second": "ಮ", "transliteration": "hma" },
+    { "first": "ಹ್", "second": "ಲ", "transliteration": "hla" },
+    { "first": "ಳ್", "second": "ಳ", "transliteration": "ḷḷa" }
+  ]
+}

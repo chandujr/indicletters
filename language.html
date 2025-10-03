@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Indic Varnamala</title>
+    <meta name="description" content="Learn Indian script alphabets online">
+    
+    <!-- Dynamic font loading -->
+    <link id="script-font" rel="stylesheet" href="">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="native-name"></h1>
+            <h2 id="language-name"></h2>
+            <p class="subtitle">Learn consonant-vowel and consonant-consonant combinations</p>
+        </header>
+
+        <main>
+            <section class="alphabet-section">
+                <h3>Consonant + Vowel</h3>
+                <div class="table-wrapper">
+                    <table class="varnamale-table">
+                        <thead id="alphabet-header"></thead>
+                        <tbody id="alphabet-body"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="conjuncts-section">
+                <h3>Consonant + Consonant</h3>
+                <p class="section-subtitle">Common Conjuncts</p>
+                <div class="table-wrapper">
+                    <table class="conjuncts-table">
+                        <thead>
+                            <tr>
+                                <th>Conjunct</th>
+                                <th>Form</th>
+                                <th>Romanization</th>
+                            </tr>
+                        </thead>
+                        <tbody id="conjunct-body"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Open source project | <a href="https://github.com/chandujr/indicvarnamala" target="_blank">GitHub</a></p>
+        </footer>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="index.html" class="nav-button home-button" aria-label="Go to home page">🏠</a>
+        <button id="theme-toggle" class="nav-button" aria-label="Toggle theme">🌙</button>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/language-loader.js"></script>
+</body>
+</html>

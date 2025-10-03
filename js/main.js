@@ -47,7 +47,7 @@ const navigation = {
   },
 
   handleLanguageClick(language) {
-    if (["kannada", "tamil"].includes(language)) {
+    if (["kannada", "tamil", "malayalam"].includes(language)) {
       window.location.href = `language.html?lang=${language}`;
     } else {
       this.showComingSoon(language);

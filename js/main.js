@@ -43,10 +43,12 @@ function initNavigation() {
   // Language cards
   document.querySelectorAll(".language-card[data-lang]").forEach((card) => {
     card.addEventListener("click", () => {
-      const lang = card.dataset.lang;
-      if (["kannada", "tamil", "malayalam"].includes(lang)) {
-        location.href = `language.html?lang=${lang}`;
-      }
+      setTimeout(() => {
+        const lang = card.dataset.lang;
+        if (["kannada", "tamil", "malayalam"].includes(lang)) {
+          location.href = `language.html?lang=${lang}`;
+        }
+      }, 100);
     });
   });
 

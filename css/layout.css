@@ -1,3 +1,30 @@
+/* ===== LANDING PAGE CENTERING ===== */
+.landing-page .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+.landing-page header {
+  margin: var(--space-xl) 0;
+}
+
+.landing-page main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-xl) 0;
+}
+
+.landing-page .language-grid {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 /* ===== RESPONSIVE GRIDS ===== */
 @media (max-width: 768px) {
   .language-grid {
@@ -5,12 +32,20 @@
     gap: var(--space-lg);
     padding: 0 var(--space-md);
   }
+  
+  .landing-page .container {
+    padding: var(--space-2xl) var(--space-md);
+  }
 }
 
 @media (max-width: 480px) {
   .language-grid {
     gap: var(--space-md);
     padding: 0 var(--space-sm);
+  }
+  
+  .landing-page .container {
+    padding: var(--space-xl) var(--space-sm);
   }
 }
 
@@ -58,13 +93,12 @@
   }
 
   .nav-button {
-    width: 45px;
-    height: 45px;
-    font-size: 1.2rem;
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
   }
 
-  th,
-  td {
+  th, td {
     padding: var(--space-lg) var(--space-md);
   }
 }

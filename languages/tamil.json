@@ -2,7 +2,7 @@
   "language": "Tamil",
   "nativeName": "தமிழ்",
   "script": "Tamil",
-  "virama": {
+  "halant": {
     "symbol": "்",
     "name": "pulli"
   },

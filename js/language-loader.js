@@ -34,14 +34,14 @@ const loadLanguage = async () => {
 };
 
 const renderTables = (data) => {
-  const virama = data.virama || { symbol: "್", name: "virāma" };
+  const halant = data.halant;
 
   // Alphabet table
   const header = document.getElementById("alphabet-header");
   const body = document.getElementById("alphabet-body");
 
   header.innerHTML =
-    `<tr><th>${virama.symbol}<br><span>(${virama.name})</span></th>` +
+    `<tr><th>${halant.symbol}<br><span>(${halant.name})</span></th>` +
     data.vowels
       .map((v) => `<th>${v.symbol}<br><span>(${v.transliteration})</span></th>`)
       .join("") +
@@ -52,7 +52,7 @@ const renderTables = (data) => {
       (c, i) => `
     <tr>
       <td>
-        <div class="script-char">${c.symbol}${virama.symbol}</div>
+        <div class="script-char">${c.symbol}${halant.symbol}</div>
         <div class="latin-sub">${c.base}</div>
       </td>
       ${data.vowels

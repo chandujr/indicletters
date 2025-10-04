@@ -2,7 +2,7 @@
   "language": "Malayalam",
   "nativeName": "മലയാളം",
   "script": "Malayalam",
-  "virama": {
+  "halant": {
     "symbol": "്",
     "name": "chandrakkala"
   },

@@ -36,7 +36,6 @@ const loadLanguage = async () => {
 const renderTables = (data) => {
   const halant = data.halant;
 
-  // Alphabet table
   const header = document.getElementById("alphabet-header");
   const body = document.getElementById("alphabet-body");
 
@@ -49,7 +48,7 @@ const renderTables = (data) => {
 
   body.innerHTML = data.consonants
     .map(
-      (c, i) => `
+      (c) => `
     <tr>
       <td>
         <div class="script-char">${c.symbol}${halant.symbol}</div>
@@ -70,7 +69,6 @@ const renderTables = (data) => {
     )
     .join("");
 
-  // Conjuncts table
   document.getElementById("conjunct-body").innerHTML = data.conjuncts
     .map(
       (c) => `

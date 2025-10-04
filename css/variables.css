@@ -1,43 +1,28 @@
-/* ===== DESIGN TOKENS ===== */
 :root {
-  /* Modern Color Palette */
-  --primary: #6366f1;        /* Vibrant Indigo */
-  --primary-dark: #4f46e5;    /* Darker Indigo */
-  --secondary: #ec4899;       /* Pink */
-  --accent: #10b981;         /* Emerald Green */
-  --warning: #f59e0b;        /* Amber */
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary: #ec4899;
+  --accent: #10b981;
+  --warning: #f59e0b;
   
-  /* Light Theme - Softer & More Modern */
-  --bg: #fafafa;             /* Almost white */
-  --bg-secondary: #f4f4f5;   /* Light gray */
+  --bg: #fafafa;
+  --bg-secondary: #f4f4f5;
   --card: #ffffff;
-  --card-elevated: #ffffff;
-  --text: #18181b;           /* Near black */
-  --text-secondary: #71717a; /* Gray */
-  --border: #e4e4e7;         /* Light border */
+  --text: #18181b;
+  --text-secondary: #71717a;
+  --border: #e4e4e7;
   --border-light: #f1f1f3;
   
-  /* Dark Theme - Richer & Easier on Eyes */
-  --bg-dark: #0f0f0f;        /* Very dark */
+  --bg-dark: #0f0f0f;
   --bg-secondary-dark: #1a1a1a;
-  --card-dark: #1c1c1c;      /* Slightly lighter */
-  --card-elevated-dark: #242424;
-  --text-dark: #f4f4f5;      /* Soft white */
+  --card-dark: #1c1c1c;
+  --text-dark: #f4f4f5;
   --text-secondary-dark: #a1a1aa;
-  --border-dark: #27272a;    /* Dark border */
-  --border-light-dark: #1f1f1f;
+  --border-dark: #27272a;
   
-  /* Shadows - More Subtle */
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-hover: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
-  --shadow-dark: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --success: #22c55e;
+  --error: #ef4444;
   
-  /* Status Colors */
-  --success: #22c55e;        /* Brighter green */
-  --error: #ef4444;          /* Clear red */
-  --warning: #f59e0b;        /* Keep amber */
-  
-  /* Typography */
   --font-body: system-ui, -apple-system, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -47,8 +32,6 @@
   --font-size-xl: 1.875rem;
   --font-size-xxl: 3rem;
   
-  /* Spacing - Slightly Tighter */
-  --space-2xs: 2px;
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 12px;
@@ -57,27 +40,20 @@
   --space-2xl: 32px;
   --space-3xl: 48px;
   
-  /* Layout */
   --container-max: 1280px;
   --border-radius: 12px;
-  --border-radius-sm: 6px;
-  --transition: 0.2s ease;
 }
 
-/* Light Theme */
 .light {
   --bg: var(--bg);
   --card: var(--card);
   --text: var(--text);
   --border: var(--border);
-  --shadow: var(--shadow);
 }
 
-/* Dark Theme */
 .dark {
   --bg: var(--bg-dark);
   --card: var(--card-dark);
   --text: var(--text-dark);
   --border: var(--border-dark);
-  --shadow: var(--shadow-dark);
 }

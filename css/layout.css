@@ -1,4 +1,3 @@
-/* ===== LANDING PAGE CENTERING ===== */
 .landing-page .container {
   display: flex;
   flex-direction: column;
@@ -25,7 +24,6 @@
   margin: 0 auto;
 }
 
-/* ===== RESPONSIVE GRIDS ===== */
 @media (max-width: 768px) {
   .language-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -49,7 +47,6 @@
   }
 }
 
-/* ===== DESKTOP TABLE OPTIMIZATION ===== */
 @media (min-width: 1024px) {
   .container {
     max-width: 95vw;
@@ -83,19 +80,12 @@
   }
 }
 
-/* ===== MOBILE OPTIMIZATIONS ===== */
 @media (max-width: 768px) {
   h1 {
     font-size: var(--font-size-xl);
   }
   h2 {
     font-size: 1.8rem;
-  }
-
-  .nav-button {
-    width: 52px;
-    height: 52px;
-    font-size: 1.4rem;
   }
 
   th, td {

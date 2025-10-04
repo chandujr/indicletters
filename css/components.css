@@ -1,4 +1,3 @@
-/* ===== LANGUAGE CARDS ===== */
 .language-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -12,11 +11,8 @@
   border-radius: var(--border-radius);
   text-align: center;
   cursor: pointer;
-  transition: all var(--transition);
-  box-shadow: var(--shadow);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
   border: 1px solid var(--border);
-  position: relative;
-  overflow: hidden;
   min-height: 180px;
   display: flex;
   flex-direction: column;
@@ -24,24 +20,7 @@
   align-items: center;
 }
 
-.language-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  opacity: 0;
-  transition: opacity var(--transition);
-}
-
-.language-card:hover:not(.soon)::before {
-  opacity: 1;
-}
-
 .language-card:hover:not(.soon) { 
-  transform: translateY(-4px); 
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   border-color: var(--primary);
 }
@@ -55,12 +34,7 @@
   font-size: 3.5rem;
   color: var(--primary);
   margin-bottom: var(--space-lg);
-  transition: transform var(--transition);
   line-height: 1;
-}
-
-.language-card:hover .language-icon {
-  transform: scale(1.1);
 }
 
 .language-card h3 {
@@ -99,15 +73,13 @@
   border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
-/* ===== TABLES ===== */
 .table-wrapper {
   overflow: auto;
   max-height: 70vh;
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
   border: 1px solid var(--border);
   margin-bottom: var(--space-xl);
-  -webkit-overflow-scrolling: touch;
 }
 
 table {
@@ -156,7 +128,6 @@ tr:hover {
   font-weight: 500;
 }
 
-/* ===== TABLE SECTION HEADINGS ===== */
 section {
   margin-bottom: var(--space-3xl);
 }
@@ -176,7 +147,6 @@ section > p {
   font-size: var(--font-size-md);
 }
 
-/* ===== ENHANCED NAVIGATION BUTTONS ===== */
 .nav-buttons {
   position: fixed;
   bottom: var(--space-lg);
@@ -196,27 +166,16 @@ section > p {
   color: var(--text);
   font-size: 1.5rem;
   cursor: pointer;
-  transition: all var(--transition);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow), 0 0 0 1px var(--border);
-  backdrop-filter: blur(10px);
-
-  /* Remove blue highlight */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease;
   -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  outline: none;
-  -webkit-focus-ring-color: transparent;
 }
 
-.nav-button:hover { 
-  transform: scale(1.1) translateY(-2px);
-  box-shadow: var(--shadow-hover), 0 0 0 2px var(--primary);
+.nav-button.scale-down {
+  transform: scale(0.85);
 }
 
 #home-button { 
@@ -225,31 +184,37 @@ section > p {
   border-color: var(--success);
 }
 
-#home-button:hover {
-  background: #16a34a;
-  box-shadow: var(--shadow-hover), 0 0 0 2px var(--success);
-}
-
 #theme-toggle {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: white;
   border-color: var(--primary);
 }
 
-#theme-toggle:hover {
-  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-  box-shadow: var(--shadow-hover), 0 0 0 2px var(--primary);
-}
-
-/* ===== SCRIPT-SPECIFIC OPTICAL ALIGNMENT ===== */
 .language-card[data-lang="kannada"] .language-icon { transform: translateY(-4px); }
 .language-card[data-lang="malayalam"] .language-icon { transform: translateY(2px); }
 
-/* Mobile optimizations */
 @media (max-width: 768px) {
   .nav-button {
     width: 52px;
     height: 52px;
     font-size: 1.4rem;
+  }
+  
+  .nav-buttons {
+    bottom: var(--space-md);
+    right: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-button {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+  }
+  
+  .nav-buttons {
+    bottom: var(--space-sm);
+    right: var(--space-sm);
   }
 }

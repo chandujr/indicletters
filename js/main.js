@@ -1,58 +1,70 @@
-const theme = {
-  init() {
-    const saved = localStorage.theme || "light";
-    this.apply(saved);
-    document
-      .getElementById("theme-toggle")
-      ?.addEventListener("click", () => this.toggle());
-  },
+// Simple scale animation function
+function addButtonAnimation(button) {
+  button.classList.add("scale-down");
+  setTimeout(() => {
+    button.classList.remove("scale-down");
+  }, 150);
+}
 
-  apply(theme) {
-    document.body.classList.toggle("dark", theme === "dark");
-    const btn = document.getElementById("theme-toggle");
-    if (btn) btn.textContent = theme === "dark" ? "☀️" : "🌙";
-  },
+// Theme functionality
+function initTheme() {
+  const savedTheme = localStorage.theme || "light";
+  applyTheme(savedTheme);
 
-  toggle() {
-    const isDark = document.body.classList.contains("dark");
-    const newTheme = isDark ? "light" : "dark";
-    this.apply(newTheme);
-    localStorage.theme = newTheme;
-  },
-};
-
-const nav = {
-  init() {
-    // Language card clicks
-    document.querySelectorAll(".language-card[data-lang]").forEach((card) => {
-      card.addEventListener("click", () => this.handleCard(card.dataset.lang));
+  const themeButton = document.getElementById("theme-toggle");
+  if (themeButton) {
+    themeButton.addEventListener("click", () => {
+      addButtonAnimation(themeButton);
+      // Short delay to show animation before navigation
+      setTimeout(() => {
+        toggleTheme();
+      }, 100);
     });
+  }
+}
 
-    // Home button
-    document.getElementById("home-button")?.addEventListener("click", () => {
-      location.href = "index.html";
-    });
+function applyTheme(theme) {
+  document.body.classList.toggle("dark", theme === "dark");
+  const themeButton = document.getElementById("theme-toggle");
+  if (themeButton) {
+    themeButton.textContent = theme === "dark" ? "☀️" : "🌙";
+  }
+}
 
-    // Keyboard shortcuts
-    document.addEventListener("keydown", (e) => {
-      if (
-        e.altKey &&
-        e.key === "h" &&
-        !document.body.classList.contains("landing-page")
-      ) {
-        location.href = "index.html";
+function toggleTheme() {
+  const isDark = document.body.classList.contains("dark");
+  const newTheme = isDark ? "light" : "dark";
+  applyTheme(newTheme);
+  localStorage.theme = newTheme;
+}
+
+// Navigation functionality
+function initNavigation() {
+  // Language cards
+  document.querySelectorAll(".language-card[data-lang]").forEach((card) => {
+    card.addEventListener("click", () => {
+      const lang = card.dataset.lang;
+      if (["kannada", "tamil", "malayalam"].includes(lang)) {
+        location.href = `language.html?lang=${lang}`;
       }
     });
-  },
+  });
 
-  handleCard(lang) {
-    if (["kannada", "tamil", "malayalam"].includes(lang)) {
-      location.href = `language.html?lang=${lang}`;
-    }
-  },
-};
+  // Home button
+  const homeButton = document.getElementById("home-button");
+  if (homeButton) {
+    homeButton.addEventListener("click", () => {
+      addButtonAnimation(homeButton);
+      // Short delay to show animation before navigation
+      setTimeout(() => {
+        location.href = "index.html";
+      }, 100);
+    });
+  }
+}
 
+// Initialize everything
 document.addEventListener("DOMContentLoaded", () => {
-  theme.init();
-  nav.init();
+  initTheme();
+  initNavigation();
 });

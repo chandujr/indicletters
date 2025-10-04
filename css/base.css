@@ -1,0 +1,68 @@
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1 {
+  font-size: var(--font-size-xxl);
+  color: var(--secondary);
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+  color: var(--primary);
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+}
+
+.subtitle {
+  font-size: var(--font-size-md);
+  opacity: 0.7;
+}
+
+/* ===== LINKS ===== */
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-lg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+header {
+  text-align: center;
+  margin: var(--space-xxl) 0;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  margin-top: auto;
+  padding-top: var(--space-xxl);
+  opacity: 0.7;
+}

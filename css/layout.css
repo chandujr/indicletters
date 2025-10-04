@@ -1,0 +1,70 @@
+/* ===== RESPONSIVE GRIDS ===== */
+@media (max-width: 768px) {
+  .language-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    padding: 0 var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .language-grid {
+    gap: var(--space-md);
+    padding: 0 var(--space-sm);
+  }
+}
+
+/* ===== DESKTOP TABLE OPTIMIZATION ===== */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 95vw;
+    padding: var(--space-lg) 2.5vw;
+  }
+
+  table {
+    table-layout: fixed;
+  }
+
+  .varnamala-table {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .varnamala-table th,
+  .varnamala-table td {
+    padding: var(--space-lg) var(--space-md);
+    min-width: 80px;
+    word-break: break-all;
+  }
+
+  .script-char {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .varnamala-table {
+    min-width: 1200px;
+  }
+}
+
+/* ===== MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--font-size-xl);
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .nav-button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+
+  th,
+  td {
+    padding: var(--space-lg) var(--space-md);
+  }
+}

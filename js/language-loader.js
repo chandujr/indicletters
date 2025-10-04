@@ -77,7 +77,7 @@ const renderTables = (data) => {
     <tr>
       <td>${c.first} + ${c.second}</td>
       <td class="script-char">${c.result || c.first + c.second}</td>
-      <td>${c.transliteration}</td>
+      <td class="latin-sub">${c.transliteration}</td>
     </tr>
   `
     )

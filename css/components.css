@@ -193,6 +193,45 @@ section > p {
 .language-card[data-lang="kannada"] .language-icon { transform: translateY(-4px); }
 .language-card[data-lang="malayalam"] .language-icon { transform: translateY(2px); }
 
+/* Custom scrollbar styling */
+.table-wrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* For Firefox */
+.table-wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--bg-secondary);
+}
+
+/* Dark theme adjustments */
+.dark .table-wrapper::-webkit-scrollbar-track {
+  background: var(--bg-secondary-dark);
+}
+
+.dark .table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--primary);
+}
+
+.dark .table-wrapper {
+  scrollbar-color: var(--primary) var(--bg-secondary-dark);
+}
+
 @media (max-width: 768px) {
   .nav-button {
     width: 52px;

@@ -48,10 +48,6 @@ const nav = {
   handleCard(lang) {
     if (["kannada", "tamil", "malayalam"].includes(lang)) {
       location.href = `language.html?lang=${lang}`;
-    } else {
-      alert(
-        `${lang.charAt(0).toUpperCase() + lang.slice(1)} script is coming soon!`
-      );
     }
   },
 };

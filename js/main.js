@@ -1,3 +1,7 @@
+// Checking for JS blocker
+const warningBlock = document.getElementById("warning-block");
+if (warningBlock) warningBlock.style.display = "none";
+
 // Simple scale animation function
 function addButtonAnimation(button) {
   button.classList.add("scale-down");

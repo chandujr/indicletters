@@ -243,6 +243,51 @@ section > p {
   scrollbar-color: var(--primary) var(--bg-secondary-dark);
 }
 
+/* Loading overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.dark .loading-overlay {
+  background-color: var(--bg-dark);
+}
+
+.spinner {
+  border: 16px solid var(--primary);
+  border-top: 22px solid var(--secondary);
+  border-radius: 50%;
+  width: 120px;
+  height: 110px;
+  animation: spin 2s cubic-bezier(0.18, 0.89, 0.32, 1.28) infinite;
+}
+
+.dark .spinner {
+  border: 16px solid var(--primary-dark);
+  border-top: 22px solid var(--secondary);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 @media (max-width: 768px) {
   .nav-button {
     width: 52px;

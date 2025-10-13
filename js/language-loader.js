@@ -30,6 +30,7 @@ const loadLanguage = async () => {
         <a href="index.html">← Back to Languages</a>
       </div>
     `;
+    hideLoader();
   }
 };
 
@@ -80,6 +81,15 @@ const renderTables = (data) => {
   `
     )
     .join("");
+
+  hideLoader();
+};
+
+const hideLoader = () => {
+  const overlay = document.getElementById("loadingOverlay");
+  setTimeout(() => {
+    overlay.classList.add("hidden");
+  }, 100);
 };
 
 document.addEventListener("DOMContentLoaded", loadLanguage);

@@ -10,6 +10,7 @@ function addButtonAnimation(button) {
 function initTheme() {
   const savedTheme = localStorage.theme || "light";
   applyTheme(savedTheme);
+  document.documentElement.classList.remove("dark");
 
   const themeButton = document.getElementById("theme-toggle");
   if (themeButton) {

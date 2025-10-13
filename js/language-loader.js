@@ -87,9 +87,7 @@ const renderTables = (data) => {
 
 const hideLoader = () => {
   const overlay = document.getElementById("loadingOverlay");
-  setTimeout(() => {
-    overlay.classList.add("hidden");
-  }, 100);
+  overlay.classList.add("hidden");
 };
 
 document.addEventListener("DOMContentLoaded", loadLanguage);

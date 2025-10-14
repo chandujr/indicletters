@@ -7,6 +7,7 @@
   
   --bg: #f3f3f3;
   --bg-secondary: #f4f4f5;
+  --bg-gradient: linear-gradient(135deg, #6366f110, #ec489910, #6366f110);
   --card: #ffffff;
   --text: #18181b;
   --text-secondary: #71717a;
@@ -15,6 +16,7 @@
   
   --bg-dark: #0f0f0f;
   --bg-secondary-dark: #1a1a1a;
+  --bg-gradient-dark: linear-gradient(135deg, #4f46e510, #ec489910, #4f46e510);
   --card-dark: #1c1c1c;
   --text-dark: #f4f4f5;
   --text-secondary-dark: #a1a1aa;
@@ -48,6 +50,7 @@
 
 .light {
   --bg: var(--bg);
+  --bg-gradient: var(--bg-gradient);
   --card: var(--card);
   --text: var(--text);
   --border: var(--border);
@@ -55,6 +58,7 @@
 
 .dark {
   --bg: var(--bg-dark);
+  --bg-gradient: var(--bg-gradient-dark);
   --card: var(--card-dark);
   --text: var(--text-dark);
   --border: var(--border-dark);

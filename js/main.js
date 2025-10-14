@@ -60,7 +60,7 @@ function initNavigation() {
       addButtonAnimation(homeButton);
       // Short delay to show animation before navigation
       setTimeout(() => {
-        location.href = "/";
+        location.href = "./";
       }, 100);
     });
   }

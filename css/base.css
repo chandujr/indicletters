@@ -66,3 +66,15 @@ footer {
   padding-top: var(--space-xxl);
   opacity: 0.7;
 }
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: var(--container-max-tablet);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-width: var(--container-max-mobile);
+  }
+}

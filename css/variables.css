@@ -40,7 +40,9 @@
   --space-2xl: 32px;
   --space-3xl: 48px;
   
-  --container-max: 1280px;
+  --container-max: 76%;
+  --container-max-tablet: 86%;
+  --container-max-mobile: 96%;
   --border-radius: 12px;
 }
 

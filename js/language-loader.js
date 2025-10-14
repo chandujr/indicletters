@@ -24,12 +24,10 @@ const loadLanguage = async () => {
     renderTables(data);
   } catch {
     document.body.innerHTML = `
-      <div style="text-align:center;padding:50px">
-        <h1>Language Not Found</h1>
-        <p>The requested language is not available yet.</p>
-        <a href="index.html">← Back to Languages</a>
-      </div>
-    `;
+      <div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);text-align: center;width: 100%;">
+      <h1>Language Not Found</h1>
+      <p>The requested language is not available yet.</p><br/><br/>
+      <a href="index.html">← Back to Languages</a></div>`;
     hideLoader();
   }
 };
@@ -87,7 +85,7 @@ const renderTables = (data) => {
 
 const hideLoader = () => {
   const overlay = document.getElementById("loadingOverlay");
-  overlay.classList.add("hidden");
+  if (overlay) overlay.classList.add("hidden");
 };
 
 document.addEventListener("DOMContentLoaded", loadLanguage);

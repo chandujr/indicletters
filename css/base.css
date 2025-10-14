@@ -23,11 +23,13 @@ body {
 h1 {
   font-size: var(--font-size-xxl);
   color: var(--secondary);
+  text-shadow: 0 0 10px var(--secondary-shadow);
 }
 
 h2 {
   font-size: var(--font-size-xl);
   color: var(--primary);
+  text-shadow: 0 0 10px var(--primary-shadow);
 }
 
 h3 {

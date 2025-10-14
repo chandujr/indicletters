@@ -1,9 +1,10 @@
 :root {
   --primary: #6366f1;
   --primary-dark: #4f46e5;
-  --secondary: #ec4899;
+  --secondary: #e83e8c;
   --accent: #10b981;
   --warning: #f59e0b;
+  --primary-shadow: #6366f14d;
   
   --bg: #f3f3f3;
   --bg-secondary: #f4f4f5;
@@ -13,6 +14,7 @@
   --text-secondary: #71717a;
   --border: #e4e4e7;
   --border-light: #f1f1f3;
+  --secondary-shadow: #e83e8c4d;
   
   --bg-dark: #0f0f0f;
   --bg-secondary-dark: #1a1a1a;

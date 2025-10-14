@@ -27,7 +27,7 @@ const loadLanguage = async () => {
       <div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);text-align: center;width: 100%;">
       <h1>Language Not Found</h1>
       <p>The requested language is not available yet.</p><br/><br/>
-      <a href="index.html">← Back to Languages</a></div>`;
+      <a href="/">← Back to Languages</a></div>`;
     hideLoader();
   }
 };

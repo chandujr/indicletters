@@ -24,19 +24,19 @@
     { "symbol": "க", "transliteration": "ka", "base": "k" },
     { "symbol": "ங", "transliteration": "ṅa", "base": "ṅ" },
 
-    { "symbol": "ச", "transliteration": "ca", "base": "c" },
+    { "symbol": "ச", "transliteration": "ca", "base": "c", "hl": 1 },
     { "symbol": "ஞ", "transliteration": "ña", "base": "ñ" },
 
-    { "symbol": "ட", "transliteration": "ṭa", "base": "ṭ" },
+    { "symbol": "ட", "transliteration": "ṭa", "base": "ṭ", "hl": 1 },
     { "symbol": "ண", "transliteration": "ṇa", "base": "ṇ" },
 
-    { "symbol": "த", "transliteration": "ta", "base": "t" },
+    { "symbol": "த", "transliteration": "ta", "base": "t", "hl": 1 },
     { "symbol": "ந", "transliteration": "na", "base": "n" },
 
-    { "symbol": "ப", "transliteration": "pa", "base": "p" },
+    { "symbol": "ப", "transliteration": "pa", "base": "p", "hl": 1 },
     { "symbol": "ம", "transliteration": "ma", "base": "m" },
 
-    { "symbol": "ய", "transliteration": "ya", "base": "y" },
+    { "symbol": "ய", "transliteration": "ya", "base": "y", "hl": 1 },
     { "symbol": "ர", "transliteration": "ra", "base": "r" },
     { "symbol": "ல", "transliteration": "la", "base": "l" },
     { "symbol": "வ", "transliteration": "va", "base": "v" },
@@ -49,19 +49,19 @@
   "conjuncts": [
     { "first": "க்", "second": "க", "transliteration": "kka" },
 
-    { "first": "ச்", "second": "ச", "transliteration": "cca" },
+    { "first": "ச்", "second": "ச", "transliteration": "cca", "hl": 1 },
 
-    { "first": "ட்", "second": "ட", "transliteration": "ṭṭa" },
+    { "first": "ட்", "second": "ட", "transliteration": "ṭṭa", "hl": 1 },
 
-    { "first": "த்", "second": "த", "transliteration": "tta" },
+    { "first": "த்", "second": "த", "transliteration": "tta", "hl": 1 },
     { "first": "ந்", "second": "த", "transliteration": "nta" },
     { "first": "ந்", "second": "ந", "transliteration": "nna" },
 
-    { "first": "ப்", "second": "ப", "transliteration": "ppa" },
+    { "first": "ப்", "second": "ப", "transliteration": "ppa", "hl": 1 },
     { "first": "ம்", "second": "ம", "transliteration": "mma" },
     { "first": "ம்", "second": "ய", "transliteration": "mya" },
 
-    { "first": "ய்", "second": "ய", "transliteration": "yya" },
+    { "first": "ய்", "second": "ய", "transliteration": "yya", "hl": 1 },
     { "first": "ர்", "second": "ர", "transliteration": "rra" },
     { "first": "ல்", "second": "ல", "transliteration": "lla" },
     { "first": "வ்", "second": "வ", "transliteration": "vva" },

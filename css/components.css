@@ -131,6 +131,10 @@ tr:hover {
   background: rgba(99, 102, 241, 0.1);
 }
 
+.row-highlight {
+  border-top: 4px solid var(--secondary);
+}
+
 .script-char { font-size: 2.2rem; }
 .latin-sub { font-size: 1rem; color: var(--text-secondary); margin-top: var(--space-xs); }
 

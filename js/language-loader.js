@@ -48,7 +48,7 @@ const renderTables = (data) => {
   body.innerHTML = data.consonants
     .map(
       (c) => `
-    <tr>
+    <tr ${c.hl == 1 ? 'class="row-highlight"' : ""}>
       <td>
         <div class="script-char">${c.symbol}${halant.symbol}</div>
         <div class="latin-sub">${c.base}</div>
@@ -71,7 +71,7 @@ const renderTables = (data) => {
   document.getElementById("conjunct-body").innerHTML = data.conjuncts
     .map(
       (c) => `
-    <tr>
+    <tr ${c.hl == 1 ? 'class="row-highlight"' : ""}>
       <td>${c.first} + ${c.second}</td>
       <td class="script-char">${c.result || c.first + c.second}</td>
       <td class="latin-sub">${c.transliteration}</td>

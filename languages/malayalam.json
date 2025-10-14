@@ -28,31 +28,31 @@
     { "symbol": "ഘ", "transliteration": "gha", "base": "gh" },
     { "symbol": "ങ", "transliteration": "ṅa", "base": "ṅ" },
 
-    { "symbol": "ച", "transliteration": "ca", "base": "c" },
+    { "symbol": "ച", "transliteration": "ca", "base": "c", "hl": 1 },
     { "symbol": "ഛ", "transliteration": "cha", "base": "ch" },
     { "symbol": "ജ", "transliteration": "ja", "base": "j" },
     { "symbol": "ഝ", "transliteration": "jha", "base": "jh" },
     { "symbol": "ഞ", "transliteration": "ña", "base": "ñ" },
 
-    { "symbol": "ട", "transliteration": "ṭa", "base": "ṭ" },
+    { "symbol": "ട", "transliteration": "ṭa", "base": "ṭ", "hl": 1 },
     { "symbol": "ഠ", "transliteration": "ṭha", "base": "ṭh" },
     { "symbol": "ഡ", "transliteration": "ḍa", "base": "ḍ" },
     { "symbol": "ഢ", "transliteration": "ḍha", "base": "ḍh" },
     { "symbol": "ണ", "transliteration": "ṇa", "base": "ṇ" },
 
-    { "symbol": "ത", "transliteration": "ta", "base": "t" },
+    { "symbol": "ത", "transliteration": "ta", "base": "t", "hl": 1 },
     { "symbol": "ഥ", "transliteration": "tha", "base": "th" },
     { "symbol": "ദ", "transliteration": "da", "base": "d" },
     { "symbol": "ധ", "transliteration": "dha", "base": "dh" },
     { "symbol": "ന", "transliteration": "na", "base": "n" },
 
-    { "symbol": "പ", "transliteration": "pa", "base": "p" },
+    { "symbol": "പ", "transliteration": "pa", "base": "p", "hl": 1 },
     { "symbol": "ഫ", "transliteration": "pha", "base": "ph" },
     { "symbol": "ബ", "transliteration": "ba", "base": "b" },
     { "symbol": "ഭ", "transliteration": "bha", "base": "bh" },
     { "symbol": "മ", "transliteration": "ma", "base": "m" },
 
-    { "symbol": "യ", "transliteration": "ya", "base": "y" },
+    { "symbol": "യ", "transliteration": "ya", "base": "y", "hl": 1 },
     { "symbol": "ര", "transliteration": "ra", "base": "r" },
     { "symbol": "ല", "transliteration": "la", "base": "l" },
     { "symbol": "വ", "transliteration": "va", "base": "v" },
@@ -71,19 +71,19 @@
     { "first": "ക്", "second": "ത", "transliteration": "kta" },
     { "first": "ക്", "second": "ര", "transliteration": "kra" },
 
-    { "first": "ച്", "second": "ച", "transliteration": "cca" },
+    { "first": "ച്", "second": "ച", "transliteration": "cca", "hl": 1 },
     { "first": "ച്", "second": "ര", "transliteration": "cra" },
 
-    { "first": "ട്", "second": "ട", "transliteration": "ṭṭa" },
+    { "first": "ട്", "second": "ട", "transliteration": "ṭṭa", "hl": 1 },
     { "first": "ട്", "second": "ര", "transliteration": "ṭra" },
 
-    { "first": "ത്", "second": "ത", "transliteration": "tta" },
+    { "first": "ത്", "second": "ത", "transliteration": "tta", "hl": 1 },
     { "first": "ത്", "second": "മ", "transliteration": "tma" },
     { "first": "ത്", "second": "ര", "transliteration": "tra" },
     { "first": "ന്", "second": "ത", "transliteration": "nta" },
     { "first": "ന്", "second": "ന", "transliteration": "nna" },
 
-    { "first": "പ്", "second": "പ", "transliteration": "ppa" },
+    { "first": "പ്", "second": "പ", "transliteration": "ppa", "hl": 1 },
     { "first": "പ്", "second": "ത", "transliteration": "pta" },
     { "first": "പ്", "second": "ര", "transliteration": "pra" },
 
@@ -91,7 +91,7 @@
     { "first": "മ്", "second": "മ", "transliteration": "mma" },
     { "first": "മ്", "second": "ര", "transliteration": "mra" },
 
-    { "first": "ല്", "second": "ല", "transliteration": "lla" },
+    { "first": "ല്", "second": "ല", "transliteration": "lla", "hl": 1 },
     { "first": "വ്", "second": "വ", "transliteration": "vva" },
 
     { "first": "ശ്", "second": "ര", "transliteration": "śra" },

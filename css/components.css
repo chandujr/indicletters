@@ -313,7 +313,7 @@ section > p {
   }
   
   .nav-buttons {
-    bottom: var(--space-sm);
+    bottom: var(--space-lg);
     right: var(--space-sm);
   }
 }

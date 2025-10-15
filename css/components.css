@@ -254,6 +254,9 @@ section > p {
   left: 0;
   width: 100%;
   height: 100%;
+  background: var(--bg-gradient);
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease infinite;
   background-color: var(--bg);
   z-index: 9000;
   display: flex;
@@ -261,11 +264,13 @@ section > p {
   align-items: center;
   flex-direction: column;
   opacity: 1;
-  transition: opacity 0.4s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  transition: opacity 0.5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
 }
 
-.dark .loading-overlay {
-  background-color: var(--bg-dark);
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .spinner {
@@ -275,6 +280,13 @@ section > p {
   width: 100px;
   height: 100px;
   animation: spin 1s cubic-bezier(0.18, 0.89, 0.32, 1.28) infinite;
+
+  filter: blur(0.8px);
+  box-shadow:
+    0 0 10px var(--secondary),
+    0 0 20px var(--secondary),
+    0 0 40px var(--secondary),
+    inset 0 0 20px var(--primary);
 }
 
 .dark .spinner {

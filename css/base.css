@@ -10,6 +10,7 @@ body {
   line-height: 1.6;
   background: var(--bg-gradient);
   background-color: var(--bg);
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 h1 {

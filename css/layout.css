@@ -74,4 +74,14 @@
   .landing-page .container {
     padding: var(--space-xl) var(--space-sm);
   }
+
+  .language-card {
+    padding: var(--space-mg);
+  }
+}
+
+@media (max-width: 350px) {
+  .language-card {
+    padding: var(--space-lg);
+  }
 }

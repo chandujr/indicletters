@@ -36,6 +36,12 @@
   margin: 0 auto;
 }
 
+@media (max-width: 1024px) {
+  .varnamala-table {
+    min-width: 1200px;
+  }
+}
+
 @media (max-width: 768px) {
   .language-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -45,6 +51,17 @@
   
   .landing-page .container {
     padding: var(--space-2xl) var(--space-md);
+  }
+
+  h1 {
+    font-size: var(--font-size-xl);
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  th, td {
+    padding: var(--space-lg) var(--space-md);
   }
 }
 
@@ -56,24 +73,5 @@
   
   .landing-page .container {
     padding: var(--space-xl) var(--space-sm);
-  }
-}
-
-@media (max-width: 1023px) {
-  .varnamala-table {
-    min-width: 1200px;
-  }
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: var(--font-size-xl);
-  }
-  h2 {
-    font-size: 1.8rem;
-  }
-
-  th, td {
-    padding: var(--space-lg) var(--space-md);
   }
 }

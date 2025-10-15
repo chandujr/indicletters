@@ -8,7 +8,7 @@
   
   --bg: #f3f3f3;
   --bg-secondary: #f4f4f5;
-  --bg-gradient: linear-gradient(135deg, #6366f110, #ec489910, #6366f110);
+  --bg-gradient: radial-gradient(circle, #6366f120, #ec489920);
   --card: #ffffff;
   --text: #18181b;
   --text-secondary: #71717a;
@@ -18,7 +18,7 @@
   
   --bg-dark: #0f0f0f;
   --bg-secondary-dark: #1a1a1a;
-  --bg-gradient-dark: linear-gradient(135deg, #4f46e510, #ec489910, #4f46e510);
+  --bg-gradient-dark: radial-gradient(circle, #4f46e510, #ec489910);
   --card-dark: #1c1c1c;
   --text-dark: #f4f4f5;
   --text-secondary-dark: #a1a1aa;

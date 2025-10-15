@@ -2,8 +2,9 @@
   "name": "Indic Varnamala - Learn Indian Scripts",
   "short_name": "Indic Varnamala",
   "description": "Start learning Indian alphabets online. Use this page as a handy reference to see all the letters and their combinations.",
+  "categories": ["education", "productivity"],
   "start_url": "./",
-  "display": "standalone",
+  "display": "fullscreen",
   "background_color": "#ffffff",
   "theme_color": "#6366f1",
   "icons": [

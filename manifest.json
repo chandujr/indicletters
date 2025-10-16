@@ -4,7 +4,7 @@
   "description": "Start learning Indian alphabets online. Use this page as a handy reference to see all the letters and their combinations.",
   "categories": ["education", "productivity"],
   "start_url": "./",
-  "display": "fullscreen",
+  "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#6366f1",
   "icons": [

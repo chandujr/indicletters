@@ -172,6 +172,11 @@ section > p {
   z-index: 1000;
 }
 
+.nav-buttons {
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-right: env(safe-area-inset-right);
+}
+
 .nav-button {
   width: 56px;
   height: 56px;

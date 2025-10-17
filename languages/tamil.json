@@ -21,35 +21,36 @@
     { "symbol": "ஔ", "transliteration": "au", "diacritic": "ௌ" }
   ],
   "consonants": [
-    { "symbol": "க", "transliteration": "ka", "base": "k" },
-    { "symbol": "ங", "transliteration": "ṅa", "base": "ṅ" },
+    { "symbol": "க", "base": "k" },
+    { "symbol": "ங", "base": "ṅ" },
 
-    { "symbol": "ச", "transliteration": "ca", "base": "c", "hl": 1 },
-    { "symbol": "ஞ", "transliteration": "ña", "base": "ñ" },
+    { "symbol": "ச", "base": "c", "hl": 1 },
+    { "symbol": "ஞ", "base": "ñ" },
 
-    { "symbol": "ட", "transliteration": "ṭa", "base": "ṭ", "hl": 1 },
-    { "symbol": "ண", "transliteration": "ṇa", "base": "ṇ" },
+    { "symbol": "ட", "base": "ṭ", "hl": 1 },
+    { "symbol": "ண", "base": "ṇ" },
 
-    { "symbol": "த", "transliteration": "ta", "base": "t", "hl": 1 },
-    { "symbol": "ந", "transliteration": "na", "base": "n" },
+    { "symbol": "த", "base": "t", "hl": 1 },
+    { "symbol": "ந", "base": "n" },
 
-    { "symbol": "ப", "transliteration": "pa", "base": "p", "hl": 1 },
-    { "symbol": "ம", "transliteration": "ma", "base": "m" },
+    { "symbol": "ப", "base": "p", "hl": 1 },
+    { "symbol": "ம", "base": "m" },
 
-    { "symbol": "ய", "transliteration": "ya", "base": "y", "hl": 1 },
-    { "symbol": "ர", "transliteration": "ra", "base": "r" },
-    { "symbol": "ல", "transliteration": "la", "base": "l" },
-    { "symbol": "வ", "transliteration": "va", "base": "v" },
+    { "symbol": "ய", "base": "y", "hl": 1 },
+    { "symbol": "ர", "base": "r" },
+    { "symbol": "ல", "base": "l" },
+    { "symbol": "வ", "base": "v" },
 
-    { "symbol": "ழ", "transliteration": "ḻa", "base": "ḻ" },
-    { "symbol": "ள", "transliteration": "ḷa", "base": "ḷ" },
-    { "symbol": "ற", "transliteration": "ṟa", "base": "ṟ" },
-    { "symbol": "ன", "transliteration": "ṉa", "base": "ṉ" },
-    { "symbol": "ஜ", "transliteration": "ja", "base": "j" },
-    { "symbol": "ஷ", "transliteration": "ṣa", "base": "ṣ" },
-    { "symbol": "ஸ", "transliteration": "sa", "base": "s" },
-    { "symbol": "ஹ", "transliteration": "ha", "base": "h" },
-    { "symbol": "க்ஷ", "transliteration": "kṣa", "base": "kṣ" }
+    { "symbol": "ழ", "base": "ḻ" },
+    { "symbol": "ள", "base": "ḷ" },
+    { "symbol": "ற", "base": "ṟ" },
+    { "symbol": "ன", "base": "ṉ" },
+
+    { "symbol": "ஜ", "base": "j", "hl": 1 },
+    { "symbol": "ஷ", "base": "ṣ" },
+    { "symbol": "ஸ", "base": "s" },
+    { "symbol": "ஹ", "base": "h" },
+    { "symbol": "க்ஷ", "base": "kṣ" }
   ],
   "conjuncts": [
     { "first": "க்", "second": "க", "transliteration": "kka" },
@@ -71,7 +72,7 @@
     { "first": "ல்", "second": "ல", "transliteration": "lla" },
     { "first": "வ்", "second": "வ", "transliteration": "vva" },
 
-    { "first": "ஸ்", "second": "த", "transliteration": "sta" },
+    { "first": "ஸ்", "second": "த", "transliteration": "sta", "hl": 1 },
     { "first": "ஸ்", "second": "ம", "transliteration": "sma" },
     { "first": "ஸ்", "second": "ஸ", "transliteration": "ssa" },
     { "first": "ன்", "second": "ன", "transliteration": "ṉṉa" }

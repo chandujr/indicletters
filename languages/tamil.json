@@ -44,7 +44,12 @@
     { "symbol": "ழ", "transliteration": "ḻa", "base": "ḻ" },
     { "symbol": "ள", "transliteration": "ḷa", "base": "ḷ" },
     { "symbol": "ற", "transliteration": "ṟa", "base": "ṟ" },
-    { "symbol": "ன", "transliteration": "ṉa", "base": "ṉ" }
+    { "symbol": "ன", "transliteration": "ṉa", "base": "ṉ" },
+    { "symbol": "ஜ", "transliteration": "ja", "base": "j" },
+    { "symbol": "ஷ", "transliteration": "ṣa", "base": "ṣ" },
+    { "symbol": "ஸ", "transliteration": "sa", "base": "s" },
+    { "symbol": "ஹ", "transliteration": "ha", "base": "h" },
+    { "symbol": "க்ஷ", "transliteration": "kṣa", "base": "kṣ" }
   ],
   "conjuncts": [
     { "first": "க்", "second": "க", "transliteration": "kka" },

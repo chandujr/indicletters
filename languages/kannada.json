@@ -70,7 +70,7 @@
     { "first": "ಕ್", "second": "ಕ", "transliteration": "kka" },
     { "first": "ಕ್", "second": "ತ", "transliteration": "kta" },
     { "first": "ಕ್", "second": "ರ", "transliteration": "kra" },
-
+    { "first": "ಕ್", "second": "ಯ", "transliteration": "kya" },
     { "first": "ಗ್", "second": "ಗ", "transliteration": "gga" },
     { "first": "ಗ್", "second": "ನ", "transliteration": "gna" },
     { "first": "ಗ್", "second": "ಮ", "transliteration": "gma" },
@@ -85,12 +85,15 @@
 
     { "first": "ತ್", "second": "ತ", "transliteration": "tta", "hl": 1 },
     { "first": "ತ್", "second": "ರ", "transliteration": "tra" },
+    { "first": "ತ್", "second": "ಯ", "transliteration": "tya" },
+
     { "first": "ದ್", "second": "ದ", "transliteration": "dda" },
     { "first": "ದ್", "second": "ಧ", "transliteration": "ddha" },
     { "first": "ದ್", "second": "ರ", "transliteration": "dra" },
     { "first": "ನ್", "second": "ತ", "transliteration": "nta" },
     { "first": "ನ್", "second": "ದ", "transliteration": "nda" },
     { "first": "ನ್", "second": "ನ", "transliteration": "nna" },
+    { "first": "ನ್", "second": "ಯ", "transliteration": "nya" },
 
     { "first": "ಪ್", "second": "ಪ", "transliteration": "ppa", "hl": 1 },
     { "first": "ಪ್", "second": "ರ", "transliteration": "pra" },
@@ -101,14 +104,14 @@
 
     { "first": "ಯ್", "second": "ಯ", "transliteration": "yya", "hl": 1 },
     { "first": "ಲ್", "second": "ಲ", "transliteration": "lla" },
+    { "first": "ರ್", "second": "ಕ", "transliteration": "rka" },
+    { "first": "ರ್", "second": "ಯ", "transliteration": "rya" },
     { "first": "ವ್", "second": "ವ", "transliteration": "vva" },
-
     { "first": "ಶ್", "second": "ರ", "transliteration": "śra" },
     { "first": "ಶ್", "second": "ಶ", "transliteration": "śśa" },
     { "first": "ಸ್", "second": "ತ", "transliteration": "sta" },
     { "first": "ಸ್", "second": "ಮ", "transliteration": "sma" },
     { "first": "ಸ್", "second": "ಸ", "transliteration": "ssa" },
-
     { "first": "ಹ್", "second": "ನ", "transliteration": "hna" },
     { "first": "ಹ್", "second": "ಮ", "transliteration": "hma" },
     { "first": "ಹ್", "second": "ಲ", "transliteration": "hla" },

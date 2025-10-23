@@ -11,11 +11,12 @@ const fontNames = {
 };
 
 const signaturePad = new SignaturePad(writingCanvas, {
-  // dotSize: 8,
-  minWidth: 1,
-  maxWidth: 5,
-  // minDistance: 1,
-  // velocityFilterWeight: 0.5,
+  // dotSize: 3,
+  // throttle: 24,
+  // minDistance: 2,
+  minWidth: 2,
+  maxWidth: 7,
+  velocityFilterWeight: 0.4,
   penColor: "#4285f4ff",
   backgroundColor: "#262626ff",
 });

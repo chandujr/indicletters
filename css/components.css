@@ -135,8 +135,16 @@ tr:hover {
   border-top: 4px solid var(--secondary);
 }
 
-.script-char { font-size: 2.2rem; }
-.latin-sub { font-size: 1rem; color: var(--text-secondary); margin-top: var(--space-xs); }
+.script-char {
+  font-size: 2.2rem;
+  cursor: pointer;
+}
+
+.latin-sub {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-top: var(--space-xs);
+}
 
 .conjuncts-table td:first-child {
   font-size: 1.8rem;
@@ -210,7 +218,7 @@ section > p {
   border-color: var(--primary);
 }
 
-.language-card[data-lang="kannada"] .language-icon { transform: translateY(-4px); }
+.language-card[data-lang="kannada"] .language-icon { transform: translateY(8px); }
 .language-card[data-lang="malayalam"] .language-icon { transform: translateY(2px); }
 
 /* Custom scrollbar styling */

@@ -27,7 +27,6 @@
   --success: #22c55e;
   --error: #ef4444;
   
-  --font-body: system-ui, -apple-system, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -35,6 +34,7 @@
   --font-size-lg: 1.25rem;
   --font-size-xl: 1.875rem;
   --font-size-xxl: 3rem;
+  --font-size-xxxl: 10rem;
   
   --space-xs: 4px;
   --space-sm: 8px;
@@ -45,7 +45,7 @@
   --space-2xl: 32px;
   --space-3xl: 48px;
   
-  --container-max: 76%;
+  --container-max: 78%;
   --container-max-tablet: 86%;
   --container-max-mobile: 96%;
   --border-radius: 12px;

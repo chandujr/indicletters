@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&display=swap');
+
+body, table, td, th, div, span {
+    font-family: 'Noto Sans Tamil', 'Noto Sans Malayalam', 'Noto Sans Kannada', 'Segoe UI', Arial, sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +11,6 @@
 }
 
 body {
-  font-family: var(--font-body);
   color: var(--text);
   line-height: 1.6;
   background: var(--bg-gradient);

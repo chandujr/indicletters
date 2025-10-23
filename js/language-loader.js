@@ -1,25 +1,17 @@
+var currLang = "";
 const loadLanguage = async () => {
-  const lang = new URLSearchParams(location.search).get("lang") || "kannada";
-  const fontUrls = {
-    kannada:
-      "https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada&display=swap",
-    tamil:
-      "https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil&display=swap",
-    malayalam:
-      "https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam&display=swap",
-  };
+  currLang = new URLSearchParams(location.search).get("lang") || "kannada";
 
   try {
-    const data = await fetch(`languages/${lang}.json`).then((r) => r.json());
+    const data = await fetch(`languages/${currLang}.json`).then((r) =>
+      r.json()
+    );
 
     document.title = `${data.language} Varnamala`;
     document.getElementById("native-name").textContent = data.nativeName;
     document.getElementById(
       "language-name"
     ).textContent = `${data.language} Varnamala`;
-
-    if (fontUrls[lang])
-      document.getElementById("script-font").href = fontUrls[lang];
 
     renderTables(data);
   } catch {
@@ -99,7 +91,7 @@ function assignClickFunction() {
   comboLetters.forEach((button) => {
     button.addEventListener("click", (event) => {
       let letter = event.currentTarget.dataset.letter;
-      if (letter) showCanvas(letter);
+      if (letter) showWritingPad(letter, currLang);
     });
   });
 }

@@ -58,14 +58,12 @@
         </header>
 
         <div class="writing-bg" id="writing-bg"></div>
+        <!-- <h3 class="writing-pad-header">Practice</h3> -->
         <div class="writing-pad">
-            <button class="close-button" onclick="closeCanvas()">Close</button>
-            <div class="content-area">
-            <h2>Popup Content</h2>
-            <p>This is the text or UI content area.</p>
-            </div>
-            <canvas id="canvas"></canvas>
-            <button class="clear-button" onclick="clearCanvas()">Clear</button>
+            <button class="close-button" onclick="closeWritingPad()">Close</button>
+            <canvas id="glyph-canvas"></canvas>
+            <canvas id="writing-canvas"></canvas>
+            <button class="clear-button" onclick="clearWritingCanvas()">Clear</button>
         </div>
 
         <main>

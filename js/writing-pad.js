@@ -12,7 +12,7 @@ const signaturePad = new SignaturePad(canvas, {
   backgroundColor: "#262626ff",
 });
 
-function showCanvas() {
+function showCanvas(letter) {
   writingPad.style.display = "flex";
   writingBg.classList.add("active");
   scheduleResize();

@@ -50,14 +50,16 @@ const renderTables = (data) => {
       (c) => `
     <tr ${c.hl == 1 ? 'class="row-highlight"' : ""}>
       <td>
-        <div class="script-char">${c.symbol}${halant.symbol}</div>
+        <div class="script-char" data-letter="${c.symbol}${halant.symbol}">${
+        c.symbol
+      }${halant.symbol}</div>
         <div class="latin-sub">${c.base}</div>
       </td>
       ${data.vowels
         .map(
           (v) => `
         <td>
-          <div class="script-char">${c.symbol}${v.diacritic}</div>
+          <div class="script-char" data-letter="${c.symbol}${v.diacritic}">${c.symbol}${v.diacritic}</div>
           <div class="latin-sub">${c.base}${v.transliteration}</div>
         </td>
       `
@@ -73,7 +75,9 @@ const renderTables = (data) => {
       (c) => `
     <tr ${c.hl == 1 ? 'class="row-highlight"' : ""}>
       <td>${c.first} + ${c.second}</td>
-      <td class="script-char">${c.result || c.first + c.second}</td>
+      <td class="script-char" data-letter="${c.first + c.second}">${
+        c.first + c.second
+      }</td>
       <td class="latin-sub">${c.transliteration}</td>
     </tr>
   `
@@ -81,11 +85,23 @@ const renderTables = (data) => {
     .join("");
 
   hideLoader();
+  assignClickFunction();
 };
 
 const hideLoader = () => {
   const overlay = document.getElementById("loadingOverlay");
   if (overlay) overlay.classList.add("hidden");
 };
+
+function assignClickFunction() {
+  const comboLetters = document.querySelectorAll(".script-char");
+
+  comboLetters.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      let letter = event.currentTarget.dataset.letter;
+      if (letter) showCanvas(letter);
+    });
+  });
+}
 
 document.addEventListener("DOMContentLoaded", loadLanguage);

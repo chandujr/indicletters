@@ -47,7 +47,7 @@ canvas {
 
 .writing-pad-header {
   position: absolute;
-  top: -26px;
+  top: -28px;
   width: 100%;
   text-align: center;
   font-size: var(--font-size-lg);
@@ -57,16 +57,39 @@ canvas {
 
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: -32px;
+  right: -8px;
   cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  font-size: var(--font-size-xxl);
+  line-height: 0;
+  font-weight: bold;
+  transform: rotate(45deg);
+  background: linear-gradient(90deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+  color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .clear-button {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 4px;
+  right: 4px;
   cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  font-size: var(--font-size-lg);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @media (orientation: portrait) {

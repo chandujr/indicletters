@@ -138,6 +138,7 @@ tr:hover {
 .script-char {
   font-size: 2.2rem;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .latin-sub {

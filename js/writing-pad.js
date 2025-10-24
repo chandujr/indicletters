@@ -9,6 +9,8 @@ const fontNames = {
   malayalam: "Noto Sans Malayalam",
   kannada: "Noto Sans Kannada",
 };
+const rootElement = document.body;
+const computedStyles = getComputedStyle(rootElement);
 
 const signaturePad = new SignaturePad(writingCanvas, {
   // dotSize: 3,
@@ -17,9 +19,17 @@ const signaturePad = new SignaturePad(writingCanvas, {
   minWidth: 2,
   maxWidth: 7,
   velocityFilterWeight: 0.4,
-  penColor: "#4285f4ff",
-  backgroundColor: "#262626ff",
 });
+
+function setWritingColors() {
+  const ctx = writingCanvas.getContext("2d");
+  const linearGradient = ctx.createLinearGradient(0, 0, writingCanvas.offsetWidth, 0);
+  linearGradient.addColorStop(0.3, computedStyles.getPropertyValue("--primary"));
+  linearGradient.addColorStop(0.7, computedStyles.getPropertyValue("--secondary"));
+  signaturePad.penColor = linearGradient;
+  signaturePad.backgroundColor = computedStyles.getPropertyValue("--card");
+  signaturePad.clear();
+}
 
 function showWritingPad(letter, font) {
   currentGlyph = letter;
@@ -34,7 +44,7 @@ function closeWritingPad() {
   clearWritingCanvas();
   writingPad.style.display = "none";
   writingBg.classList.remove("active");
-  clearGlyphCanvas();
+  flushGlyphCanvas(glyphCanvas);
   window.removeEventListener("resize", scheduleResize);
 }
 
@@ -43,18 +53,13 @@ function clearWritingCanvas() {
 }
 
 function renderGlyphCanvas() {
-  drawCenteredGlyph(
-    writingCanvas.width,
-    writingCanvas.height,
-    currFont,
-    currentGlyph
-  );
+  drawCenteredGlyph(writingCanvas.width, writingCanvas.height, currFont, currentGlyph);
 }
 
 function drawCenteredGlyph(width, height, font, char) {
   glyphCanvas.width = width;
   glyphCanvas.height = height;
-  const ctx = glyphCanvas.getContext("2d");
+  const ctx = flushGlyphCanvas(glyphCanvas);
 
   const targetFill = 0.7; // 70% of canvas
 
@@ -65,8 +70,7 @@ function drawCenteredGlyph(width, height, font, char) {
   // Measure the text
   let metrics = ctx.measureText(char);
   let textWidth = metrics.width;
-  let textHeight =
-    metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent;
+  let textHeight = metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent;
 
   // Calculate scale factors needed for both width and height
   const scaleX = (glyphCanvas.width * targetFill) / textWidth;
@@ -78,7 +82,7 @@ function drawCenteredGlyph(width, height, font, char) {
 
   // Apply the calculated font size
   ctx.font = `${fontSize}px "${font}"`;
-  ctx.fillStyle = "#1f1f1fff";
+  ctx.fillStyle = computedStyles.getPropertyValue("--text");
   ctx.textAlign = "center";
   ctx.textBaseline = "alphabetic";
 
@@ -87,17 +91,16 @@ function drawCenteredGlyph(width, height, font, char) {
 
   // Calculate centered position
   const centerX = glyphCanvas.width / 2;
-  const centerY =
-    glyphCanvas.height / 2 +
-    metrics.actualBoundingBoxAscent / 2 -
-    metrics.actualBoundingBoxDescent / 2;
+  const centerY = glyphCanvas.height / 2 + metrics.actualBoundingBoxAscent / 2 - metrics.actualBoundingBoxDescent / 2;
 
   ctx.fillText(char, centerX, centerY);
 }
 
-function clearGlyphCanvas() {
-  const ctx = glyphCanvas.getContext("2d");
-  ctx.clearRect(0, 0, glyphCanvas.width, glyphCanvas.height);
+function flushGlyphCanvas(canvas) {
+  const ctx = canvas.getContext("2d");
+  ctx.fillStyle = computedStyles.getPropertyValue("--bg");
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  return ctx;
 }
 
 let resizeTimer = null;
@@ -105,15 +108,15 @@ function scheduleResize() {
   if (resizeTimer) clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => {
     resizeTimer = null;
-    resizeCanvas();
+    resizeWritingCanvas();
+    setWritingColors();
     renderGlyphCanvas();
   }, 500);
 }
 
-function resizeCanvas() {
+function resizeWritingCanvas() {
   const ratio = Math.max(window.devicePixelRatio || 1, 1);
   writingCanvas.width = writingCanvas.offsetWidth * ratio;
   writingCanvas.height = writingCanvas.offsetHeight * ratio;
   writingCanvas.getContext("2d").scale(ratio, ratio);
-  signaturePad.clear();
 }

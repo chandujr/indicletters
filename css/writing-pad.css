@@ -27,7 +27,6 @@
   border: 2px solid var(--primary);
   border-top: 24px solid var(--primary);
   box-shadow: 0 8px 20px var(--primary-shadow);
-  overflow: hidden;
   z-index: 2000;
   transition: all 0.3s ease;
 }
@@ -44,6 +43,16 @@ canvas {
 
 #glyph-canvas {
   border-bottom: 4px dashed var(--border);
+}
+
+.writing-pad-header {
+  position: absolute;
+  top: -26px;
+  width: 100%;
+  text-align: center;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-writing-header);
 }
 
 .close-button {

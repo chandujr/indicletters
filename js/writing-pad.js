@@ -36,6 +36,7 @@ function showWritingPad(letter, font) {
   currFont = fontNames[font];
   writingPad.style.display = "flex";
   writingBg.classList.add("active");
+  document.body.style.overflow = "hidden";
   scheduleResize();
   window.addEventListener("resize", scheduleResize);
 }
@@ -44,6 +45,7 @@ function closeWritingPad() {
   clearWritingCanvas();
   writingPad.style.display = "none";
   writingBg.classList.remove("active");
+  document.body.style.overflow = "auto";
   flushGlyphCanvas(glyphCanvas);
   window.removeEventListener("resize", scheduleResize);
 }

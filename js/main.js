@@ -28,7 +28,7 @@ function initTheme() {
       // Short delay to show animation before navigation
       setTimeout(() => {
         toggleTheme();
-      }, 100);
+      }, 150);
     });
   }
 }
@@ -58,7 +58,7 @@ function initNavigation() {
         if (["kannada", "tamil", "malayalam"].includes(lang)) {
           location.href = `./language.html?lang=${lang}`;
         }
-      }, 100);
+      }, 150);
     });
   });
 
@@ -70,7 +70,7 @@ function initNavigation() {
       // Short delay to show animation before navigation
       setTimeout(() => {
         location.href = "./";
-      }, 100);
+      }, 150);
     });
   }
 }

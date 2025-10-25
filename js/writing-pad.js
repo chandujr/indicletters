@@ -9,8 +9,7 @@ const fontNames = {
   malayalam: "Noto Sans Malayalam",
   kannada: "Noto Sans Kannada",
 };
-const rootElement = document.body;
-const computedStyles = getComputedStyle(rootElement);
+const computedStyles = getComputedStyle(document.body);
 
 const signaturePad = new SignaturePad(writingCanvas, {
   // dotSize: 3,
@@ -122,3 +121,31 @@ function resizeWritingCanvas() {
   writingCanvas.height = writingCanvas.offsetHeight * ratio;
   writingCanvas.getContext("2d").scale(ratio, ratio);
 }
+
+function initListeners() {
+  const closeButton = document.querySelector(".close-button");
+  const clearButton = document.querySelector(".clear-button");
+
+  if (closeButton) {
+    closeButton.addEventListener("click", () => {
+      addButtonAnimation(closeButton);
+      setTimeout(() => {
+        closeWritingPad();
+      }, 150);
+    });
+  }
+
+  if (clearButton) {
+    clearButton.addEventListener("click", () => {
+      addButtonAnimation(clearButton);
+      setTimeout(() => {
+        clearWritingCanvas();
+      }, 150);
+    });
+  }
+}
+
+// Initialize everything
+document.addEventListener("DOMContentLoaded", () => {
+  initListeners();
+});

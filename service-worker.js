@@ -1,4 +1,4 @@
-const CACHE_NAME = "indic-varnamala-cache-v1.5";
+const CACHE_NAME = "indic-varnamala-cache-v1.6";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -14,8 +14,10 @@ self.addEventListener("install", (event) => {
         "./css/components.css",
         "./css/layout.css",
         "./css/variables.css",
+        "./css/writing-pad.css",
         "./js/language-loader.js",
         "./js/main.js",
+        "./js/writing-pad.js",
         "./languages/kannada.json",
         "./languages/malayalam.json",
         "./languages/tamil.json",
@@ -26,15 +28,7 @@ self.addEventListener("install", (event) => {
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches
-      .keys()
-      .then((keys) =>
-        Promise.all(
-          keys
-            .filter((key) => key !== CACHE_NAME)
-            .map((key) => caches.delete(key))
-        )
-      )
+    caches.keys().then((keys) => Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))))
   );
 });
 

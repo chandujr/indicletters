@@ -1,6 +1,6 @@
 # Indic Varnamala - Learn Indian Scripts
 
-Start learning Indian alphabets online. Use this page as a handy reference to see all the letters and their combinations.
+Start learning Indian alphabets online. Use this page as a handy reference to see and practice writing all the letters and their combinations.
 
 ## Support Me
 

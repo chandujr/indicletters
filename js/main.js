@@ -15,9 +15,14 @@ function addButtonAnimation(button) {
   }, 150);
 }
 
+const isDark = () => document.body.classList.contains("dark");
+const getSystemTheme = () => (window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
 // Theme functionality
 function initTheme() {
-  const savedTheme = localStorage.theme || "light";
+  const sysTheme = getSystemTheme();
+  const savedTheme = localStorage.prefTheme === sysTheme ? localStorage.theme || sysTheme : sysTheme;
+  localStorage.prefTheme = sysTheme;
   applyTheme(savedTheme);
   document.documentElement.classList.remove("dark");
 
@@ -28,7 +33,7 @@ function initTheme() {
       // Short delay to show animation before navigation
       setTimeout(() => {
         toggleTheme();
-      }, 100);
+      }, 150);
     });
   }
 }
@@ -39,13 +44,12 @@ function applyTheme(theme) {
   if (themeButton) {
     themeButton.textContent = theme === "dark" ? "☀️" : "🌙";
   }
+  localStorage.theme = theme;
 }
 
 function toggleTheme() {
-  const isDark = document.body.classList.contains("dark");
-  const newTheme = isDark ? "light" : "dark";
+  const newTheme = isDark() ? "light" : "dark";
   applyTheme(newTheme);
-  localStorage.theme = newTheme;
 }
 
 // Navigation functionality
@@ -58,7 +62,7 @@ function initNavigation() {
         if (["kannada", "tamil", "malayalam"].includes(lang)) {
           location.href = `./language.html?lang=${lang}`;
         }
-      }, 100);
+      }, 150);
     });
   });
 
@@ -70,7 +74,7 @@ function initNavigation() {
       // Short delay to show animation before navigation
       setTimeout(() => {
         location.href = "./";
-      }, 100);
+      }, 150);
     });
   }
 }
@@ -79,4 +83,9 @@ function initNavigation() {
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   initNavigation();
+});
+
+// Watch for color scheme change
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+  if (e.matches !== isDark()) toggleTheme();
 });

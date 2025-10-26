@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indic Varnamala - Learn Indian Scripts</title>
-    <meta name="description" content="Start learning Indian alphabets online. Use this page as a handy reference to see all the letters and their combinations.">
+    <meta name="description" content="Start learning Indian alphabets online. Use this page as a handy reference to see and practice writing all the letters and their combinations.">
     <meta name="keywords" content="India, language, Indian languages, Indian alphabets, Indian scripts, learn Kannada, Kannada script, Kannada letters, Kannada varnamala, learn Tamil, Tamil script, Tamil letters, Tamil varnamala, learn Malayalam, Malayalam script, Malayalam letters, Malayalam varnamala">
     <meta name="author" content="Chandu JR">
     <meta name="theme-color" content="#6366f1">
     
     <meta property="og:title" content="Learn Indian Scripts (Varnamala)">
-    <meta property="og:description" content="Start learning Indian alphabets online. Use this page as a handy reference to see all the letters and their combinations.">
+    <meta property="og:description" content="Start learning Indian alphabets online. Use this page as a handy reference to see and practice writing all the letters and their combinations.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://chandujr.github.io/indicvarnamala/">
     <meta property="og:image" content="https://chandujr.github.io/indicvarnamala/assets/preview.png">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Learn Indian Scripts (Varnamala)">
-    <meta name="twitter:description" content="Start learning Indian alphabets online. Use this page as a handy reference to see all the letters and their combinations.">
+    <meta name="twitter:description" content="Start learning Indian alphabets online. Use this page as a handy reference to see and practice writing all the letters and their combinations.">
     <meta name="twitter:image" content="https://chandujr.github.io/indicvarnamala/assets/preview.png">
 
     <script>
@@ -29,11 +29,12 @@
     </script>
 
     <link rel="manifest" href="manifest.json">
-    <link id="script-font" rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/writing-pad.css">
     <link rel="icon" href="assets/favicon.png">
 </head>
 <body tabindex="-1">
@@ -55,6 +56,15 @@
             <h1 id="native-name"></h1>
             <h2 id="language-name"></h2>
         </header>
+
+        <div class="writing-bg" id="writing-bg"></div>
+        <div class="writing-pad">
+            <div class="writing-pad-header">PRACTICE</div>
+            <button class="close-button">×</button>
+            <canvas id="glyph-canvas"></canvas>
+            <canvas id="writing-canvas"></canvas>
+            <button class="clear-button">🧽</button>
+        </div>
 
         <main>
             <section>
@@ -95,7 +105,9 @@
         <button id="theme-toggle" class="nav-button">🌙</button>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/4.1.7/signature_pad.umd.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/language-loader.js"></script>
+    <script src="js/writing-pad.js"></script>
 </body>
 </html>

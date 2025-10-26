@@ -2,6 +2,7 @@
   --primary: #6366f1;
   --primary-dark: #4f46e5;
   --secondary: #e83e8c;
+  --secondary-dark: #b31e63;
   --accent: #10b981;
   --warning: #f59e0b;
   --primary-shadow: #6366f14d;
@@ -22,19 +23,21 @@
   --card-dark: #1c1c1c;
   --text-dark: #f4f4f5;
   --text-secondary-dark: #a1a1aa;
+  --text-writing-header: #ffffff54;
   --border-dark: #27272a;
   
   --success: #22c55e;
   --error: #ef4444;
   
-  --font-body: system-ui, -apple-system, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-md: 1.125rem;
   --font-size-lg: 1.25rem;
   --font-size-xl: 1.875rem;
+  --font-size-xll: 2.4rem;
   --font-size-xxl: 3rem;
+  --font-size-xxxl: 10rem;
   
   --space-xs: 4px;
   --space-sm: 8px;
@@ -45,7 +48,7 @@
   --space-2xl: 32px;
   --space-3xl: 48px;
   
-  --container-max: 76%;
+  --container-max: 77%;
   --container-max-tablet: 86%;
   --container-max-mobile: 96%;
   --border-radius: 12px;

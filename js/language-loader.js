@@ -3,15 +3,11 @@ const loadLanguage = async () => {
   currLang = new URLSearchParams(location.search).get("lang") || "kannada";
 
   try {
-    const data = await fetch(`languages/${currLang}.json`).then((r) =>
-      r.json()
-    );
+    const data = await fetch(`languages/${currLang}.json`).then((r) => r.json());
 
     document.title = `${data.language} Varnamala`;
     document.getElementById("native-name").textContent = data.nativeName;
-    document.getElementById(
-      "language-name"
-    ).textContent = `${data.language} Varnamala`;
+    document.getElementById("language-name").textContent = `${data.language} Varnamala`;
 
     renderTables(data);
   } catch {
@@ -32,9 +28,7 @@ const renderTables = (data) => {
 
   header.innerHTML =
     `<tr><th>${halant.symbol}<br><span>(${halant.name})</span></th>` +
-    data.vowels
-      .map((v) => `<th>${v.symbol}<br><span>(${v.transliteration})</span></th>`)
-      .join("") +
+    data.vowels.map((v) => `<th>${v.symbol}<br><span>(${v.transliteration})</span></th>`).join("") +
     "</tr>";
 
   body.innerHTML = data.consonants
@@ -42,9 +36,7 @@ const renderTables = (data) => {
       (c) => `
     <tr ${c.hl == 1 ? 'class="row-highlight"' : ""}>
       <td>
-        <div class="script-char" data-letter="${c.symbol}${halant.symbol}">${
-        c.symbol
-      }${halant.symbol}</div>
+        <div class="script-char" data-letter="${c.symbol}${halant.symbol}">${c.symbol}${halant.symbol}</div>
         <div class="latin-sub">${c.base}</div>
       </td>
       ${data.vowels
@@ -67,9 +59,7 @@ const renderTables = (data) => {
       (c) => `
     <tr ${c.hl == 1 ? 'class="row-highlight"' : ""}>
       <td>${c.first} + ${c.second}</td>
-      <td class="script-char" data-letter="${c.first + c.second}">${
-        c.first + c.second
-      }</td>
+      <td class="script-char" data-letter="${c.first + c.second}">${c.first + c.second}</td>
       <td class="latin-sub">${c.transliteration}</td>
     </tr>
   `

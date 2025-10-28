@@ -19,7 +19,7 @@
   justify-content: center;
   align-items: center;
 
-    /* Remove blue highlight */
+  /* Remove blue highlight */
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -30,18 +30,18 @@
   -webkit-focus-ring-color: transparent;
 }
 
-.language-card:hover:not(.soon) { 
+.language-card:hover:not(.soon) {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   border-color: var(--primary);
   transform: scale(1.02);
   transition: transform 0.15s ease;
 }
 
-.language-card.soon { 
+.language-card.soon {
   opacity: 0.6;
 }
 
-.language-icon { 
+.language-icon {
   font-size: 3.5rem;
   color: var(--primary);
   margin-bottom: var(--space-lg);
@@ -120,8 +120,12 @@ td {
   text-align: center;
 }
 
-tr:nth-child(even) { background: var(--bg); }
-.dark tr:nth-child(even) { background: var(--bg-dark); }
+tr:nth-child(even) {
+  background: var(--bg);
+}
+.dark tr:nth-child(even) {
+  background: var(--bg-dark);
+}
 
 tr:hover {
   background: rgba(99, 102, 241, 0.05);
@@ -207,7 +211,7 @@ section > p {
   transform: scale(0.9);
 }
 
-#home-button { 
+#home-button {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: white;
   border-color: var(--primary);
@@ -219,8 +223,12 @@ section > p {
   border-color: var(--primary);
 }
 
-.language-card[data-lang="kannada"] .language-icon { transform: translateY(8px); }
-.language-card[data-lang="malayalam"] .language-icon { transform: translateY(2px); }
+.language-card[data-lang="kannada"] .language-icon {
+  transform: translateY(8px);
+}
+.language-card[data-lang="malayalam"] .language-icon {
+  transform: translateY(2px);
+}
 
 /* Custom scrollbar styling */
 .table-wrapper::-webkit-scrollbar {
@@ -293,16 +301,17 @@ section > p {
   animation: spin 1s cubic-bezier(0.18, 0.89, 0.32, 1.28) infinite;
 
   filter: blur(0.8px);
-  box-shadow:
-    0 0 10px var(--secondary),
-    0 0 20px var(--secondary),
-    0 0 40px var(--secondary),
+  box-shadow: 0 0 10px var(--secondary), 0 0 20px var(--secondary), 0 0 40px var(--secondary),
     inset 0 0 20px var(--primary);
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .dark .spinner {
@@ -316,7 +325,7 @@ section > p {
     height: 52px;
     font-size: 1.4rem;
   }
-  
+
   .nav-buttons {
     bottom: var(--space-md);
     right: var(--space-md);
@@ -329,7 +338,7 @@ section > p {
     height: 48px;
     font-size: 1.3rem;
   }
-  
+
   .nav-buttons {
     bottom: var(--space-lg);
     right: var(--space-sm);

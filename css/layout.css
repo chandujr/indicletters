@@ -1,13 +1,13 @@
 .warning-block {
-    position: sticky;
-    top: 0;
-    background: var(--error);
-    color: var(--card);
-    text-align: center;
-    padding: 4px;
-    margin-bottom: 16px;
-    font-size: 1.2rem;
-    z-index: 9100;
+  position: sticky;
+  top: 0;
+  background: var(--error);
+  color: var(--card);
+  text-align: center;
+  padding: 4px;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+  z-index: 9100;
 }
 
 .landing-page .container {
@@ -48,7 +48,7 @@
     gap: var(--space-lg);
     padding: 0 var(--space-md);
   }
-  
+
   .landing-page .container {
     padding: var(--space-2xl) var(--space-md);
   }
@@ -60,7 +60,8 @@
     font-size: 1.8rem;
   }
 
-  th, td {
+  th,
+  td {
     padding: var(--space-lg) var(--space-md);
   }
 }
@@ -70,7 +71,7 @@
     gap: var(--space-md);
     padding: 0 var(--space-sm);
   }
-  
+
   .landing-page .container {
     padding: var(--space-xl) var(--space-sm);
   }

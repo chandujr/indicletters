@@ -1,9 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
-body, table, td, th, div, span {
-    font-family: Rubik, Helvetica, Arial, 'Segoe UI', 'Noto Sans Tamil', 'Noto Sans Malayalam', 'Noto Sans Kannada', sans-serif;
-    font-optical-sizing: auto;
+body,
+table,
+td,
+th,
+div,
+span {
+  font-family: Rubik, Helvetica, Arial, "Segoe UI", "Noto Sans Tamil", "Noto Sans Malayalam", "Noto Sans Kannada",
+    sans-serif;
+  font-optical-sizing: auto;
 }
 
 * {

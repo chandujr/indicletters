@@ -43,7 +43,7 @@ const renderTables = (data) => {
         .map(
           (v) => `
         <td>
-          <div class="script-char" data-letter="${c.symbol}${v.diacritic}">${c.symbol}${v.diacritic}</div>
+          <div class="script-char" data-letter="${c.symbol}${v.diacritic}" data-translit=${c.base}${v.transliteration}>${c.symbol}${v.diacritic}</div>
           <div class="latin-sub">${c.base}${v.transliteration}</div>
         </td>
       `
@@ -59,7 +59,9 @@ const renderTables = (data) => {
       (c) => `
     <tr ${c.hl == 1 ? 'class="row-highlight"' : ""}>
       <td>${c.first} + ${c.second}</td>
-      <td class="script-char" data-letter="${c.first + c.second}">${c.first + c.second}</td>
+      <td class="script-char" data-letter="${c.first + c.second}" data-translit=${c.transliteration}>${
+        c.first + c.second
+      }</td>
       <td class="latin-sub">${c.transliteration}</td>
     </tr>
   `
@@ -81,7 +83,8 @@ function assignClickFunction() {
   comboLetters.forEach((button) => {
     button.addEventListener("click", (event) => {
       let letter = event.currentTarget.dataset.letter;
-      if (letter) showWritingPad(letter, currLang);
+      let translit = event.currentTarget.dataset.translit;
+      if (letter) showWritingPad(letter, translit, currLang);
     });
   });
 }

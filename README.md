@@ -2,6 +2,8 @@
 
 Start learning Indian alphabets online. Use this page as a handy reference to see and practice writing all the letters and their combinations.
 
+https://indicletters.com/
+
 ## Support Me
 
 If you find this website helpful, please consider supporting me:

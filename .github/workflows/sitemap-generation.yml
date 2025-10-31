@@ -22,7 +22,7 @@ jobs:
         id: sitemap
         uses: cicirello/generate-sitemap@v1.10.3
         with:
-          base-url-path: https://chandujr.github.io/indicvarnamala/
+          base-url-path: https://chandujr.github.io/indicletters/
 
       - name: Commit sitemap
         run: |

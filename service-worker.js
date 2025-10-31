@@ -1,4 +1,4 @@
-const CACHE_NAME = "indic-letters-cache-v1.8";
+const CACHE_NAME = "indic-letters-cache-v1.9";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

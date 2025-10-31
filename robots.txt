@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chandujr.github.io/indicletters/sitemap.xml
+Sitemap: https://indicletters.com/sitemap.xml

@@ -129,6 +129,7 @@ function resizeWritingCanvas() {
 function initListeners() {
   const closeButton = document.querySelector(".close-button");
   const clearButton = document.querySelector(".clear-button");
+  const soundButton = document.querySelector(".writing-sound-button");
 
   if (closeButton) {
     closeButton.addEventListener("click", () => {
@@ -144,6 +145,15 @@ function initListeners() {
       addButtonAnimation(clearButton);
       setTimeout(() => {
         clearWritingCanvas();
+      }, 150);
+    });
+  }
+
+  if (soundButton) {
+    soundButton.addEventListener("click", () => {
+      addButtonAnimation(soundButton);
+      setTimeout(() => {
+        playPronunciation(currentGlyph, "ta-IN");
       }, 150);
     });
   }

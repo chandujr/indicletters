@@ -78,6 +78,16 @@ canvas {
   transform: scale(0.85);
 }
 
+.writing-translit {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  left: 8px;
+  width: 44px;
+  height: 44px;
+  line-height: 0;
+}
+
 .clear-button {
   position: absolute;
   bottom: 4px;

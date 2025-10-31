@@ -30,9 +30,13 @@ function setWritingColors() {
   signaturePad.clear();
 }
 
-function showWritingPad(letter, font) {
+function showWritingPad(letter, translit, lang) {
   currentGlyph = letter;
-  currFont = fontNames[font];
+  currFont = fontNames[lang];
+
+  const glyphTranslit = document.querySelector(".writing-translit");
+  glyphTranslit.textContent = translit;
+
   writingPad.style.display = "flex";
   writingBg.classList.add("active");
   document.body.style.overflow = "hidden";

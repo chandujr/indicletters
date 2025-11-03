@@ -57,7 +57,7 @@
     font-size: var(--font-size-xl);
   }
   h2 {
-    font-size: 1.8rem;
+    font-size: var(--font-size-llg);
   }
 
   th,

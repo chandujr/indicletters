@@ -52,70 +52,74 @@
     <div id="warning-block" class="warning-block">⚠️ Please enable JavaScript to view this page properly</div>
     <script>
       (function () {
-        // Checking for JS blocker
-        const warningBlock = document.getElementById("warning-block");
-        if (warningBlock) warningBlock.style.display = "none";
+        document.getElementById("warning-block").style.display = "none";
       })();
     </script>
+
+    <header class="site-header">
+      <div class="site-brand">
+        <img src="assets/icon-192.png" alt="Indic Letters Logo" class="brand-logo" />
+        <span>Indic Letters</span>
+      </div>
+      <button id="theme-toggle" class="nav-btn">🌙</button>
+    </header>
+
     <div class="container">
-      <header>
-        <h1>Indic Letters</h1>
-        <p class="subtitle">Learn consonant-vowel and consonant-consonant combinations in Indian scripts</p>
-      </header>
-
       <main>
-        <div class="language-grid">
-          <div class="language-card" data-lang="tamil">
-            <div class="language-icon">த</div>
-            <h3>Tamil</h3>
-            <p>தமிழ்</p>
-            <span class="status">Available</span>
-          </div>
+        <div class="landing-intro">
+          <section class="hero">
+            <h1 class="hero-title">Learn Indic Scripts Easily</h1>
+            <p class="hero-tagline">See every letter and combination - and practice writing them</p>
+          </section>
+          <div class="language-grid">
+            <div class="language-card" data-lang="tamil">
+              <div class="language-icon">த</div>
+              <h3>Tamil</h3>
+              <p>தமிழ்</p>
+              <span class="status">Available</span>
+            </div>
 
-          <div class="language-card" data-lang="malayalam">
-            <div class="language-icon">മ</div>
-            <h3>Malayalam</h3>
-            <p>മലയാളം</p>
-            <span class="status">Available</span>
-          </div>
+            <div class="language-card" data-lang="malayalam">
+              <div class="language-icon">മ</div>
+              <h3>Malayalam</h3>
+              <p>മലയാളം</p>
+              <span class="status">Available</span>
+            </div>
 
-          <div class="language-card" data-lang="kannada">
-            <div class="language-icon">ಕ</div>
-            <h3>Kannada</h3>
-            <p>ಕನ್ನಡ</p>
-            <span class="status">Available</span>
-          </div>
+            <div class="language-card" data-lang="kannada">
+              <div class="language-icon">ಕ</div>
+              <h3>Kannada</h3>
+              <p>ಕನ್ನಡ</p>
+              <span class="status">Available</span>
+            </div>
 
-          <div class="language-card soon" data-lang="telugu">
-            <div class="language-icon">త</div>
-            <h3>Telugu</h3>
-            <p>తెలుగు</p>
-            <span class="status soon">Coming Soon</span>
-          </div>
+            <div class="language-card soon" data-lang="telugu">
+              <div class="language-icon">త</div>
+              <h3>Telugu</h3>
+              <p>తెలుగు</p>
+              <span class="status soon">Coming Soon</span>
+            </div>
 
-          <div class="language-card soon" data-lang="devanagari">
-            <div class="language-icon">द</div>
-            <h3>Devanagari</h3>
-            <p>देवनागरी</p>
-            <span class="status soon">Coming Soon</span>
-          </div>
+            <div class="language-card soon" data-lang="devanagari">
+              <div class="language-icon">द</div>
+              <h3>Devanagari</h3>
+              <p>देवनागरी</p>
+              <span class="status soon">Coming Soon</span>
+            </div>
 
-          <div class="language-card soon" data-lang="gurmukhi">
-            <div class="language-icon">ਬ</div>
-            <h3>Gurmukhi</h3>
-            <p>ਗੁਰਮੁਖੀ</p>
-            <span class="status soon">Coming Soon</span>
+            <div class="language-card soon" data-lang="gurmukhi">
+              <div class="language-icon">ਬ</div>
+              <h3>Gurmukhi</h3>
+              <p>ਗੁਰਮੁਖੀ</p>
+              <span class="status soon">Coming Soon</span>
+            </div>
           </div>
         </div>
       </main>
 
       <footer>
-        <p>Open source project | <a href="https://github.com/chandujr/indicletters" target="_blank">GitHub</a></p>
+        <p>© 2025 Indic Letters • <a href="https://github.com/chandujr/indicletters" target="_blank">GitHub</a></p>
       </footer>
-    </div>
-
-    <div class="nav-buttons">
-      <button id="theme-toggle" class="nav-button">🌙</button>
     </div>
 
     <script src="js/main.js"></script>

@@ -7,7 +7,6 @@ const loadLanguage = async () => {
 
     document.title = `${data.language} Letters`;
     document.getElementById("native-name").textContent = data.nativeName;
-    document.getElementById("language-name").textContent = `${data.language} Letters`;
 
     renderTables(data);
   } catch {

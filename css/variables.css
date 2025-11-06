@@ -9,7 +9,7 @@
 
   --bg: #f3f3f3;
   --bg-secondary: #f4f4f5;
-  --bg-gradient: radial-gradient(circle, #6366f120, #ec489920);
+  --bg-gradient: radial-gradient(circle, #6366f130, #ec489930);
   --card: #ffffff;
   --text: #18181b;
   --text-secondary: #71717a;
@@ -45,6 +45,7 @@
   --space-mg: 20px;
   --space-xl: 24px;
   --space-2xl: 32px;
+  --space-xxl: 40px;
   --space-3xl: 48px;
 
   --container-max: 77%;

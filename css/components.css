@@ -305,6 +305,7 @@ section > p {
   color: var(--primary);
   cursor: pointer;
   user-select: none;
+  text-shadow: 0 0 10px var(--primary-shadow);
 }
 
 .brand-logo {
@@ -342,7 +343,7 @@ section > p {
 
 .hero {
   text-align: center;
-  margin: var(--space-3xl) auto var(--space-2xl);
+  margin: var(--space-2xl) auto var(--space-2xl);
   max-width: 700px;
 }
 

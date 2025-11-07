@@ -71,6 +71,10 @@
   .language-card {
     padding: var(--space-mg);
   }
+
+  h1 {
+    font-size: var(--font-size-llg);
+  }
 }
 
 @media (max-width: 350px) {

@@ -6,8 +6,7 @@ const loadLanguage = async () => {
     const data = await fetch(`languages/${currLang}.json`).then((r) => r.json());
 
     document.title = `${data.language} Letters`;
-    document.getElementById("native-name").textContent = data.nativeName;
-    document.getElementById("language-name").textContent = `${data.language} Letters`;
+    document.getElementById("lang-name").textContent = `${data.nativeName} • ${data.language}`;
 
     renderTables(data);
   } catch {

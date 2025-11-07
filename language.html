@@ -53,18 +53,27 @@
     <div id="warning-block" class="warning-block">⚠️ Please enable JavaScript to view this page properly</div>
     <script>
       (function () {
-        // Checking for JS blocker
-        const warningBlock = document.getElementById("warning-block");
-        if (warningBlock) warningBlock.style.display = "none";
+        document.getElementById("warning-block").style.display = "none";
       })();
     </script>
+
+    <header class="site-header">
+      <div class="site-brand" id="home-nav">
+        <img src="assets/icon-192.png" alt="Indic Letters Logo" class="brand-logo" />
+        <span>Indic Letters</span>
+      </div>
+      <div class="right-actions">
+        <button id="home-button" class="nav-btn">🏠</button>
+        <button id="theme-toggle" class="nav-btn">🌙</button>
+      </div>
+    </header>
+
     <div id="loadingOverlay" class="loading-overlay">
       <div class="spinner"></div>
     </div>
     <div class="container">
       <header>
-        <h1 id="native-name"></h1>
-        <h2 id="language-name"></h2>
+        <h1 id="lang-name"></h1>
       </header>
 
       <div class="writing-bg" id="writing-bg"></div>
@@ -107,13 +116,8 @@
       </main>
 
       <footer>
-        <p>Open source project | <a href="https://github.com/chandujr/indicletters" target="_blank">GitHub</a></p>
+        <p>© 2025 Indic Letters • <a href="https://github.com/chandujr/indicletters" target="_blank">GitHub</a></p>
       </footer>
-    </div>
-
-    <div class="nav-buttons">
-      <button id="home-button" class="nav-button">🏠</button>
-      <button id="theme-toggle" class="nav-button">🌙</button>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/4.1.7/signature_pad.umd.min.js"></script>

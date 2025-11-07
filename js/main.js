@@ -36,6 +36,15 @@ function initTheme() {
       }, 150);
     });
   }
+
+  // New header theme button
+  const themeMini = document.getElementById("theme-toggle-mini");
+  if (themeMini) {
+    themeMini.addEventListener("click", () => {
+      addButtonAnimation(themeMini);
+      setTimeout(() => toggleTheme(), 150);
+    });
+  }
 }
 
 function applyTheme(theme) {
@@ -75,6 +84,14 @@ function initNavigation() {
       setTimeout(() => {
         location.href = "./";
       }, 150);
+    });
+  }
+
+  // brand click returns home too
+  const brand = document.querySelector(".site-brand");
+  if (brand) {
+    brand.addEventListener("click", () => {
+      location.href = "./";
     });
   }
 }

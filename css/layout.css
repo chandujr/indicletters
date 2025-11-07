@@ -51,9 +51,6 @@
   h1 {
     font-size: var(--font-size-xl);
   }
-  h2 {
-    font-size: var(--font-size-llg);
-  }
 
   th,
   td {

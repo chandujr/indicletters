@@ -199,6 +199,11 @@ tr:hover {
   background: var(--bg-secondary);
 }
 
+.dark .tab-btn:hover {
+  color: var(--text);
+  background: var(--bg-secondary-dark);
+}
+
 .tab-btn.active {
   color: var(--primary);
   background: var(--card);

@@ -87,32 +87,37 @@
       </div>
 
       <main>
-        <section>
-          <h3>Consonant + Vowel</h3>
-          <div class="table-wrapper">
-            <table class="letters-table">
-              <thead id="alphabet-header"></thead>
-              <tbody id="alphabet-body"></tbody>
-            </table>
-          </div>
-        </section>
+        <div class="tab-navigation">
+          <button class="tab-btn active" data-tab="vowels">Consonant + Vowel</button>
+          <button class="tab-btn" data-tab="conjuncts">Consonant + Consonant</button>
+        </div>
 
-        <section>
-          <h3>Consonant + Consonant</h3>
-          <p class="subtitle">(Common Conjuncts)</p>
-          <div class="table-wrapper">
-            <table class="conjuncts-table">
-              <thead>
-                <tr>
-                  <th>Conjunct</th>
-                  <th>Form</th>
-                  <th>Romanization</th>
-                </tr>
-              </thead>
-              <tbody id="conjunct-body"></tbody>
-            </table>
-          </div>
-        </section>
+        <div class="tab-content">
+          <section id="vowels-tab" class="tab-pane active">
+            <div class="table-wrapper">
+              <table class="letters-table">
+                <thead id="alphabet-header"></thead>
+                <tbody id="alphabet-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="conjuncts-tab" class="tab-pane">
+            <p class="subtitle">(Common Conjuncts)</p>
+            <div class="table-wrapper">
+              <table class="conjuncts-table">
+                <thead>
+                  <tr>
+                    <th>Conjunct</th>
+                    <th>Form</th>
+                    <th>Romanization</th>
+                  </tr>
+                </thead>
+                <tbody id="conjunct-body"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
       </main>
 
       <footer>

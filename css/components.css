@@ -153,9 +153,28 @@ tr:hover {
   font-weight: 500;
 }
 
+.vowels-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+}
+
+.vowels-table td:first-child {
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.vowels-table td:last-child {
+  text-align: center;
+  padding: var(--space-lg);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
 /* Tab Navigation */
 .tab-navigation {
   display: flex;
+  justify-content: center;
   gap: var(--space-sm);
   margin-bottom: var(--space-xl);
   border-bottom: 2px solid var(--border);

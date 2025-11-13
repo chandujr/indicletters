@@ -53,6 +53,19 @@ const renderTables = (data) => {
     )
     .join("");
 
+  document.getElementById("vowels-basic-body").innerHTML = data.vowels
+    .map(
+      (v) => `
+    <tr>
+      <td>
+        <div class="script-char" data-letter="${v.symbol}" data-translit="${v.transliteration}">${v.symbol}</div>
+      </td>
+      <td class="latin-sub">${v.transliteration}</td>
+    </tr>
+  `
+    )
+    .join("");
+
   document.getElementById("conjunct-body").innerHTML = data.conjuncts
     .map(
       (c) => `

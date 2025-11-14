@@ -251,18 +251,6 @@ section > p {
   font-size: var(--font-size-md);
 }
 
-#home-button {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: white;
-  border-color: var(--primary);
-}
-
-#theme-toggle {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: white;
-  border-color: var(--primary);
-}
-
 .language-card[data-lang="kannada"] .language-icon {
   transform: translateY(8px);
 }

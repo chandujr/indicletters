@@ -36,15 +36,6 @@ function initTheme() {
       }, 150);
     });
   }
-
-  // New header theme button
-  const themeMini = document.getElementById("theme-toggle-mini");
-  if (themeMini) {
-    themeMini.addEventListener("click", () => {
-      addButtonAnimation(themeMini);
-      setTimeout(() => toggleTheme(), 150);
-    });
-  }
 }
 
 function applyTheme(theme) {
@@ -83,6 +74,18 @@ function initNavigation() {
       // Short delay to show animation before navigation
       setTimeout(() => {
         location.href = "./";
+      }, 150);
+    });
+  }
+
+  // GitHub button
+  const githubButton = document.getElementById("github-button");
+  if (githubButton) {
+    githubButton.addEventListener("click", () => {
+      addButtonAnimation(githubButton);
+      // Short delay to show animation before opening link
+      setTimeout(() => {
+        window.open("https://github.com/chandujr/indicletters", "_blank");
       }, 150);
     });
   }

@@ -45,11 +45,11 @@ const renderTables = (data) => {
           <div class="script-char" data-letter="${c.symbol}${v.diacritic}" data-translit=${c.base}${v.transliteration}>${c.symbol}${v.diacritic}</div>
           <div class="latin-sub">${c.base}${v.transliteration}</div>
         </td>
-      `
+      `,
         )
         .join("")}
     </tr>
-  `
+  `,
     )
     .join("");
 
@@ -62,7 +62,7 @@ const renderTables = (data) => {
       </td>
       <td class="latin-sub">${v.transliteration}</td>
     </tr>
-  `
+  `,
     )
     .join("");
 
@@ -76,7 +76,7 @@ const renderTables = (data) => {
       }</td>
       <td class="latin-sub">${c.transliteration}</td>
     </tr>
-  `
+  `,
     )
     .join("");
 
@@ -91,20 +91,20 @@ const hideLoader = () => {
 };
 
 const setupTabs = () => {
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabPanes = document.querySelectorAll('.tab-pane');
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const tabPanes = document.querySelectorAll(".tab-pane");
 
-  tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
       const targetTab = button.dataset.tab;
 
       // Remove active class from all buttons and panes
-      tabButtons.forEach(btn => btn.classList.remove('active'));
-      tabPanes.forEach(pane => pane.classList.remove('active'));
+      tabButtons.forEach((btn) => btn.classList.remove("active"));
+      tabPanes.forEach((pane) => pane.classList.remove("active"));
 
       // Add active class to clicked button and corresponding pane
-      button.classList.add('active');
-      document.getElementById(`${targetTab}-tab`).classList.add('active');
+      button.classList.add("active");
+      document.getElementById(`${targetTab}-tab`).classList.add("active");
     });
   });
 };

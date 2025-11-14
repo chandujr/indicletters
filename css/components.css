@@ -11,7 +11,9 @@
   border-radius: var(--border-radius);
   text-align: center;
   cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.06);
   border: 1px solid var(--border);
   min-height: 180px;
   display: flex;
@@ -85,7 +87,9 @@
   overflow: auto;
   max-height: calc(100dvh - 270px);
   clip-path: inset(0 round var(--border-radius));
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.06);
   border-bottom: 1px solid var(--border);
 }
 
@@ -328,7 +332,10 @@ section > p {
   animation: spin 1s cubic-bezier(0.18, 0.89, 0.32, 1.28) infinite;
 
   filter: blur(0.8px);
-  box-shadow: 0 0 10px var(--secondary), 0 0 20px var(--secondary), 0 0 40px var(--secondary),
+  box-shadow:
+    0 0 10px var(--secondary),
+    0 0 20px var(--secondary),
+    0 0 40px var(--secondary),
     inset 0 0 20px var(--primary);
 }
 
@@ -437,9 +444,9 @@ section > p {
 
 @media (max-width: 480px) {
   .table-wrapper {
-      max-height: calc(100dvh - 250px);
-      clip-path: inset(0 0 0 0 round 0 0 var(--border-radius) var(--border-radius));
-    }
+    max-height: calc(100dvh - 250px);
+    clip-path: inset(0 0 0 0 round 0 0 var(--border-radius) var(--border-radius));
+  }
 
   .site-header {
     padding: var(--space-sm) var(--space-md);
@@ -461,7 +468,7 @@ section > p {
   }
 
   .tab-navigation {
-      margin: var(--space-lg) 0 0 0;
+    margin: var(--space-lg) 0 0 0;
   }
 
   .tab-btn {
@@ -472,6 +479,6 @@ section > p {
 
 @media (max-width: 360px) {
   .tab-navigation {
-        gap: 0;
+    gap: 0;
   }
 }

@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   backdrop-filter: blur(8px);
   z-index: 1900;
   opacity: 0;
@@ -112,20 +112,20 @@ canvas {
 @media (orientation: portrait) {
   .writing-pad {
     width: 75vw;
-    height: 75vh;
+    height: 75dvh;
   }
 }
 
 @media (orientation: landscape) {
   .writing-pad {
     width: 50vw;
-    height: 50vh;
+    height: 50dvh;
   }
 }
 
 @media (orientation: landscape) and (max-width: 1024px) {
   .writing-pad {
     width: 75vw;
-    height: 75vh;
+    height: 75dvh;
   }
 }

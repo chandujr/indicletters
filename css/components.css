@@ -83,11 +83,10 @@
 
 .table-wrapper {
   overflow: auto;
-  max-height: calc(100vh - 280px);
+  max-height: calc(100dvh - 270px);
   clip-path: inset(0 round var(--border-radius));
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
   border-bottom: 1px solid var(--border);
-  margin-bottom: var(--space-xl);
 }
 
 table {
@@ -438,7 +437,7 @@ section > p {
 
 @media (max-width: 480px) {
   .table-wrapper {
-      max-height: calc(100vh - 260px);
+      max-height: calc(100dvh - 250px);
       clip-path: inset(0 0 0 0 round 0 0 var(--border-radius) var(--border-radius));
     }
 
@@ -472,7 +471,7 @@ section > p {
 }
 
 @media (max-width: 360px) {
-  .table-wrapper {
-    max-height: calc(100vh - 280px);
+  .tab-navigation {
+        gap: 0;
   }
 }

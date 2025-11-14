@@ -87,7 +87,7 @@ a:hover {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: var(--space-lg);
-  min-height: 90vh;
+  min-height: 90dvh;
   display: flex;
   flex-direction: column;
 }

@@ -87,7 +87,7 @@ a:hover {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: var(--space-lg);
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
 }
@@ -99,7 +99,7 @@ header {
 footer {
   text-align: center;
   margin-top: auto;
-  padding-top: var(--space-xxl);
+  padding-top: var(--space-mg);
   opacity: 0.7;
 }
 

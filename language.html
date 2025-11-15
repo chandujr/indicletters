@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Indic Letters - Learn Indian Scripts</title>
     <meta
       name="description"
@@ -64,6 +64,7 @@
       </div>
       <div class="right-actions">
         <button id="home-button" class="nav-btn">🏠</button>
+        <button id="github-button" class="nav-btn">🐙</button>
         <button id="theme-toggle" class="nav-btn">🌙</button>
       </div>
     </header>
@@ -87,36 +88,55 @@
       </div>
 
       <main>
-        <section>
-          <h3>Consonant + Vowel</h3>
-          <div class="table-wrapper">
-            <table class="letters-table">
-              <thead id="alphabet-header"></thead>
-              <tbody id="alphabet-body"></tbody>
-            </table>
-          </div>
-        </section>
+        <div class="tab-navigation">
+          <button class="tab-btn active" data-tab="vowels-basic">Vowels</button>
+          <button class="tab-btn" data-tab="vowels">Consonant + Vowel</button>
+          <button class="tab-btn" data-tab="conjuncts">Consonant + Consonant</button>
+        </div>
 
-        <section>
-          <h3>Consonant + Consonant</h3>
-          <p class="subtitle">(Common Conjuncts)</p>
-          <div class="table-wrapper">
-            <table class="conjuncts-table">
-              <thead>
-                <tr>
-                  <th>Conjunct</th>
-                  <th>Form</th>
-                  <th>Romanization</th>
-                </tr>
-              </thead>
-              <tbody id="conjunct-body"></tbody>
-            </table>
-          </div>
-        </section>
+        <div class="tab-content">
+          <section id="vowels-basic-tab" class="tab-pane active">
+            <div class="table-wrapper">
+              <table class="vowels-table">
+                <thead>
+                  <tr>
+                    <th>Symbol</th>
+                    <th>Romanization</th>
+                  </tr>
+                </thead>
+                <tbody id="vowels-basic-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="vowels-tab" class="tab-pane">
+            <div class="table-wrapper">
+              <table class="letters-table">
+                <thead id="alphabet-header"></thead>
+                <tbody id="alphabet-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="conjuncts-tab" class="tab-pane">
+            <div class="table-wrapper">
+              <table class="conjuncts-table">
+                <thead>
+                  <tr>
+                    <th>Conjunct</th>
+                    <th>Form</th>
+                    <th>Romanization</th>
+                  </tr>
+                </thead>
+                <tbody id="conjunct-body"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
       </main>
 
       <footer>
-        <p>© 2025 Indic Letters • <a href="https://github.com/chandujr/indicletters" target="_blank">GitHub</a></p>
+        <p>© 2025 Indic Letters</p>
       </footer>
     </div>
 

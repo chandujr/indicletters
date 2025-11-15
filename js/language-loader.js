@@ -45,11 +45,24 @@ const renderTables = (data) => {
           <div class="script-char" data-letter="${c.symbol}${v.diacritic}" data-translit=${c.base}${v.transliteration}>${c.symbol}${v.diacritic}</div>
           <div class="latin-sub">${c.base}${v.transliteration}</div>
         </td>
-      `
+      `,
         )
         .join("")}
     </tr>
-  `
+  `,
+    )
+    .join("");
+
+  document.getElementById("vowels-basic-body").innerHTML = data.vowels
+    .map(
+      (v) => `
+    <tr>
+      <td>
+        <div class="script-char" data-letter="${v.symbol}" data-translit="${v.transliteration}">${v.symbol}</div>
+      </td>
+      <td class="latin-sub">${v.transliteration}</td>
+    </tr>
+  `,
     )
     .join("");
 
@@ -63,17 +76,37 @@ const renderTables = (data) => {
       }</td>
       <td class="latin-sub">${c.transliteration}</td>
     </tr>
-  `
+  `,
     )
     .join("");
 
   hideLoader();
   assignClickFunction();
+  setupTabs();
 };
 
 const hideLoader = () => {
   const overlay = document.getElementById("loadingOverlay");
   if (overlay) overlay.classList.add("hidden");
+};
+
+const setupTabs = () => {
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const tabPanes = document.querySelectorAll(".tab-pane");
+
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const targetTab = button.dataset.tab;
+
+      // Remove active class from all buttons and panes
+      tabButtons.forEach((btn) => btn.classList.remove("active"));
+      tabPanes.forEach((pane) => pane.classList.remove("active"));
+
+      // Add active class to clicked button and corresponding pane
+      button.classList.add("active");
+      document.getElementById(`${targetTab}-tab`).classList.add("active");
+    });
+  });
 };
 
 function assignClickFunction() {

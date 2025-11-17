@@ -93,6 +93,45 @@
   border-bottom: 1px solid var(--border);
 }
 
+/* Custom scrollbar styling of table */
+.table-wrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* For Firefox */
+.table-wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--bg-secondary);
+}
+
+/* Dark theme adjustments */
+.dark .table-wrapper::-webkit-scrollbar-track {
+  background: var(--bg-secondary-dark);
+}
+
+.dark .table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--primary);
+}
+
+.dark .table-wrapper {
+  scrollbar-color: var(--primary) var(--bg-secondary-dark);
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -261,45 +300,6 @@ section > p {
   transform: translateY(2px);
 }
 
-/* Custom scrollbar styling */
-.table-wrapper::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.table-wrapper::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
-  border-radius: 4px;
-}
-
-.table-wrapper::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 4px;
-}
-
-.table-wrapper::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark);
-}
-
-/* For Firefox */
-.table-wrapper {
-  scrollbar-width: thin;
-  scrollbar-color: var(--primary) var(--bg-secondary);
-}
-
-/* Dark theme adjustments */
-.dark .table-wrapper::-webkit-scrollbar-track {
-  background: var(--bg-secondary-dark);
-}
-
-.dark .table-wrapper::-webkit-scrollbar-thumb {
-  background: var(--primary);
-}
-
-.dark .table-wrapper {
-  scrollbar-color: var(--primary) var(--bg-secondary-dark);
-}
-
 /* Loading overlay */
 .loading-overlay {
   position: fixed;
@@ -442,6 +442,12 @@ section > p {
   font-size: var(--font-size-md);
   color: var(--text-secondary);
   opacity: 0.9;
+}
+
+@media (max-width: 960px) and (orientation: landscape) {
+  .table-wrapper {
+    max-height: max-content;
+  }
 }
 
 @media (max-width: 768px) {

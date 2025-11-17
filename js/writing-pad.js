@@ -1,7 +1,9 @@
 const writingCanvas = document.getElementById("writing-canvas");
 const glyphCanvas = document.getElementById("glyph-canvas");
-const writingPad = document.querySelector(".writing-pad");
+const writingPad = document.getElementById("writing-pad");
 const writingBg = document.getElementById("writing-bg");
+const writingPadHeader = document.getElementById("writing-pad-header");
+const writingTranslit = document.getElementById("writing-translit");
 var currentGlyph = "";
 var currFont = "";
 const fontNames = {
@@ -34,8 +36,21 @@ function showWritingPad(letter, translit, lang) {
   currentGlyph = letter;
   currFont = fontNames[lang];
 
-  const glyphTranslit = document.querySelector(".writing-translit");
-  glyphTranslit.textContent = translit;
+  writingPadHeader.textContent = "PRACTICE";
+  writingTranslit.textContent = translit;
+  writingPad.classList.remove("blank-mode");
+
+  writingPad.style.display = "flex";
+  writingBg.classList.add("active");
+  document.body.style.overflow = "hidden";
+  scheduleResize();
+  window.addEventListener("resize", scheduleResize);
+}
+
+function showBlankWritingPad() {
+  writingPadHeader.textContent = "FREE PRACTICE";
+  writingTranslit.textContent = "";
+  writingPad.classList.add("blank-mode");
 
   writingPad.style.display = "flex";
   writingBg.classList.add("active");

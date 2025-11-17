@@ -33,7 +33,6 @@
 
 canvas {
   display: flex;
-  flex: 0 0 50%;
   justify-content: center;
   align-items: center;
   background: var(--bg);
@@ -41,8 +40,22 @@ canvas {
   height: 50%;
 }
 
+#writing-canvas {
+  flex: 1;
+  height: 50%;
+}
+
 #glyph-canvas {
   border-bottom: 4px dashed var(--border);
+}
+
+.writing-pad.blank-mode #glyph-canvas,
+.writing-pad.blank-mode .writing-translit {
+  display: none;
+}
+
+.writing-pad.blank-mode #writing-canvas {
+  height: 100%;
 }
 
 .writing-pad-header {
@@ -85,9 +98,10 @@ canvas {
   top: 50%;
   translate: 0 -50%;
   left: 8px;
-  width: 44px;
-  height: 44px;
+  width: 50px;
+  height: 50px;
   line-height: 0;
+  font-size: var(--font-size-lg);
 }
 
 .clear-button {
@@ -123,7 +137,7 @@ canvas {
 @media (orientation: landscape) {
   .writing-pad {
     width: 50vw;
-    height: 50dvh;
+    height: 60dvh;
   }
 }
 

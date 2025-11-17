@@ -90,6 +90,20 @@ function initNavigation() {
     });
   }
 
+  // Blank board button (only on language page)
+  const blankBoardButton = document.getElementById("blank-board-button");
+  if (blankBoardButton) {
+    blankBoardButton.addEventListener("click", () => {
+      addButtonAnimation(blankBoardButton);
+      // Short delay to show animation before opening blank pad
+      setTimeout(() => {
+        if (typeof showBlankWritingPad === "function") {
+          showBlankWritingPad();
+        }
+      }, 150);
+    });
+  }
+
   // brand click returns home too
   const brand = document.querySelector(".site-brand");
   if (brand) {

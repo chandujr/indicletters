@@ -492,6 +492,10 @@ section > p {
 }
 
 @media (max-width: 360px) {
+  .site-brand {
+    font-size: var(--font-size-lg);
+  }
+
   .tab-navigation {
     gap: 0;
   }

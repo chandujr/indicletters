@@ -41,8 +41,23 @@ canvas {
   height: 50%;
 }
 
+.blank-pad canvas {
+  flex: 1;
+  height: 100%;
+  border: none;
+}
+
+.blank-pad .writing-translit {
+  display: none;
+}
+
 #glyph-canvas {
   border-bottom: 4px dashed var(--border);
+}
+
+.blank-pad #blank-writing-canvas {
+  border-bottom: none;
+  background: var(--bg);
 }
 
 .writing-pad-header {
@@ -118,17 +133,32 @@ canvas {
     width: 75vw;
     height: 75dvh;
   }
+
+  .blank-pad {
+    width: 75vw;
+    height: 75dvh;
+  }
 }
 
 @media (orientation: landscape) {
   .writing-pad {
     width: 50vw;
-    height: 50dvh;
+    height: 60dvh;
+  }
+
+  .blank-pad {
+    width: 50vw;
+    height: 60dvh;
   }
 }
 
 @media (orientation: landscape) and (max-width: 1024px) {
   .writing-pad {
+    width: 75vw;
+    height: 75dvh;
+  }
+
+  .blank-pad {
     width: 75vw;
     height: 75dvh;
   }

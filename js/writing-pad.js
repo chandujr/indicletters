@@ -1,11 +1,9 @@
 const writingCanvas = document.getElementById("writing-canvas");
 const glyphCanvas = document.getElementById("glyph-canvas");
-const writingPad = document.querySelector(".writing-pad");
+const writingPad = document.getElementById("writing-pad");
 const writingBg = document.getElementById("writing-bg");
-
-const blankWritingCanvas = document.getElementById("blank-writing-canvas");
-const blankWritingPad = document.querySelector(".blank-pad");
-const blankWritingBg = document.getElementById("blank-writing-bg");
+const writingPadHeader = document.getElementById("writing-pad-header");
+const writingTranslit = document.getElementById("writing-translit");
 var currentGlyph = "";
 var currFont = "";
 const fontNames = {
@@ -24,15 +22,6 @@ const signaturePad = new SignaturePad(writingCanvas, {
   velocityFilterWeight: 0.4,
 });
 
-const blankSignaturePad = new SignaturePad(blankWritingCanvas, {
-  // dotSize: 3,
-  // throttle: 24,
-  // minDistance: 2,
-  minWidth: 2,
-  maxWidth: 7,
-  velocityFilterWeight: 0.4,
-});
-
 function setWritingColors() {
   const ctx = writingCanvas.getContext("2d");
   const linearGradient = ctx.createLinearGradient(0, 0, writingCanvas.offsetWidth, 0);
@@ -41,22 +30,15 @@ function setWritingColors() {
   signaturePad.penColor = linearGradient;
   signaturePad.backgroundColor = computedStyles.getPropertyValue("--card");
   signaturePad.clear();
-
-  const blankCtx = blankWritingCanvas.getContext("2d");
-  const blankLinearGradient = blankCtx.createLinearGradient(0, 0, blankWritingCanvas.offsetWidth, 0);
-  blankLinearGradient.addColorStop(0.3, computedStyles.getPropertyValue("--primary"));
-  blankLinearGradient.addColorStop(0.7, computedStyles.getPropertyValue("--secondary"));
-  blankSignaturePad.penColor = blankLinearGradient;
-  blankSignaturePad.backgroundColor = computedStyles.getPropertyValue("--card");
-  blankSignaturePad.clear();
 }
 
 function showWritingPad(letter, translit, lang) {
   currentGlyph = letter;
   currFont = fontNames[lang];
 
-  const glyphTranslit = document.querySelector(".writing-translit");
-  glyphTranslit.textContent = translit;
+  writingPadHeader.textContent = "PRACTICE";
+  writingTranslit.textContent = translit;
+  writingPad.classList.remove("blank-mode");
 
   writingPad.style.display = "flex";
   writingBg.classList.add("active");
@@ -66,11 +48,15 @@ function showWritingPad(letter, translit, lang) {
 }
 
 function showBlankWritingPad() {
-  blankWritingPad.style.display = "flex";
-  blankWritingBg.classList.add("active");
+  writingPadHeader.textContent = "FREE PRACTICE";
+  writingTranslit.textContent = "";
+  writingPad.classList.add("blank-mode");
+
+  writingPad.style.display = "flex";
+  writingBg.classList.add("active");
   document.body.style.overflow = "hidden";
-  scheduleBlankResize();
-  window.addEventListener("resize", scheduleBlankResize);
+  scheduleResize();
+  window.addEventListener("resize", scheduleResize);
 }
 
 function closeWritingPad() {
@@ -82,20 +68,8 @@ function closeWritingPad() {
   window.removeEventListener("resize", scheduleResize);
 }
 
-function closeBlankWritingPad() {
-  clearBlankWritingCanvas();
-  blankWritingPad.style.display = "none";
-  blankWritingBg.classList.remove("active");
-  document.body.style.overflow = "auto";
-  window.removeEventListener("resize", scheduleBlankResize);
-}
-
 function clearWritingCanvas() {
   signaturePad.clear();
-}
-
-function clearBlankWritingCanvas() {
-  blankSignaturePad.clear();
 }
 
 function renderGlyphCanvas() {
@@ -160,16 +134,6 @@ function scheduleResize() {
   }, 500);
 }
 
-let blankResizeTimer = null;
-function scheduleBlankResize() {
-  if (blankResizeTimer) clearTimeout(blankResizeTimer);
-  blankResizeTimer = setTimeout(() => {
-    blankResizeTimer = null;
-    resizeBlankWritingCanvas();
-    setWritingColors();
-  }, 500);
-}
-
 function resizeWritingCanvas() {
   const ratio = Math.max(window.devicePixelRatio || 1, 1);
   writingCanvas.width = writingCanvas.offsetWidth * ratio;
@@ -177,17 +141,9 @@ function resizeWritingCanvas() {
   writingCanvas.getContext("2d").scale(ratio, ratio);
 }
 
-function resizeBlankWritingCanvas() {
-  const ratio = Math.max(window.devicePixelRatio || 1, 1);
-  blankWritingCanvas.width = blankWritingCanvas.offsetWidth * ratio;
-  blankWritingCanvas.height = blankWritingCanvas.offsetHeight * ratio;
-  blankWritingCanvas.getContext("2d").scale(ratio, ratio);
-}
-
 function initListeners() {
-  // Original writing pad listeners
-  const closeButton = document.querySelector(".writing-pad:not(.blank-pad) .close-button");
-  const clearButton = document.querySelector(".writing-pad:not(.blank-pad) .clear-button");
+  const closeButton = document.querySelector(".close-button");
+  const clearButton = document.querySelector(".clear-button");
 
   if (closeButton) {
     closeButton.addEventListener("click", () => {
@@ -203,28 +159,6 @@ function initListeners() {
       addButtonAnimation(clearButton);
       setTimeout(() => {
         clearWritingCanvas();
-      }, 150);
-    });
-  }
-
-  // Blank writing pad listeners
-  const blankCloseButton = document.querySelector(".blank-pad .close-button");
-  const blankClearButton = document.querySelector(".blank-pad .clear-button");
-
-  if (blankCloseButton) {
-    blankCloseButton.addEventListener("click", () => {
-      addButtonAnimation(blankCloseButton);
-      setTimeout(() => {
-        closeBlankWritingPad();
-      }, 150);
-    });
-  }
-
-  if (blankClearButton) {
-    blankClearButton.addEventListener("click", () => {
-      addButtonAnimation(blankClearButton);
-      setTimeout(() => {
-        clearBlankWritingCanvas();
       }, 150);
     });
   }

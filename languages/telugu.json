@@ -1,0 +1,115 @@
+{
+  "language": "Telugu",
+  "nativeName": "తెలుగు",
+  "script": "Telugu",
+  "halant": {
+    "symbol": "్",
+    "name": "halantu"
+  },
+  "vowels": [
+    { "symbol": "అ", "transliteration": "a", "diacritic": "" },
+    { "symbol": "ఆ", "transliteration": "ā", "diacritic": "ా" },
+    { "symbol": "ఇ", "transliteration": "i", "diacritic": "ి" },
+    { "symbol": "ఈ", "transliteration": "ī", "diacritic": "ీ" },
+    { "symbol": "ఉ", "transliteration": "u", "diacritic": "ు" },
+    { "symbol": "ఊ", "transliteration": "ū", "diacritic": "ూ" },
+    { "symbol": "ఋ", "transliteration": "ṛ", "diacritic": "ృ" },
+    { "symbol": "ౠ", "transliteration": "ṝ", "diacritic": "ౄ" },
+    { "symbol": "ఎ", "transliteration": "e", "diacritic": "ె" },
+    { "symbol": "ఏ", "transliteration": "ē", "diacritic": "ే" },
+    { "symbol": "ఐ", "transliteration": "ai", "diacritic": "ై" },
+    { "symbol": "ఒ", "transliteration": "o", "diacritic": "ొ" },
+    { "symbol": "ఓ", "transliteration": "ō", "diacritic": "ో" },
+    { "symbol": "ఔ", "transliteration": "au", "diacritic": "ౌ" }
+  ],
+  "consonants": [
+    { "symbol": "క", "base": "k" },
+    { "symbol": "ఖ", "base": "kh" },
+    { "symbol": "గ", "base": "g" },
+    { "symbol": "ఘ", "base": "gh" },
+    { "symbol": "ఙ", "base": "ṅ" },
+
+    { "symbol": "చ", "base": "c", "hl": 1 },
+    { "symbol": "ఛ", "base": "ch" },
+    { "symbol": "జ", "base": "j" },
+    { "symbol": "ఝ", "base": "jh" },
+    { "symbol": "ఞ", "base": "ñ" },
+
+    { "symbol": "ట", "base": "ṭ", "hl": 1 },
+    { "symbol": "ఠ", "base": "ṭh" },
+    { "symbol": "డ", "base": "ḍ" },
+    { "symbol": "ఢ", "base": "ḍh" },
+    { "symbol": "ణ", "base": "ṇ" },
+
+    { "symbol": "త", "base": "t", "hl": 1 },
+    { "symbol": "థ", "base": "th" },
+    { "symbol": "ద", "base": "d" },
+    { "symbol": "ధ", "base": "dh" },
+    { "symbol": "న", "base": "n" },
+
+    { "symbol": "ప", "base": "p", "hl": 1 },
+    { "symbol": "ఫ", "base": "ph" },
+    { "symbol": "బ", "base": "b" },
+    { "symbol": "భ", "base": "bh" },
+    { "symbol": "మ", "base": "m" },
+
+    { "symbol": "య", "base": "y", "hl": 1 },
+    { "symbol": "ర", "base": "r" },
+    { "symbol": "ల", "base": "l" },
+    { "symbol": "వ", "base": "v" },
+
+    { "symbol": "శ", "base": "ś" },
+    { "symbol": "ష", "base": "ṣ" },
+    { "symbol": "స", "base": "s" },
+    { "symbol": "హ", "base": "h" },
+
+    { "symbol": "ళ", "base": "ḷ" },
+    { "symbol": "క్ష", "base": "kṣ" },
+    { "symbol": "ఱ", "base": "ṟ" }
+  ],
+  "conjuncts": [
+    { "first": "క్", "second": "క", "transliteration": "kka" },
+    { "first": "క్", "second": "త", "transliteration": "kta" },
+    { "first": "క్", "second": "ష", "transliteration": "kṣa" },
+    { "first": "గ్", "second": "గ", "transliteration": "gga" },
+    { "first": "గ్", "second": "ధ", "transliteration": "gdha" },
+
+    { "first": "చ్", "second": "చ", "transliteration": "cca", "hl": 1 },
+    { "first": "చ్", "second": "ఛ", "transliteration": "ccha" },
+    { "first": "జ్", "second": "జ", "transliteration": "jja" },
+    { "first": "జ్", "second": "ఞ", "transliteration": "jña" },
+
+    { "first": "ట్", "second": "ట", "transliteration": "ṭṭa", "hl": 1 },
+    { "first": "డ్", "second": "డ", "transliteration": "ḍḍa" },
+    { "first": "డ్", "second": "ఢ", "transliteration": "ḍḍha" },
+
+    { "first": "త్", "second": "త", "transliteration": "tta", "hl": 1 },
+    { "first": "త్", "second": "ర", "transliteration": "tra" },
+    { "first": "ద్", "second": "ద", "transliteration": "dda" },
+    { "first": "ద్", "second": "ధ", "transliteration": "ddha" },
+    { "first": "న్", "second": "త", "transliteration": "nta" },
+    { "first": "న్", "second": "ద", "transliteration": "nda" },
+    { "first": "న్", "second": "ధ", "transliteration": "ndha" },
+
+    { "first": "ప్", "second": "ప", "transliteration": "ppa", "hl": 1 },
+    { "first": "ప్", "second": "ఫ", "transliteration": "ppa" },
+    { "first": "ప్", "second": "త", "transliteration": "pta" },
+    { "first": "బ్", "second": "బ", "transliteration": "bba" },
+    { "first": "మ్", "second": "మ", "transliteration": "mma" },
+    { "first": "మ్", "second": "ప", "transliteration": "mpa" },
+    { "first": "మ్", "second": "య", "transliteration": "mya" },
+
+    { "first": "య్", "second": "య", "transliteration": "yya", "hl": 1 },
+    { "first": "ర్", "second": "ర", "transliteration": "rra" },
+    { "first": "ర్", "second": "ధ", "transliteration": "rdha" },
+    { "first": "ల్", "second": "ల", "transliteration": "lla" },
+    { "first": "వ్", "second": "వ", "transliteration": "vva" },
+    { "first": "శ్", "second": "ర", "transliteration": "śra" },
+    { "first": "స్", "second": "త", "transliteration": "sta" },
+    { "first": "స్", "second": "ప", "transliteration": "spa" },
+    { "first": "స్", "second": "థ", "transliteration": "stha" },
+    { "first": "హ్", "second": "మ", "transliteration": "hma" },
+    { "first": "హ్", "second": "ర", "transliteration": "hra" },
+    { "first": "క్ష", "second": "త్ర", "transliteration": "kṣtra" }
+  ]
+}

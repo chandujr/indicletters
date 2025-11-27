@@ -59,7 +59,7 @@ function initNavigation() {
     card.addEventListener("click", () => {
       setTimeout(() => {
         const lang = card.dataset.lang;
-        if (["kannada", "tamil", "malayalam", "telugu", "marathi", "odia"].includes(lang)) {
+        if (["tamil", "malayalam", "kannada", "telugu", "marathi", "odia"].includes(lang)) {
           location.href = `./language.html?lang=${lang}`;
         }
       }, 150);

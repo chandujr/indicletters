@@ -1,4 +1,4 @@
-const CACHE_NAME = "indic-letters-cache-v2.7";
+const CACHE_NAME = "indic-letters-cache-v2.8";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -8,19 +8,25 @@ self.addEventListener("install", (event) => {
         "./manifest.json",
         "./index.html",
         "./language.html",
+        "./assets/favicon.png",
         "./assets/icon-192.png",
         "./assets/icon-512.png",
         "./css/base.css",
         "./css/components.css",
         "./css/layout.css",
+        "./css/modern-normalize.min.css",
         "./css/variables.css",
         "./css/writing-pad.css",
         "./js/language-loader.js",
         "./js/main.js",
+        "./js/signature_pad.umd.min.js",
         "./js/writing-pad.js",
         "./languages/kannada.json",
         "./languages/malayalam.json",
+        "./languages/marathi.json",
+        "./languages/odia.json",
         "./languages/tamil.json",
+        "./languages/telugu.json",
       ]);
     }),
   );

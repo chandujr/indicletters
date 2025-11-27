@@ -174,12 +174,14 @@ tr:last-child td {
   border-bottom: transparent;
 }
 
-tr:hover {
-  background: var(--bg-gradient);
-}
+@media (hover: hover) {
+  tr:hover {
+    background: var(--bg-gradient);
+  }
 
-.dark tr:hover {
-  background: var(--bg-gradient-dark);
+  .dark tr:hover {
+    background: var(--bg-gradient-dark);
+  }
 }
 
 .row-highlight {

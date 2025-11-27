@@ -13,6 +13,9 @@ const fontNames = {
   tamil: "Noto Sans Tamil",
   malayalam: "Noto Sans Malayalam",
   kannada: "Noto Sans Kannada",
+  telugu: "Noto Sans Telugu",
+  marathi: "Noto Sans Devanagari",
+  odia: "Noto Sans Oriya",
 };
 const computedStyles = getComputedStyle(document.body);
 

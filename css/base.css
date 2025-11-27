@@ -123,4 +123,8 @@ footer {
   .container {
     max-width: var(--container-max-mobile);
   }
+
+  footer {
+    padding-top: 0;
+  }
 }

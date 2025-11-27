@@ -174,12 +174,14 @@ tr:last-child td {
   border-bottom: transparent;
 }
 
-tr:hover {
-  background: var(--bg-gradient);
-}
+@media (hover: hover) {
+  tr:hover {
+    background: var(--bg-gradient);
+  }
 
-.dark tr:hover {
-  background: var(--bg-gradient-dark);
+  .dark tr:hover {
+    background: var(--bg-gradient-dark);
+  }
 }
 
 .row-highlight {
@@ -458,7 +460,7 @@ section > p {
 
 @media (max-width: 480px) {
   .table-wrapper {
-    max-height: calc(100dvh - 250px);
+    max-height: calc(100dvh - 220px);
     clip-path: inset(0 0 0 0 round 0 0 var(--border-radius) var(--border-radius));
   }
 
@@ -469,6 +471,10 @@ section > p {
   .brand-logo {
     width: 32px;
     height: 32px;
+  }
+
+  .site-brand {
+    font-size: var(--font-size-md);
   }
 
   .nav-btn {
@@ -493,7 +499,7 @@ section > p {
 
 @media (max-width: 360px) {
   .site-brand {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
   }
 
   .tab-navigation {

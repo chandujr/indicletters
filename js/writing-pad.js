@@ -6,6 +6,9 @@ const writingPadHeader = document.getElementById("writing-pad-header");
 const writingTranslit = document.getElementById("writing-translit");
 var currentGlyph = "";
 var currFont = "";
+var isEraserMode = false; // Track if eraser is active
+var originalPenColor = ""; // Store original pen color for restoration
+var originalMinWidth, originalMaxWidth; // Store original width settings for restoration
 const fontNames = {
   tamil: "Noto Sans Tamil",
   malayalam: "Noto Sans Malayalam",
@@ -28,6 +31,10 @@ function setWritingColors() {
   linearGradient.addColorStop(0.3, computedStyles.getPropertyValue("--primary"));
   linearGradient.addColorStop(0.7, computedStyles.getPropertyValue("--secondary"));
   signaturePad.penColor = linearGradient;
+  originalPenColor = linearGradient; // Store the original pen color
+  // Store original width settings
+  originalMinWidth = signaturePad.minWidth;
+  originalMaxWidth = signaturePad.maxWidth;
   signaturePad.backgroundColor = computedStyles.getPropertyValue("--card");
   signaturePad.clear();
 }
@@ -40,6 +47,15 @@ function showWritingPad(letter, translit, lang) {
   writingTranslit.textContent = translit;
   writingPad.classList.remove("blank-mode");
 
+  // Reset eraser mode when showing regular practice pad
+  resetEraserMode();
+
+  // Hide eraser button in regular practice mode
+  const eraserButton = document.querySelector(".eraser-button");
+  if (eraserButton) {
+    eraserButton.style.display = "none";
+  }
+
   writingPad.style.display = "flex";
   writingBg.classList.add("active");
   document.body.style.overflow = "hidden";
@@ -51,6 +67,15 @@ function showBlankWritingPad() {
   writingPadHeader.textContent = "FREE PRACTICE";
   writingTranslit.textContent = "";
   writingPad.classList.add("blank-mode");
+
+  // Reset eraser mode when showing free practice board
+  resetEraserMode();
+
+  // Show eraser button in free practice mode
+  const eraserButton = document.querySelector(".eraser-button");
+  if (eraserButton) {
+    eraserButton.style.display = "block";
+  }
 
   writingPad.style.display = "flex";
   writingBg.classList.add("active");
@@ -66,9 +91,12 @@ function closeWritingPad() {
   document.body.style.overflow = "auto";
   flushGlyphCanvas(glyphCanvas);
   window.removeEventListener("resize", scheduleResize);
+  resetEraserMode();
 }
 
 function clearWritingCanvas() {
+  // Reset to pen mode when clearing
+  resetEraserMode();
   signaturePad.clear();
 }
 
@@ -144,6 +172,7 @@ function resizeWritingCanvas() {
 function initListeners() {
   const closeButton = document.querySelector(".close-button");
   const clearButton = document.querySelector(".clear-button");
+  const eraserButton = document.querySelector(".eraser-button");
 
   if (closeButton) {
     closeButton.addEventListener("click", () => {
@@ -161,6 +190,58 @@ function initListeners() {
         clearWritingCanvas();
       }, 150);
     });
+  }
+
+  if (eraserButton) {
+    eraserButton.addEventListener("click", () => {
+      addButtonAnimation(eraserButton);
+      setTimeout(() => {
+        toggleEraser();
+      }, 150);
+    });
+  }
+}
+
+function toggleEraser() {
+  // Only allow eraser in blank mode (Free Practice)
+  if (!writingPad.classList.contains("blank-mode")) return;
+
+  const eraserButton = document.querySelector(".eraser-button");
+
+  isEraserMode = !isEraserMode;
+
+  if (isEraserMode) {
+    // Enable eraser mode by changing pen color to background color
+    signaturePad.penColor = computedStyles.getPropertyValue("--card");
+    // Set larger constant width for eraser
+    signaturePad.minWidth = 10;
+    signaturePad.maxWidth = 10;
+    eraserButton.textContent = "✏️"; // Change to pen icon
+  } else {
+    // Disable eraser mode (back to pen) by restoring original pen color
+    signaturePad.penColor = originalPenColor;
+    // Restore original width settings
+    signaturePad.minWidth = originalMinWidth;
+    signaturePad.maxWidth = originalMaxWidth;
+    eraserButton.textContent = "🧼"; // Change to eraser icon
+  }
+}
+
+// Reset eraser mode when closing the pad
+function resetEraserMode() {
+  isEraserMode = false;
+  const eraserButton = document.querySelector(".eraser-button");
+  if (eraserButton) {
+    eraserButton.textContent = "🧼"; // Reset to eraser icon
+  }
+  // Restore the original pen color, but ensure we have a valid color
+  if (originalPenColor) {
+    signaturePad.penColor = originalPenColor;
+  }
+  // Restore original width settings
+  if (originalMinWidth && originalMaxWidth) {
+    signaturePad.minWidth = originalMinWidth;
+    signaturePad.maxWidth = originalMaxWidth;
   }
 }
 

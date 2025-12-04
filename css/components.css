@@ -446,6 +446,49 @@ section > p {
   opacity: 0.9;
 }
 
+.toast {
+  position: fixed;
+  bottom: var(--space-3xl);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border-radius: var(--border-radius);
+  padding: var(--space-md) var(--space-xl);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  min-width: 300px;
+  max-width: 80%;
+  opacity: 1;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.toast.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(20px);
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.toast-icon {
+  font-size: var(--font-size-llg);
+}
+
+.toast-message {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+}
+
 @media (max-width: 960px) and (orientation: landscape) {
   .table-wrapper {
     max-height: max-content;
@@ -494,6 +537,11 @@ section > p {
   .tab-btn {
     padding: var(--space-xs) var(--space-lg);
     font-size: var(--font-size-s);
+  }
+
+  .toast {
+    min-width: 250px;
+    padding: var(--space-sm) var(--space-lg);
   }
 }
 

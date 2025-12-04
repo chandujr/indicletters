@@ -83,6 +83,18 @@ const renderTables = (data) => {
   hideLoader();
   assignClickFunction();
   setupTabs();
+  showHintToast();
+};
+
+const showHintToast = () => {
+  // Check if this is the first visit
+  const hasVisitedBefore = localStorage.getItem("indicletters-visited");
+  if (!hasVisitedBefore) {
+    setTimeout(() => {
+      showToast("Tap on any letter to practice writing it!", "☝️");
+      localStorage.setItem("indicletters-visited", "true");
+    }, 3000);
+  }
 };
 
 const hideLoader = () => {

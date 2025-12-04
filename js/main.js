@@ -7,6 +7,33 @@ if ("serviceWorker" in navigator) {
   });
 }
 
+// Toast message
+function showToast(msg, icon) {
+  const toast = document.getElementById("toast");
+  if (!toast) return;
+
+  const msgToast = document.getElementById("toast-message");
+  if (!msgToast || !msg) return;
+  msgToast.textContent = msg;
+
+  const iconToast = document.getElementById("toast-icon");
+  if (!iconToast || !icon) return;
+  iconToast.textContent = icon;
+
+  // Remove the hidden class to show the toast
+  toast.classList.remove("hidden");
+
+  // Hide the toast after 5 seconds
+  setTimeout(() => {
+    toast.classList.add("hidden");
+  }, 5000);
+
+  // Also hide if user clicks on it
+  toast.addEventListener("click", () => {
+    toast.classList.add("hidden");
+  });
+}
+
 // Simple scale animation function
 function addButtonAnimation(button) {
   button.classList.add("scale-down");

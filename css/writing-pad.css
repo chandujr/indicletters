@@ -43,7 +43,7 @@ canvas {
 #writing-canvas {
   flex: 1;
   height: 50%;
-  cursor: pointer;
+  cursor: crosshair;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

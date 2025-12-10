@@ -156,7 +156,10 @@
       </footer>
     </div>
 
-    <script src="js/signature_pad.umd.min.js"></script>
+    <script type="module">
+      import { getStroke } from "https://cdn.skypack.dev/perfect-freehand";
+      window.PerfectFreehand = { getStroke };
+    </script>
     <script src="js/main.js"></script>
     <script src="js/language-loader.js"></script>
     <script src="js/writing-pad.js"></script>

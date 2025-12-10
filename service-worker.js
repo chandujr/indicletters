@@ -1,4 +1,6 @@
-const CACHE_NAME = "indic-letters-cache-v2.9";
+const CACHE_NAME = "indic-letters-cache-v3.0";
+// Note: External CDN resources (like perfect-freehand) are not cached in service worker
+// to ensure they always load from their origin and have proper versioning
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -19,7 +21,6 @@ self.addEventListener("install", (event) => {
         "./css/writing-pad.css",
         "./js/language-loader.js",
         "./js/main.js",
-        "./js/signature_pad.umd.min.js",
         "./js/writing-pad.js",
         "./languages/kannada.json",
         "./languages/malayalam.json",

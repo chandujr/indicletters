@@ -1,14 +1,18 @@
+// DOM element references
 const writingCanvas = document.getElementById("writing-canvas");
 const glyphCanvas = document.getElementById("glyph-canvas");
 const writingPad = document.getElementById("writing-pad");
 const writingBg = document.getElementById("writing-bg");
 const writingPadHeader = document.getElementById("writing-pad-header");
 const writingTranslit = document.getElementById("writing-translit");
-var currentGlyph = "";
-var currFont = "";
-var isEraserMode = false; // Track if eraser is active
-var originalPenColor = ""; // Store original pen color for restoration
-var originalMinWidth, originalMaxWidth; // Store original width settings for restoration
+
+// Global variables
+let currentGlyph = "";
+let currFont = "";
+let isEraserMode = false; // Track if eraser is active
+let originalPenColor = ""; // Store original pen color for restoration
+
+// Font mapping for different languages
 const fontNames = {
   tamil: "Noto Sans Tamil",
   malayalam: "Noto Sans Malayalam",
@@ -17,29 +21,148 @@ const fontNames = {
   marathi: "Noto Sans Devanagari",
   odia: "Noto Sans Oriya",
 };
+
+// Get computed styles for theme colors
 const computedStyles = getComputedStyle(document.body);
 
-const signaturePad = new SignaturePad(writingCanvas, {
-  // dotSize: 3,
-  // throttle: 24,
-  // minDistance: 2,
-  minWidth: 2,
-  maxWidth: 7,
-  velocityFilterWeight: 0.4,
-});
+// perfect-freehand drawing variables
+let isDrawing = false;
+let currentPath = [];
+let allPaths = [];
+let ctx;
 
+// perfect-freehand options for drawing
+const freehandOptions = {
+  size: 13,
+  smoothing: 0.5,
+  thinning: 0.5,
+  streamline: 0.5,
+  easing: (t) => t, // linear
+  start: {
+    taper: 0,
+    cap: true,
+  },
+  end: {
+    taper: 0,
+    cap: true,
+  },
+};
+
+// perfect-freehand options for erasing
+const eraserOptions = {
+  size: 20,
+  smoothing: 0.5,
+  thinning: 0.5,
+  streamline: 0.5,
+  easing: (t) => t, // linear
+  start: {
+    taper: 0,
+    cap: true,
+  },
+  end: {
+    taper: 0,
+    cap: true,
+  },
+};
+
+// Check if PerfectFreehand is loaded and get the getStroke function
+let getStroke;
+let isPerfectFreehandLoaded = false;
+
+function initializePerfectFreehand() {
+  // Try different ways PerfectFreehand might be available
+  const pf = window.PerfectFreehand || window["perfect-freehand"] || window.default;
+
+  if (pf && pf.getStroke) {
+    getStroke = pf.getStroke;
+    isPerfectFreehandLoaded = true;
+    return true;
+  }
+  return false;
+}
+
+// Initialize canvas and context
+function initializeCanvas() {
+  if (!writingCanvas) return;
+  ctx = writingCanvas.getContext("2d");
+  resizeWritingCanvas();
+  setWritingColors();
+  renderGlyphCanvas();
+}
+
+// Set drawing colors for the canvas
 function setWritingColors() {
-  const ctx = writingCanvas.getContext("2d");
+  if (!ctx || !writingCanvas) return;
+
   const linearGradient = ctx.createLinearGradient(0, 0, writingCanvas.offsetWidth, 0);
   linearGradient.addColorStop(0.3, computedStyles.getPropertyValue("--primary"));
   linearGradient.addColorStop(0.7, computedStyles.getPropertyValue("--secondary"));
-  signaturePad.penColor = linearGradient;
   originalPenColor = linearGradient; // Store the original pen color
-  // Store original width settings
-  originalMinWidth = signaturePad.minWidth;
-  originalMaxWidth = signaturePad.maxWidth;
-  signaturePad.backgroundColor = computedStyles.getPropertyValue("--card");
-  signaturePad.clear();
+  clearCanvas();
+}
+
+// Clear the canvas and redraw all paths
+function clearCanvas() {
+  if (!ctx || !writingCanvas) return;
+
+  ctx.fillStyle = computedStyles.getPropertyValue("--card");
+  ctx.fillRect(0, 0, writingCanvas.width, writingCanvas.height);
+
+  // Redraw all paths
+  allPaths.forEach((path) => {
+    drawPath(path.points, path.color);
+  });
+}
+
+// Draw a single path using perfect-freehand
+function drawPath(points, color, useEraser = false) {
+  if (!points || points.length === 0 || !ctx) return;
+
+  // Handle single point (dot) case
+  if (points.length === 1) {
+    const [x, y] = points[0];
+    const size = useEraser ? eraserOptions.size : freehandOptions.size;
+
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(x, y, size / 2, 0, 2 * Math.PI);
+    ctx.fill();
+    return;
+  }
+
+  const stroke = getStroke(points, useEraser ? eraserOptions : freehandOptions);
+
+  // If we have an empty stroke, don't draw anything
+  if (!stroke || stroke.length === 0) return;
+
+  // Create a path from the stroke
+  const pathData = getSvgPathFromStroke(stroke);
+
+  // Create a temporary path element
+  const path = new Path2D(pathData);
+
+  // Set the fill style
+  ctx.fillStyle = color;
+
+  // Draw the path
+  ctx.fill(path);
+}
+
+// Convert perfect-freehand stroke to SVG path (based on CodePen demo)
+function getSvgPathFromStroke(stroke) {
+  if (!stroke.length) return "";
+
+  const d = stroke.reduce(
+    (acc, [x0, y0], i, arr) => {
+      const [x1, y1] = arr[(i + 1) % arr.length];
+      acc.push(x0, y0, (x0 + x1) / 2, (y0 + y1) / 2);
+      return acc;
+    },
+    ["M", ...stroke[0], "Q"],
+  );
+
+  d.push("Z");
+  return d.join(" ");
 }
 
 function showWritingPad(letter, translit, lang) {
@@ -100,7 +223,8 @@ function closeWritingPad() {
 function clearWritingCanvas() {
   // Reset to pen mode when clearing
   resetEraserMode();
-  signaturePad.clear();
+  allPaths = [];
+  clearCanvas();
 }
 
 function renderGlyphCanvas() {
@@ -166,10 +290,21 @@ function scheduleResize() {
 }
 
 function resizeWritingCanvas() {
+  if (!writingCanvas || !ctx) return;
+
   const ratio = Math.max(window.devicePixelRatio || 1, 1);
+
+  // Clear all paths
+  allPaths = [];
+
+  // Resize the canvas
   writingCanvas.width = writingCanvas.offsetWidth * ratio;
   writingCanvas.height = writingCanvas.offsetHeight * ratio;
-  writingCanvas.getContext("2d").scale(ratio, ratio);
+  ctx = writingCanvas.getContext("2d");
+  ctx.scale(ratio, ratio);
+
+  // Clear the canvas completely
+  clearCanvas();
 }
 
 function initListeners() {
@@ -203,6 +338,92 @@ function initListeners() {
       }, 150);
     });
   }
+
+  // pointer events
+  if (writingCanvas) {
+    writingCanvas.addEventListener("pointerdown", startDrawing);
+    writingCanvas.addEventListener("pointermove", draw);
+    writingCanvas.addEventListener("pointerup", stopDrawing);
+    writingCanvas.addEventListener("pointerout", stopDrawing);
+  }
+}
+
+function getPoint(e) {
+  const rect = writingCanvas.getBoundingClientRect();
+  return [e.clientX - rect.left, e.clientY - rect.top, e.pressure];
+}
+
+function startDrawing(e) {
+  isDrawing = true;
+  currentPath = [getPoint(e)];
+  draw(e);
+}
+
+function draw(e) {
+  if (!isDrawing || !ctx) return;
+
+  const point = getPoint(e);
+  currentPath.push(point);
+
+  // Clear canvas and redraw all paths
+  clearCanvas();
+
+  // Draw current path
+  if (isEraserMode) {
+    // For eraser, just draw without adding to paths
+    drawPath(currentPath, computedStyles.getPropertyValue("--card"), true);
+  } else {
+    // For drawing, draw normally
+    drawPath(currentPath, originalPenColor, false);
+  }
+}
+
+function stopDrawing() {
+  if (!isDrawing) return;
+
+  isDrawing = false;
+
+  // Add the completed path to allPaths only if not in eraser mode
+  if (currentPath.length > 0 && !isEraserMode) {
+    allPaths.push({
+      points: currentPath,
+      color: originalPenColor,
+    });
+  }
+
+  // If in eraser mode, remove any paths that intersect with the eraser stroke
+  if (isEraserMode && currentPath.length > 0) {
+    allPaths = filterErasedPaths(allPaths, currentPath);
+    clearCanvas();
+  } else {
+    // Redraw all paths to ensure the final state is visible
+    clearCanvas();
+  }
+
+  currentPath = [];
+}
+
+// Filter out paths that are erased by the eraser stroke
+function filterErasedPaths(paths, eraserPoints) {
+  const eraserStroke = getStroke(eraserPoints, eraserOptions);
+  return paths.filter((path) => !path.points.some((point) => isPointInStroke(eraserStroke, point)));
+}
+
+// Check if a point is inside a stroke
+function isPointInStroke(stroke, point) {
+  if (stroke.length < 3) return false;
+
+  const [x, y] = point;
+  let inside = false;
+
+  for (let i = 0, j = stroke.length - 1; i < stroke.length; j = i++) {
+    const [xi, yi] = stroke[i];
+    const [xj, yj] = stroke[j];
+    const intersect = yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi;
+    if (intersect) inside = !inside;
+  }
+
+  return inside;
 }
 
 function toggleEraser() {
@@ -210,45 +431,30 @@ function toggleEraser() {
   if (!writingPad.classList.contains("blank-mode")) return;
 
   const eraserButton = document.querySelector(".eraser-button");
-
   isEraserMode = !isEraserMode;
-
-  if (isEraserMode) {
-    // Enable eraser mode by changing pen color to background color
-    signaturePad.penColor = computedStyles.getPropertyValue("--card");
-    // Set larger constant width for eraser
-    signaturePad.minWidth = 10;
-    signaturePad.maxWidth = 10;
-    eraserButton.textContent = "✏️"; // Change to pen icon
-  } else {
-    // Disable eraser mode (back to pen) by restoring original pen color
-    signaturePad.penColor = originalPenColor;
-    // Restore original width settings
-    signaturePad.minWidth = originalMinWidth;
-    signaturePad.maxWidth = originalMaxWidth;
-    eraserButton.textContent = "🧼"; // Change to eraser icon
-  }
+  eraserButton.textContent = isEraserMode ? "✏️" : "🧼";
 }
 
 // Reset eraser mode when closing the pad
 function resetEraserMode() {
   isEraserMode = false;
   const eraserButton = document.querySelector(".eraser-button");
-  if (eraserButton) {
-    eraserButton.textContent = "🧼"; // Reset to eraser icon
-  }
-  // Restore the original pen color, but ensure we have a valid color
-  if (originalPenColor) {
-    signaturePad.penColor = originalPenColor;
-  }
-  // Restore original width settings
-  if (originalMinWidth && originalMaxWidth) {
-    signaturePad.minWidth = originalMinWidth;
-    signaturePad.maxWidth = originalMaxWidth;
-  }
+  if (eraserButton) eraserButton.textContent = "🧼";
 }
 
 // Initialize everything
 document.addEventListener("DOMContentLoaded", () => {
+  // Initialize canvas first
+  initializeCanvas();
+
+  // Try to initialize PerfectFreehand
+  if (!initializePerfectFreehand()) {
+    // Retry after 500ms
+    setTimeout(() => {
+      initializePerfectFreehand();
+    }, 500);
+  }
+
+  // Set up event listeners
   initListeners();
 });

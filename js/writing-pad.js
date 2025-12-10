@@ -294,8 +294,8 @@ function resizeWritingCanvas() {
 
   const ratio = Math.max(window.devicePixelRatio || 1, 1);
 
-  // Save the current paths
-  const savedPaths = [...allPaths];
+  // Clear all paths
+  allPaths = [];
 
   // Resize the canvas
   writingCanvas.width = writingCanvas.offsetWidth * ratio;
@@ -303,8 +303,7 @@ function resizeWritingCanvas() {
   ctx = writingCanvas.getContext("2d");
   ctx.scale(ratio, ratio);
 
-  // Redraw the paths
-  allPaths = savedPaths;
+  // Clear the canvas completely
   clearCanvas();
 }
 

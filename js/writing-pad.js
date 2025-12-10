@@ -116,7 +116,19 @@ function clearCanvas() {
 
 // Draw a single path using perfect-freehand
 function drawPath(points, color, useEraser = false) {
-  if (!points || points.length < 2 || !ctx) return;
+  if (!points || points.length === 0 || !ctx) return;
+
+  // Handle single point (dot) case
+  if (points.length === 1) {
+    const [x, y] = points[0];
+    const size = useEraser ? eraserOptions.size : freehandOptions.size;
+
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(x, y, size / 2, 0, 2 * Math.PI);
+    ctx.fill();
+    return;
+  }
 
   const stroke = getStroke(points, useEraser ? eraserOptions : freehandOptions);
 
@@ -388,6 +400,9 @@ function stopDrawing() {
   // If in eraser mode, remove any paths that intersect with the eraser stroke
   if (isEraserMode && currentPath.length > 0) {
     allPaths = filterErasedPaths(allPaths, currentPath);
+    clearCanvas();
+  } else {
+    // Redraw all paths to ensure the final state is visible
     clearCanvas();
   }
 

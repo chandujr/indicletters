@@ -33,9 +33,9 @@ let ctx;
 
 // perfect-freehand options for drawing
 const freehandOptions = {
-  size: 12,
+  size: 13,
   smoothing: 0.5,
-  thinning: 0.3,
+  thinning: 0.5,
   streamline: 0.5,
   easing: (t) => t, // linear
   start: {
@@ -312,19 +312,6 @@ function initListeners() {
   const clearButton = document.querySelector(".clear-button");
   const eraserButton = document.querySelector(".eraser-button");
 
-  // Mouse events
-  if (writingCanvas) {
-    writingCanvas.addEventListener("mousedown", startDrawing);
-    writingCanvas.addEventListener("mousemove", draw);
-    writingCanvas.addEventListener("mouseup", stopDrawing);
-    writingCanvas.addEventListener("mouseout", stopDrawing);
-
-    // Touch events
-    writingCanvas.addEventListener("touchstart", handleTouch);
-    writingCanvas.addEventListener("touchmove", handleTouch);
-    writingCanvas.addEventListener("touchend", stopDrawing);
-  }
-
   if (closeButton) {
     closeButton.addEventListener("click", () => {
       addButtonAnimation(closeButton);
@@ -351,17 +338,25 @@ function initListeners() {
       }, 150);
     });
   }
+
+  // pointer events
+  if (writingCanvas) {
+    writingCanvas.addEventListener("pointerdown", startDrawing);
+    writingCanvas.addEventListener("pointermove", draw);
+    writingCanvas.addEventListener("pointerup", stopDrawing);
+    writingCanvas.addEventListener("pointerout", stopDrawing);
+  }
 }
 
-// Drawing functions for perfect-freehand
 function getPoint(e) {
   const rect = writingCanvas.getBoundingClientRect();
-  return [e.clientX - rect.left, e.clientY - rect.top];
+  return [e.clientX - rect.left, e.clientY - rect.top, e.pressure];
 }
 
 function startDrawing(e) {
   isDrawing = true;
   currentPath = [getPoint(e)];
+  draw(e);
 }
 
 function draw(e) {
@@ -406,23 +401,6 @@ function stopDrawing() {
   }
 
   currentPath = [];
-}
-
-function handleTouch(e) {
-  e.preventDefault();
-  const touch = e.touches[0];
-  const eventType = e.type === "touchstart" ? "mousedown" : e.type === "touchmove" ? "mousemove" : "mouseup";
-
-  const mouseEvent = new MouseEvent(eventType, {
-    clientX: touch.clientX,
-    clientY: touch.clientY,
-  });
-
-  if (e.type === "touchstart") {
-    startDrawing(mouseEvent);
-  } else if (e.type === "touchmove") {
-    draw(mouseEvent);
-  }
 }
 
 // Filter out paths that are erased by the eraser stroke

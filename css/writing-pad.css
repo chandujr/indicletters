@@ -43,7 +43,7 @@ canvas {
 #writing-canvas {
   flex: 1;
   height: 50%;
-  cursor: crosshair;
+  touch-action: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -54,6 +54,12 @@ canvas {
 
 #glyph-canvas {
   border-bottom: 4px dashed var(--border);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .writing-pad.blank-mode #glyph-canvas,

@@ -1,9 +1,14 @@
 var currLang = "";
+var languageData = null;
+var currentTab = "vowels-basic";
+var currentLetterInfo = null;
+
 const loadLanguage = async () => {
   currLang = new URLSearchParams(location.search).get("lang") || "kannada";
 
   try {
     const data = await fetch(`languages/${currLang}.json`).then((r) => r.json());
+    languageData = data;
 
     document.title = `${data.language} Letters`;
     document.getElementById("lang-name").textContent = `${data.nativeName} • ${data.language}`;
@@ -117,6 +122,9 @@ const setupTabs = () => {
       // Add active class to clicked button and corresponding pane
       button.classList.add("active");
       document.getElementById(`${targetTab}-tab`).classList.add("active");
+
+      // Update current tab
+      currentTab = targetTab;
     });
   });
 };
@@ -128,7 +136,37 @@ function assignClickFunction() {
     button.addEventListener("click", (event) => {
       let letter = event.currentTarget.dataset.letter;
       let translit = event.currentTarget.dataset.translit;
-      if (letter) showWritingPad(letter, translit, currLang);
+      if (letter) {
+        // Find which table this letter belongs to and its position
+        const tableRow = event.currentTarget.closest("tr");
+        const tableBody = tableRow.closest("tbody");
+        const tableId = tableBody.id;
+
+        // Determine the section and position
+        if (tableId === "vowels-basic-body") {
+          const rowIndex = Array.from(tableBody.children).indexOf(tableRow);
+          currentLetterInfo = {
+            section: "vowels-basic",
+            index: rowIndex,
+          };
+        } else if (tableId === "alphabet-body") {
+          const rowIndex = Array.from(tableBody.children).indexOf(tableRow);
+          const cellIndex = Array.from(tableRow.children).indexOf(event.currentTarget.closest("td"));
+          currentLetterInfo = {
+            section: "vowels",
+            rowIndex: rowIndex,
+            cellIndex: cellIndex,
+          };
+        } else if (tableId === "conjunct-body") {
+          const rowIndex = Array.from(tableBody.children).indexOf(tableRow);
+          currentLetterInfo = {
+            section: "conjuncts",
+            index: rowIndex,
+          };
+        }
+
+        showWritingPad(letter, translit, currLang);
+      }
     });
   });
 }

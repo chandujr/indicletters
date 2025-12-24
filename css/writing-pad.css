@@ -235,6 +235,15 @@ canvas {
   }
 }
 
+@media (max-width: 1024px) {
+  .nav-prev-button {
+    left: -64px;
+  }
+  .nav-next-button {
+    right: -64px;
+  }
+}
+
 @media (max-width: 480px) {
   .nav-prev-button {
     left: -50px;
@@ -246,9 +255,9 @@ canvas {
 
 @media (max-width: 360px) {
   .nav-prev-button {
-    left: -46px;
+    left: -42px;
   }
   .nav-next-button {
-    right: -46px;
+    right: -42px;
   }
 }

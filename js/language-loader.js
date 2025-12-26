@@ -1,6 +1,6 @@
 var currLang = "";
 var languageData = null;
-var currentTab = "vowels-basic";
+var currentTab = "vowels";
 var currentLetterInfo = null;
 
 const loadLanguage = async () => {
@@ -27,8 +27,8 @@ const loadLanguage = async () => {
 const renderTables = (data) => {
   const halant = data.halant;
 
-  const header = document.getElementById("alphabet-header");
-  const body = document.getElementById("alphabet-body");
+  const header = document.getElementById("consonants-header");
+  const body = document.getElementById("consonants-body");
 
   header.innerHTML =
     `<tr><th>${halant.symbol}<br><span>(${halant.name})</span></th>` +
@@ -58,7 +58,7 @@ const renderTables = (data) => {
     )
     .join("");
 
-  document.getElementById("vowels-basic-body").innerHTML = data.vowels
+  document.getElementById("vowels-body").innerHTML = data.vowels
     .map(
       (v) => `
     <tr>
@@ -143,17 +143,17 @@ function assignClickFunction() {
         const tableId = tableBody.id;
 
         // Determine the section and position
-        if (tableId === "vowels-basic-body") {
+        if (tableId === "vowels-body") {
           const rowIndex = Array.from(tableBody.children).indexOf(tableRow);
           currentLetterInfo = {
-            section: "vowels-basic",
+            section: "vowels",
             index: rowIndex,
           };
-        } else if (tableId === "alphabet-body") {
+        } else if (tableId === "consonants-body") {
           const rowIndex = Array.from(tableBody.children).indexOf(tableRow);
           const cellIndex = Array.from(tableRow.children).indexOf(event.currentTarget.closest("td"));
           currentLetterInfo = {
-            section: "vowels",
+            section: "consonants",
             rowIndex: rowIndex,
             cellIndex: cellIndex,
           };

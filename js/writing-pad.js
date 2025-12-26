@@ -501,12 +501,12 @@ function updateNavigationButtons() {
   // Disable buttons at boundaries
   const { section, index, rowIndex, cellIndex } = currentLetterInfo;
 
-  if (section === "vowels-basic") {
+  if (section === "vowels") {
     // First vowel (index 0) has no previous
     if (navPrevButton) navPrevButton.disabled = index === 0;
     // Last vowel has no next
     if (navNextButton) navNextButton.disabled = index === languageData.vowels.length - 1;
-  } else if (section === "vowels") {
+  } else if (section === "consonants") {
     const totalCells = languageData.consonants.length * (languageData.vowels.length + 1);
     const currentIndex = rowIndex * (languageData.vowels.length + 1) + cellIndex;
 
@@ -528,13 +528,13 @@ function navigateToPrevious() {
 
   const { section, index, rowIndex, cellIndex } = currentLetterInfo;
 
-  if (section === "vowels-basic") {
+  if (section === "vowels") {
     if (index > 0) {
       const vowel = languageData.vowels[index - 1];
       currentLetterInfo.index = index - 1;
       showWritingPad(vowel.symbol, vowel.transliteration, currLang);
     }
-  } else if (section === "vowels") {
+  } else if (section === "consonants") {
     const vowelsCount = languageData.vowels.length + 1; // +1 for halant column
     let currentCellIndex = rowIndex * vowelsCount + cellIndex;
 
@@ -576,13 +576,13 @@ function navigateToNext() {
 
   const { section, index, rowIndex, cellIndex } = currentLetterInfo;
 
-  if (section === "vowels-basic") {
+  if (section === "vowels") {
     if (index < languageData.vowels.length - 1) {
       const vowel = languageData.vowels[index + 1];
       currentLetterInfo.index = index + 1;
       showWritingPad(vowel.symbol, vowel.transliteration, currLang);
     }
-  } else if (section === "vowels") {
+  } else if (section === "consonants") {
     const vowelsCount = languageData.vowels.length + 1; // +1 for halant column
     const totalCells = languageData.consonants.length * vowelsCount;
     let currentCellIndex = rowIndex * vowelsCount + cellIndex;

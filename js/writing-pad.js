@@ -287,11 +287,13 @@ function flushGlyphCanvas(canvas) {
 let resizeTimer = null;
 function scheduleResize() {
   if (resizeTimer) clearTimeout(resizeTimer);
+  showLetterLoader();
   resizeTimer = setTimeout(() => {
     resizeTimer = null;
     resizeWritingCanvas();
     setWritingColors();
     renderGlyphCanvas();
+    hideLetterLoader();
   }, 500);
 }
 
@@ -616,4 +618,14 @@ function navigateToNext() {
       showWritingPad(conjunct.first + conjunct.second, conjunct.transliteration, currLang);
     }
   }
+}
+
+function showLetterLoader() {
+  const loader = document.getElementById("letter-loader");
+  loader.classList.add("visible");
+}
+
+function hideLetterLoader() {
+  const loader = document.getElementById("letter-loader");
+  loader.classList.remove("visible");
 }

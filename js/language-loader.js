@@ -1,9 +1,14 @@
 var currLang = "";
+var languageData = null;
+var currentTab = "vowels";
+var currentLetterInfo = null;
+
 const loadLanguage = async () => {
   currLang = new URLSearchParams(location.search).get("lang") || "kannada";
 
   try {
     const data = await fetch(`languages/${currLang}.json`).then((r) => r.json());
+    languageData = data;
 
     document.title = `${data.language} Letters`;
     document.getElementById("lang-name").textContent = `${data.nativeName} • ${data.language}`;
@@ -22,8 +27,8 @@ const loadLanguage = async () => {
 const renderTables = (data) => {
   const halant = data.halant;
 
-  const header = document.getElementById("alphabet-header");
-  const body = document.getElementById("alphabet-body");
+  const header = document.getElementById("consonants-header");
+  const body = document.getElementById("consonants-body");
 
   header.innerHTML =
     `<tr><th>${halant.symbol}<br><span>(${halant.name})</span></th>` +
@@ -53,7 +58,7 @@ const renderTables = (data) => {
     )
     .join("");
 
-  document.getElementById("vowels-basic-body").innerHTML = data.vowels
+  document.getElementById("vowels-body").innerHTML = data.vowels
     .map(
       (v) => `
     <tr>
@@ -117,6 +122,9 @@ const setupTabs = () => {
       // Add active class to clicked button and corresponding pane
       button.classList.add("active");
       document.getElementById(`${targetTab}-tab`).classList.add("active");
+
+      // Update current tab
+      currentTab = targetTab;
     });
   });
 };
@@ -128,7 +136,37 @@ function assignClickFunction() {
     button.addEventListener("click", (event) => {
       let letter = event.currentTarget.dataset.letter;
       let translit = event.currentTarget.dataset.translit;
-      if (letter) showWritingPad(letter, translit, currLang);
+      if (letter) {
+        // Find which table this letter belongs to and its position
+        const tableRow = event.currentTarget.closest("tr");
+        const tableBody = tableRow.closest("tbody");
+        const tableId = tableBody.id;
+
+        // Determine the section and position
+        if (tableId === "vowels-body") {
+          const rowIndex = Array.from(tableBody.children).indexOf(tableRow);
+          currentLetterInfo = {
+            section: "vowels",
+            index: rowIndex,
+          };
+        } else if (tableId === "consonants-body") {
+          const rowIndex = Array.from(tableBody.children).indexOf(tableRow);
+          const cellIndex = Array.from(tableRow.children).indexOf(event.currentTarget.closest("td"));
+          currentLetterInfo = {
+            section: "consonants",
+            rowIndex: rowIndex,
+            cellIndex: cellIndex,
+          };
+        } else if (tableId === "conjunct-body") {
+          const rowIndex = Array.from(tableBody.children).indexOf(tableRow);
+          currentLetterInfo = {
+            section: "conjuncts",
+            index: rowIndex,
+          };
+        }
+
+        showWritingPad(letter, translit, currLang);
+      }
     });
   });
 }

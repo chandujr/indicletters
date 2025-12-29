@@ -5,6 +5,8 @@ const writingPad = document.getElementById("writing-pad");
 const writingBg = document.getElementById("writing-bg");
 const writingPadHeader = document.getElementById("writing-pad-header");
 const writingTranslit = document.getElementById("writing-translit");
+const navPrevButton = document.querySelector(".nav-prev-button");
+const navNextButton = document.querySelector(".nav-next-button");
 
 // Global variables
 let currentGlyph = "";
@@ -176,11 +178,18 @@ function showWritingPad(letter, translit, lang) {
   // Reset eraser mode when showing regular practice pad
   resetEraserMode();
 
-  // Hide eraser button in regular practice mode
+  // Hide eraser and undo buttons in regular practice mode
   const eraserButton = document.querySelector(".eraser-button");
   if (eraserButton) {
     eraserButton.style.display = "none";
   }
+
+  const undoButton = document.querySelector(".undo-button");
+  if (undoButton) {
+    undoButton.style.display = "none";
+  }
+
+  updateNavigationButtons();
 
   writingPad.style.display = "flex";
   writingBg.classList.add("active");
@@ -197,11 +206,18 @@ function showBlankWritingPad() {
   // Reset eraser mode when showing free practice board
   resetEraserMode();
 
-  // Show eraser button in free practice mode
+  // Show eraser and undo buttons in free practice mode
   const eraserButton = document.querySelector(".eraser-button");
   if (eraserButton) {
     eraserButton.style.display = "block";
   }
+
+  const undoButton = document.querySelector(".undo-button");
+  if (undoButton) {
+    undoButton.style.display = "block";
+  }
+
+  hideNavigationButtons();
 
   writingPad.style.display = "flex";
   writingBg.classList.add("active");
@@ -225,6 +241,14 @@ function clearWritingCanvas() {
   resetEraserMode();
   allPaths = [];
   clearCanvas();
+}
+
+function undoLastStroke() {
+  // Remove the last stroke from allPaths
+  if (allPaths.length > 0) {
+    allPaths.pop();
+    clearCanvas();
+  }
 }
 
 function renderGlyphCanvas() {
@@ -281,11 +305,13 @@ function flushGlyphCanvas(canvas) {
 let resizeTimer = null;
 function scheduleResize() {
   if (resizeTimer) clearTimeout(resizeTimer);
+  showLetterLoader();
   resizeTimer = setTimeout(() => {
     resizeTimer = null;
     resizeWritingCanvas();
     setWritingColors();
     renderGlyphCanvas();
+    hideLetterLoader();
   }, 500);
 }
 
@@ -311,6 +337,7 @@ function initListeners() {
   const closeButton = document.querySelector(".close-button");
   const clearButton = document.querySelector(".clear-button");
   const eraserButton = document.querySelector(".eraser-button");
+  const undoButton = document.querySelector(".undo-button");
 
   if (closeButton) {
     closeButton.addEventListener("click", () => {
@@ -335,6 +362,34 @@ function initListeners() {
       addButtonAnimation(eraserButton);
       setTimeout(() => {
         toggleEraser();
+      }, 150);
+    });
+  }
+
+  if (undoButton) {
+    undoButton.addEventListener("click", () => {
+      addButtonAnimation(undoButton);
+      setTimeout(() => {
+        undoLastStroke();
+      }, 150);
+    });
+  }
+
+  // Navigation buttons
+  if (navPrevButton) {
+    navPrevButton.addEventListener("click", () => {
+      addButtonAnimation(navPrevButton);
+      setTimeout(() => {
+        navigateToPrevious();
+      }, 150);
+    });
+  }
+
+  if (navNextButton) {
+    navNextButton.addEventListener("click", () => {
+      addButtonAnimation(navNextButton);
+      setTimeout(() => {
+        navigateToNext();
       }, 150);
     });
   }
@@ -458,3 +513,147 @@ document.addEventListener("DOMContentLoaded", () => {
   // Set up event listeners
   initListeners();
 });
+
+// Navigation functions
+function updateNavigationButtons() {
+  if (!currentLetterInfo || !languageData) {
+    if (navPrevButton) navPrevButton.style.display = "none";
+    if (navNextButton) navNextButton.style.display = "none";
+    return;
+  }
+
+  // Show both buttons in regular practice mode
+  if (navPrevButton) navPrevButton.style.display = "block";
+  if (navNextButton) navNextButton.style.display = "block";
+
+  // Disable buttons at boundaries
+  const { section, index, rowIndex, cellIndex } = currentLetterInfo;
+
+  if (section === "vowels") {
+    // First vowel (index 0) has no previous
+    if (navPrevButton) navPrevButton.disabled = index === 0;
+    // Last vowel has no next
+    if (navNextButton) navNextButton.disabled = index === languageData.vowels.length - 1;
+  } else if (section === "consonants") {
+    const totalCells = languageData.consonants.length * (languageData.vowels.length + 1);
+    const currentIndex = rowIndex * (languageData.vowels.length + 1) + cellIndex;
+
+    if (navPrevButton) navPrevButton.disabled = currentIndex === 0;
+    if (navNextButton) navNextButton.disabled = currentIndex === totalCells - 1;
+  } else if (section === "conjuncts") {
+    if (navPrevButton) navPrevButton.disabled = index === 0;
+    if (navNextButton) navNextButton.disabled = index === languageData.conjuncts.length - 1;
+  }
+}
+
+function hideNavigationButtons() {
+  currentLetterInfo = null;
+  updateNavigationButtons();
+}
+
+function navigateToPrevious() {
+  if (!currentLetterInfo || !languageData) return;
+
+  const { section, index, rowIndex, cellIndex } = currentLetterInfo;
+
+  if (section === "vowels") {
+    if (index > 0) {
+      const vowel = languageData.vowels[index - 1];
+      currentLetterInfo.index = index - 1;
+      showWritingPad(vowel.symbol, vowel.transliteration, currLang);
+    }
+  } else if (section === "consonants") {
+    const vowelsCount = languageData.vowels.length + 1; // +1 for halant column
+    let currentCellIndex = rowIndex * vowelsCount + cellIndex;
+
+    if (currentCellIndex > 0) {
+      currentCellIndex--;
+      const newRowIndex = Math.floor(currentCellIndex / vowelsCount);
+      const newCellIndex = currentCellIndex % vowelsCount;
+
+      currentLetterInfo.rowIndex = newRowIndex;
+      currentLetterInfo.cellIndex = newCellIndex;
+
+      let letter, translit;
+      const consonant = languageData.consonants[newRowIndex];
+
+      if (newCellIndex === 0) {
+        // First column: consonant + halant
+        letter = consonant.symbol + languageData.halant.symbol;
+        translit = consonant.base;
+      } else {
+        // Other columns: consonant + vowel
+        const vowel = languageData.vowels[newCellIndex - 1];
+        letter = consonant.symbol + vowel.diacritic;
+        translit = consonant.base + vowel.transliteration;
+      }
+
+      showWritingPad(letter, translit, currLang);
+    }
+  } else if (section === "conjuncts") {
+    if (index > 0) {
+      const conjunct = languageData.conjuncts[index - 1];
+      currentLetterInfo.index = index - 1;
+      showWritingPad(conjunct.first + conjunct.second, conjunct.transliteration, currLang);
+    }
+  }
+}
+
+function navigateToNext() {
+  if (!currentLetterInfo || !languageData) return;
+
+  const { section, index, rowIndex, cellIndex } = currentLetterInfo;
+
+  if (section === "vowels") {
+    if (index < languageData.vowels.length - 1) {
+      const vowel = languageData.vowels[index + 1];
+      currentLetterInfo.index = index + 1;
+      showWritingPad(vowel.symbol, vowel.transliteration, currLang);
+    }
+  } else if (section === "consonants") {
+    const vowelsCount = languageData.vowels.length + 1; // +1 for halant column
+    const totalCells = languageData.consonants.length * vowelsCount;
+    let currentCellIndex = rowIndex * vowelsCount + cellIndex;
+
+    if (currentCellIndex < totalCells - 1) {
+      currentCellIndex++;
+      const newRowIndex = Math.floor(currentCellIndex / vowelsCount);
+      const newCellIndex = currentCellIndex % vowelsCount;
+
+      currentLetterInfo.rowIndex = newRowIndex;
+      currentLetterInfo.cellIndex = newCellIndex;
+
+      let letter, translit;
+      const consonant = languageData.consonants[newRowIndex];
+
+      if (newCellIndex === 0) {
+        // First column: consonant + halant
+        letter = consonant.symbol + languageData.halant.symbol;
+        translit = consonant.base;
+      } else {
+        // Other columns: consonant + vowel
+        const vowel = languageData.vowels[newCellIndex - 1];
+        letter = consonant.symbol + vowel.diacritic;
+        translit = consonant.base + vowel.transliteration;
+      }
+
+      showWritingPad(letter, translit, currLang);
+    }
+  } else if (section === "conjuncts") {
+    if (index < languageData.conjuncts.length - 1) {
+      const conjunct = languageData.conjuncts[index + 1];
+      currentLetterInfo.index = index + 1;
+      showWritingPad(conjunct.first + conjunct.second, conjunct.transliteration, currLang);
+    }
+  }
+}
+
+function showLetterLoader() {
+  const loader = document.getElementById("letter-loader");
+  loader.classList.add("visible");
+}
+
+function hideLetterLoader() {
+  const loader = document.getElementById("letter-loader");
+  loader.classList.remove("visible");
+}

@@ -71,6 +71,29 @@ canvas {
   height: 100%;
 }
 
+.letter-loader {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-gradient);
+  background-color: var(--bg);
+  opacity: 0;
+  z-index: 2100;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.letter-loader.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .writing-pad-header {
   position: absolute;
   top: -28px;
@@ -93,6 +116,7 @@ canvas {
   font-size: var(--font-size-xll);
   line-height: 0;
   font-weight: bold;
+  z-index: 2200;
   background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
   color: white;
   box-shadow:
@@ -140,6 +164,29 @@ canvas {
   transform: scale(0.85);
 }
 
+.undo-button {
+  position: absolute;
+  bottom: 4px;
+  right: 84px;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  font-size: var(--font-size-lg);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.undo-button.scale-down {
+  transform: scale(0.85);
+}
+
 .eraser-button {
   position: absolute;
   bottom: 4px;
@@ -163,6 +210,56 @@ canvas {
   transform: scale(0.85);
 }
 
+.nav-prev-button,
+.nav-next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  font-size: var(--font-size-x2l);
+  line-height: 0;
+  font-weight: 1000;
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+  color: white;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-prev-button {
+  left: -100px;
+}
+
+.nav-next-button {
+  right: -100px;
+}
+
+.nav-prev-button.scale-down,
+.nav-next-button.scale-down {
+  transform: translateY(-50%) scale(0.85);
+}
+
+.writing-pad.blank-mode .nav-prev-button,
+.writing-pad.blank-mode .nav-next-button {
+  display: none;
+}
+
+.nav-prev-button:disabled,
+.nav-next-button:disabled {
+  opacity: 0.3;
+}
+
+.nav-prev-button:disabled:hover,
+.nav-next-button:disabled:hover {
+  transform: translateY(-50%);
+}
+
 @media (orientation: portrait) {
   .writing-pad {
     width: 75vw;
@@ -181,5 +278,32 @@ canvas {
   .writing-pad {
     width: 75vw;
     height: 75dvh;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav-prev-button {
+    left: -64px;
+  }
+  .nav-next-button {
+    right: -64px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-prev-button {
+    left: -50px;
+  }
+  .nav-next-button {
+    right: -50px;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-prev-button {
+    left: -42px;
+  }
+  .nav-next-button {
+    right: -42px;
   }
 }

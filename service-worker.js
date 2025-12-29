@@ -1,4 +1,4 @@
-const CACHE_NAME = "indic-letters-cache-v3.0";
+const CACHE_NAME = "indic-letters-cache-v3.1";
 // Note: External CDN resources (like perfect-freehand) are not cached in service worker
 // to ensure they always load from their origin and have proper versioning
 

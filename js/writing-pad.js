@@ -178,10 +178,15 @@ function showWritingPad(letter, translit, lang) {
   // Reset eraser mode when showing regular practice pad
   resetEraserMode();
 
-  // Hide eraser button in regular practice mode
+  // Hide eraser and undo buttons in regular practice mode
   const eraserButton = document.querySelector(".eraser-button");
   if (eraserButton) {
     eraserButton.style.display = "none";
+  }
+
+  const undoButton = document.querySelector(".undo-button");
+  if (undoButton) {
+    undoButton.style.display = "none";
   }
 
   updateNavigationButtons();
@@ -201,10 +206,15 @@ function showBlankWritingPad() {
   // Reset eraser mode when showing free practice board
   resetEraserMode();
 
-  // Show eraser button in free practice mode
+  // Show eraser and undo buttons in free practice mode
   const eraserButton = document.querySelector(".eraser-button");
   if (eraserButton) {
     eraserButton.style.display = "block";
+  }
+
+  const undoButton = document.querySelector(".undo-button");
+  if (undoButton) {
+    undoButton.style.display = "block";
   }
 
   hideNavigationButtons();
@@ -231,6 +241,14 @@ function clearWritingCanvas() {
   resetEraserMode();
   allPaths = [];
   clearCanvas();
+}
+
+function undoLastStroke() {
+  // Remove the last stroke from allPaths
+  if (allPaths.length > 0) {
+    allPaths.pop();
+    clearCanvas();
+  }
 }
 
 function renderGlyphCanvas() {
@@ -319,6 +337,7 @@ function initListeners() {
   const closeButton = document.querySelector(".close-button");
   const clearButton = document.querySelector(".clear-button");
   const eraserButton = document.querySelector(".eraser-button");
+  const undoButton = document.querySelector(".undo-button");
 
   if (closeButton) {
     closeButton.addEventListener("click", () => {
@@ -343,6 +362,15 @@ function initListeners() {
       addButtonAnimation(eraserButton);
       setTimeout(() => {
         toggleEraser();
+      }, 150);
+    });
+  }
+
+  if (undoButton) {
+    undoButton.addEventListener("click", () => {
+      addButtonAnimation(undoButton);
+      setTimeout(() => {
+        undoLastStroke();
       }, 150);
     });
   }

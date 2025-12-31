@@ -68,8 +68,15 @@
         <span>Indic Letters</span>
       </div>
       <div class="right-actions">
-        <button id="github-button" class="nav-btn">ℹ️</button>
-        <button id="theme-toggle" class="nav-btn">🌙</button>
+        <div class="dropdown">
+          <button id="dropdown-toggle" class="nav-btn dropdown-toggle">≡</button>
+          <div id="dropdown-menu" class="dropdown-menu hidden">
+            <button id="theme-toggle" class="dropdown-item">🎨 Change Theme</button>
+            <button id="github-button" class="dropdown-item">ℹ️ GitHub</button>
+            <button id="privacy-button" class="dropdown-item">🔒 Privacy Policy</button>
+            <button id="terms-button" class="dropdown-item">📋 Terms of Service</button>
+          </div>
+        </div>
       </div>
     </header>
 

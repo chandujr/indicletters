@@ -388,7 +388,8 @@ section > p {
   color: white;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  font-size: 1.2rem;
+  font-size: var(--font-size-lm);
+  line-height: 0;
   transition: opacity 0.15s;
 }
 
@@ -402,6 +403,84 @@ section > p {
 
 .nav-btn.scale-down {
   transform: scale(0.85);
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  font-size: var(--font-size-x2l);
+  line-height: 0;
+  padding: 0 8px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 200px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.dropdown-menu.hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+.dropdown-item {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  border: none;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.dropdown-item:hover {
+  background: var(--bg-secondary);
+  color: var(--primary);
+}
+
+.dropdown-item:active {
+  background: var(--bg);
+}
+
+.dropdown-item:first-child {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.dropdown-item:last-child {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.dropdown-item.scale-down {
+  transform: scale(0.95);
 }
 
 .hero {
@@ -629,7 +708,11 @@ section > p {
   .nav-btn {
     width: 32px;
     height: 32px;
-    font-size: 1rem;
+    font-size: var(--font-size-md);
+  }
+
+  .dropdown-toggle {
+    font-size: var(--font-size-xl);
   }
 
   .hero-title {

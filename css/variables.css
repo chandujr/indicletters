@@ -33,6 +33,7 @@
   --font-size-s: 0.9rem;
   --font-size-base: 1rem;
   --font-size-md: 1.125rem;
+  --font-size-lm: 1.2rem;
   --font-size-lg: 1.25rem;
   --font-size-llg: 1.5rem;
   --font-size-xl: 1.875rem;
@@ -58,6 +59,7 @@
 
 .light {
   --bg: var(--bg);
+  --bg-secondary: var(--bg-secondary);
   --bg-gradient: var(--bg-gradient);
   --card: var(--card);
   --text: var(--text);
@@ -66,6 +68,7 @@
 
 .dark {
   --bg: var(--bg-dark);
+  --bg-secondary: var(--bg-secondary-dark);
   --bg-gradient: var(--bg-gradient-dark);
   --card: var(--card-dark);
   --text: var(--text-dark);

@@ -67,10 +67,6 @@ function initTheme() {
 
 function applyTheme(theme) {
   document.body.classList.toggle("dark", theme === "dark");
-  const themeButton = document.getElementById("theme-toggle");
-  if (themeButton) {
-    themeButton.textContent = theme === "dark" ? "☀️" : "🌙";
-  }
   localStorage.theme = theme;
 }
 
@@ -109,10 +105,29 @@ function initNavigation() {
   const githubButton = document.getElementById("github-button");
   if (githubButton) {
     githubButton.addEventListener("click", () => {
-      addButtonAnimation(githubButton);
       // Short delay to show animation before opening link
       setTimeout(() => {
         window.open("https://github.com/chandujr/indicletters", "_blank");
+      }, 150);
+    });
+  }
+
+  // Privacy Policy button
+  const privacyButton = document.getElementById("privacy-button");
+  if (privacyButton) {
+    privacyButton.addEventListener("click", () => {
+      setTimeout(() => {
+        location.href = "./privacy.html";
+      }, 150);
+    });
+  }
+
+  // Terms of Service button
+  const termsButton = document.getElementById("terms-button");
+  if (termsButton) {
+    termsButton.addEventListener("click", () => {
+      setTimeout(() => {
+        location.href = "./terms.html";
       }, 150);
     });
   }
@@ -121,7 +136,6 @@ function initNavigation() {
   const blankBoardButton = document.getElementById("blank-board-button");
   if (blankBoardButton) {
     blankBoardButton.addEventListener("click", () => {
-      addButtonAnimation(blankBoardButton);
       // Short delay to show animation before opening blank pad
       setTimeout(() => {
         if (typeof showBlankWritingPad === "function") {
@@ -140,10 +154,96 @@ function initNavigation() {
   }
 }
 
+// Cookie Consent Handler
+function initCookieConsent() {
+  const COOKIE_CONSENT_KEY = "cookie_consent";
+  const cookieBanner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("cookie-accept");
+  const declineBtn = document.getElementById("cookie-decline");
+  const adsScript = document.querySelector('script[src*="pagead2.googlesyndication.com"]');
+
+  if (!cookieBanner) return;
+
+  // Check if user has already made a choice
+  const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+
+  if (consent === "accepted" && adsScript) {
+    // If accepted, the ads script is already in head
+  } else if (consent === "declined") {
+    // Remove ads script if declined
+    if (adsScript) {
+      adsScript.remove();
+    }
+  } else {
+    // Show banner if no choice made
+    cookieBanner.classList.remove("hidden");
+
+    // Remove ads script temporarily until user consents
+    if (adsScript) {
+      adsScript.remove();
+    }
+  }
+
+  // Handle Accept
+  if (acceptBtn) {
+    acceptBtn.addEventListener("click", function () {
+      localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
+      cookieBanner.classList.add("hidden");
+
+      // Load Google Ads script
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1292852975196451";
+      script.crossOrigin = "anonymous";
+      document.head.appendChild(script);
+    });
+  }
+
+  // Handle Decline
+  if (declineBtn) {
+    declineBtn.addEventListener("click", function () {
+      localStorage.setItem(COOKIE_CONSENT_KEY, "declined");
+      cookieBanner.classList.add("hidden");
+    });
+  }
+}
+
+// Dropdown Menu Handler
+function initDropdown() {
+  const dropdownToggle = document.getElementById("dropdown-toggle");
+  const dropdownMenu = document.getElementById("dropdown-menu");
+
+  if (!dropdownToggle || !dropdownMenu) return;
+
+  // Toggle dropdown
+  dropdownToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdownMenu.classList.toggle("hidden");
+    addButtonAnimation(dropdownToggle);
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!dropdownMenu.contains(e.target) && !dropdownToggle.contains(e.target)) {
+      dropdownMenu.classList.add("hidden");
+    }
+  });
+
+  // Close dropdown when clicking a menu item
+  dropdownMenu.querySelectorAll(".dropdown-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      addButtonAnimation(item);
+      dropdownMenu.classList.add("hidden");
+    });
+  });
+}
+
 // Initialize everything
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   initNavigation();
+  initCookieConsent();
+  initDropdown();
 });
 
 // Watch for color scheme change

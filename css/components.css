@@ -119,11 +119,6 @@
   scrollbar-color: var(--primary) var(--bg-secondary);
 }
 
-/* Dark theme adjustments */
-.dark .table-wrapper::-webkit-scrollbar-track {
-  background: var(--bg-secondary-dark);
-}
-
 .dark .table-wrapper::-webkit-scrollbar-thumb {
   background: var(--primary);
 }
@@ -166,9 +161,6 @@ td {
 tr:nth-child(even) {
   background: var(--bg);
 }
-.dark tr:nth-child(even) {
-  background: var(--bg-dark);
-}
 
 tr:last-child td {
   border-bottom: transparent;
@@ -177,10 +169,6 @@ tr:last-child td {
 @media (hover: hover) {
   tr:hover {
     background: var(--bg-gradient);
-  }
-
-  .dark tr:hover {
-    background: var(--bg-gradient-dark);
   }
 }
 
@@ -249,11 +237,6 @@ tr:last-child td {
 .tab-btn:hover {
   color: var(--text);
   background: var(--bg-secondary);
-}
-
-.dark .tab-btn:hover {
-  color: var(--text);
-  background: var(--bg-secondary-dark);
 }
 
 .tab-btn.active {
@@ -405,7 +388,8 @@ section > p {
   color: white;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  font-size: 1.2rem;
+  font-size: var(--font-size-lm);
+  line-height: 0;
   transition: opacity 0.15s;
 }
 
@@ -421,9 +405,82 @@ section > p {
   transform: scale(0.85);
 }
 
-.dark .site-header {
-  background: var(--card-dark);
-  border-color: var(--border-dark);
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  font-size: var(--font-size-x2l);
+  line-height: 0;
+  padding: 0 8px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 200px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.dropdown-menu.hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+.dropdown-item {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  border: none;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.dropdown-item:hover {
+  background: var(--bg-secondary);
+  color: var(--primary);
+}
+
+.dropdown-item:active {
+  background: var(--bg);
+}
+
+.dropdown-item:first-child {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.dropdown-item:last-child {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.dropdown-item.scale-down {
+  transform: scale(0.95);
 }
 
 .hero {
@@ -489,6 +546,134 @@ section > p {
   font-weight: 500;
 }
 
+/* Cookie Consent Banner */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--card);
+  border-top: 2px solid var(--secondary);
+  padding: var(--space-lg);
+  z-index: 9999;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.cookie-banner.hidden {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cookie-banner-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.cookie-banner-text {
+  color: var(--text);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  text-align: left;
+  margin-right: var(--space-lg);
+}
+
+.cookie-banner-text a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cookie-banner-text a:hover {
+  text-decoration: underline;
+}
+
+.cookie-banner-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.cookie-btn {
+  padding: var(--space-sm) var(--space-xl);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cookie-btn-accept {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+}
+
+.cookie-btn-accept:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.cookie-btn-accept:active {
+  transform: translateY(0);
+}
+
+.cookie-btn-decline {
+  background: var(--bg-secondary);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.cookie-btn-decline:hover {
+  background: var(--bg);
+  border-color: var(--primary);
+}
+
+/* Policy Sections for Legal Pages */
+.policy-section {
+  margin-bottom: var(--space-3xl);
+}
+
+.policy-section h2 {
+  color: var(--primary);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--border);
+}
+
+.policy-section p {
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+  color: var(--text);
+  text-align: left;
+}
+
+.policy-section ul {
+  margin-left: var(--space-xl);
+  margin-bottom: var(--space-lg);
+}
+
+.policy-section ul li {
+  margin-bottom: var(--space-sm);
+  line-height: 1.6;
+}
+
+.last-updated {
+  color: var(--text-secondary);
+  font-style: italic;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-2xl);
+}
+
 @media (max-width: 960px) and (orientation: landscape) {
   .table-wrapper {
     max-height: max-content;
@@ -523,7 +708,11 @@ section > p {
   .nav-btn {
     width: 32px;
     height: 32px;
-    font-size: 1rem;
+    font-size: var(--font-size-md);
+  }
+
+  .dropdown-toggle {
+    font-size: var(--font-size-xl);
   }
 
   .hero-title {
@@ -532,6 +721,10 @@ section > p {
 
   .tab-navigation {
     margin: var(--space-lg) 0 0 0;
+  }
+
+  .tab-content {
+    margin-bottom: var(--space-sm);
   }
 
   .tab-btn {
@@ -543,9 +736,33 @@ section > p {
     min-width: 250px;
     padding: var(--space-sm) var(--space-lg);
   }
+
+  .cookie-banner-content {
+    flex-direction: column;
+  }
+
+  .cookie-banner-text {
+    margin: 0;
+  }
+
+  .cookie-banner-buttons {
+    width: 100%;
+  }
+
+  .cookie-btn {
+    flex: 1;
+  }
+
+  .policy-section h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  .policy-section ul {
+    margin-left: var(--space-lg);
+  }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
   .site-brand {
     font-size: var(--font-size-base);
   }

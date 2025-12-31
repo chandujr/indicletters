@@ -1,4 +1,4 @@
-const CACHE_NAME = "indic-letters-cache-v3.1";
+const CACHE_NAME = "indic-letters-cache-v3.2";
 // Note: External CDN resources (like perfect-freehand) are not cached in service worker
 // to ensure they always load from their origin and have proper versioning
 
@@ -28,6 +28,8 @@ self.addEventListener("install", (event) => {
         "./languages/odia.json",
         "./languages/tamil.json",
         "./languages/telugu.json",
+        "./privacy.html",
+        "./terms.html",
       ]);
     }),
   );

@@ -299,11 +299,11 @@ canvas {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
   .nav-prev-button {
-    left: -42px;
+    left: -46px;
   }
   .nav-next-button {
-    right: -42px;
+    right: -46px;
   }
 }

@@ -140,10 +140,65 @@ function initNavigation() {
   }
 }
 
+// Cookie Consent Handler
+function initCookieConsent() {
+  const COOKIE_CONSENT_KEY = "cookie_consent";
+  const cookieBanner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("cookie-accept");
+  const declineBtn = document.getElementById("cookie-decline");
+  const adsScript = document.querySelector('script[src*="pagead2.googlesyndication.com"]');
+
+  if (!cookieBanner) return;
+
+  // Check if user has already made a choice
+  const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+
+  if (consent === "accepted" && adsScript) {
+    // If accepted, the ads script is already in head
+  } else if (consent === "declined") {
+    // Remove ads script if declined
+    if (adsScript) {
+      adsScript.remove();
+    }
+  } else {
+    // Show banner if no choice made
+    cookieBanner.classList.remove("hidden");
+
+    // Remove ads script temporarily until user consents
+    if (adsScript) {
+      adsScript.remove();
+    }
+  }
+
+  // Handle Accept
+  if (acceptBtn) {
+    acceptBtn.addEventListener("click", function () {
+      localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
+      cookieBanner.classList.add("hidden");
+
+      // Load Google Ads script
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1292852975196451";
+      script.crossOrigin = "anonymous";
+      document.head.appendChild(script);
+    });
+  }
+
+  // Handle Decline
+  if (declineBtn) {
+    declineBtn.addEventListener("click", function () {
+      localStorage.setItem(COOKIE_CONSENT_KEY, "declined");
+      cookieBanner.classList.add("hidden");
+    });
+  }
+}
+
 // Initialize everything
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   initNavigation();
+  initCookieConsent();
 });
 
 // Watch for color scheme change

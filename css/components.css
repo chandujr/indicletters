@@ -489,6 +489,154 @@ section > p {
   font-weight: 500;
 }
 
+/* Cookie Consent Banner */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  padding: var(--space-lg);
+  z-index: 9999;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.cookie-banner.hidden {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cookie-banner-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.cookie-banner-text {
+  color: var(--text);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  text-align: center;
+  margin: 0;
+}
+
+.cookie-banner-text a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cookie-banner-text a:hover {
+  text-decoration: underline;
+}
+
+.cookie-banner-buttons {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.cookie-btn {
+  padding: var(--space-sm) var(--space-xl);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cookie-btn-accept {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+}
+
+.cookie-btn-accept:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.cookie-btn-accept:active {
+  transform: translateY(0);
+}
+
+.cookie-btn-decline {
+  background: var(--bg-secondary);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.cookie-btn-decline:hover {
+  background: var(--bg);
+  border-color: var(--primary);
+}
+
+.dark .cookie-banner {
+  background: var(--card-dark);
+  border-color: var(--border-dark);
+}
+
+.dark .cookie-banner-text {
+  color: var(--text-dark);
+}
+
+.dark .cookie-btn-decline {
+  background: var(--bg-secondary-dark);
+  color: var(--text-dark);
+  border-color: var(--border-dark);
+}
+
+.dark .cookie-btn-decline:hover {
+  background: var(--bg-dark);
+}
+
+/* Policy Sections for Legal Pages */
+.policy-section {
+  margin-bottom: var(--space-3xl);
+}
+
+.policy-section h2 {
+  color: var(--primary);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--border);
+}
+
+.dark .policy-section h2 {
+  border-color: var(--border-dark);
+}
+
+.policy-section p {
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+
+.policy-section ul {
+  margin-left: var(--space-xl);
+  margin-bottom: var(--space-lg);
+}
+
+.policy-section ul li {
+  margin-bottom: var(--space-sm);
+  line-height: 1.6;
+}
+
+.last-updated {
+  color: var(--text-secondary);
+  font-style: italic;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-2xl);
+}
+
 @media (max-width: 960px) and (orientation: landscape) {
   .table-wrapper {
     max-height: max-content;
@@ -498,6 +646,17 @@ section > p {
 @media (max-width: 768px) {
   .hero-title {
     font-size: var(--font-size-xl);
+  }
+
+  .cookie-banner-content {
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .cookie-banner-text {
+    flex: 1;
+    margin-right: var(--space-lg);
   }
 }
 
@@ -534,6 +693,10 @@ section > p {
     margin: var(--space-lg) 0 0 0;
   }
 
+  .tab-content {
+    margin-bottom: var(--space-sm);
+  }
+
   .tab-btn {
     padding: var(--space-xs) var(--space-lg);
     font-size: var(--font-size-s);
@@ -543,9 +706,29 @@ section > p {
     min-width: 250px;
     padding: var(--space-sm) var(--space-lg);
   }
+
+  .cookie-banner {
+    padding: var(--space-md);
+  }
+
+  .cookie-banner-buttons {
+    width: 100%;
+  }
+
+  .cookie-btn {
+    flex: 1;
+  }
+
+  .policy-section h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  .policy-section ul {
+    margin-left: var(--space-lg);
+  }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
   .site-brand {
     font-size: var(--font-size-base);
   }

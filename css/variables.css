@@ -58,6 +58,7 @@
 
 .light {
   --bg: var(--bg);
+  --bg-secondary: var(--bg-secondary);
   --bg-gradient: var(--bg-gradient);
   --card: var(--card);
   --text: var(--text);
@@ -66,6 +67,7 @@
 
 .dark {
   --bg: var(--bg-dark);
+  --bg-secondary: var(--bg-secondary-dark);
   --bg-gradient: var(--bg-gradient-dark);
   --card: var(--card-dark);
   --text: var(--text-dark);

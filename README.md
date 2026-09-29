@@ -8,9 +8,7 @@ https://indicletters.com/
 
 If you find this website helpful, please consider supporting me:
 
-<table style="border:4px dashed black;">
-  <tr>
-    <td><img src="assets/qr-code.png" width="150"/></td>
-    <td><a href='https://ko-fi.com/N4N61MYBBT' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi6.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a></td>
-  </tr>
-</table>
+<div style="display: flex;flex-direction: column;justify-content: center;align-items: center;width: max-content;gap: 16px;">
+<a href='https://ko-fi.com/N4N61MYBBT' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi5.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+<img src="assets/qr-code.png" width="150"/>
+</div>
